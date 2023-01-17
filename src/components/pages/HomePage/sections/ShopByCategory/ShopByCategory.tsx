@@ -1,40 +1,92 @@
+import { useRef } from 'react';
+import { nanoid } from "nanoid";
 import SectionTitle from "../../../../SectionTitle/SectionTitle";
+import ShopByCategorySliderItem from "./ShopByCategorySliderItem";
 import imgRef1 from '../../../../../images/shopByCategory/Shop-by-category1.png';
 import imgRef2 from '../../../../../images/shopByCategory/Shop-by-category2.png';
 import imgRef3 from '../../../../../images/shopByCategory/Shop-by-category3.png';
 import {ReactComponent as Left} from '../../../../../icons/shopByCategory/left-btn.svg';
 import {ReactComponent as Right} from '../../../../../icons/shopByCategory/right-btn.svg';
-import './ShopByCategory.scss'
+import './ShopByCategory.scss';
 
-const ShopByCategory = () => (
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/scss";
+import "swiper/scss/navigation";
+import { Swiper as SwiperType, Navigation } from "swiper";
+
+const products = [
+{
+    ref: imgRef1,
+    text: 'Bags'
+},
+{
+    ref: imgRef2,
+    text: 'Sunglasses'
+},
+{
+    ref: imgRef3,
+    text: 'Belts'
+},
+{
+    ref: imgRef1,
+    text: 'Bags'
+},
+{
+    ref: imgRef2,
+    text: 'Sunglasses'
+},
+{
+    ref: imgRef3,
+    text: 'Belts'
+},
+{
+    ref: imgRef1,
+    text: 'Bags'
+},
+{
+    ref: imgRef2,
+    text: 'Sunglasses'
+},
+{
+    ref: imgRef3,
+    text: 'Belts'
+},
+];
+
+const ShopByCategory = () => {
+    const swiperRef = useRef<SwiperType>();
+
+    return (
     <section className="shopByCat">
         <div className="container">
             <SectionTitle text="Shop by category"/>
 
-            <ul className="shopByCat_list">
-                <li className="shopByCat_item">
-                    <img src={imgRef1} alt="Bags" width='360' height='290'/>
-                    <h3 className="shopByCat_item_title">Bags</h3>
-                </li>
-                <li className="shopByCat_item">
-                    <img src={imgRef2} alt="Sunglasses" width='360' height='290'/>
-                    <h3 className="shopByCat_item_title">Sunglasses</h3>
-                </li>
-                <li className="shopByCat_item">
-                    <img src={imgRef3} alt="Belts" width='360' height='290'/>
-                    <h3 className="shopByCat_item_title">Belts</h3>
-                </li>
-            </ul>
+            <Swiper 
+                navigation={false}
+                spaceBetween={30}
+                onBeforeInit={(swiper) => {
+                    swiperRef.current = swiper;
+                }}
+                modules={[Navigation]}
+                slidesPerView={3} 
+                className="shopByCat_slider"
+            >
+                {products.map(({ ref, text}) => (
+                    <SwiperSlide key={nanoid()} className='shopByCat_slider_item'>
+                        <ShopByCategorySliderItem imgRef={ref} text={text}/>
+                    </SwiperSlide>
+                ))}
+            </Swiper>
             <div className="shopByCat_btn_wrap">
-                <button type="button" className="shopByCat_btn">
+                <button type="button" onClick={() => swiperRef.current?.slidePrev()} className="shopByCat_btn">
                     <Left />
                 </button>
-                <button type="button" className="shopByCat_btn">
+                <button type="button" onClick={() => swiperRef.current?.slideNext()} className="shopByCat_btn">
                     <Right />
                 </button>
             </div>
         </div>
     </section>
-)
+)}
 
 export default ShopByCategory
