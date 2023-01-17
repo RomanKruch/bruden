@@ -1,9 +1,9 @@
-import SectionTitle from "../../SectionTitle/SectionTitle";
-import imgRef1 from '../../../images/shopByCategory/Shop-by-category1.png';
-import imgRef2 from '../../../images/shopByCategory/Shop-by-category2.png';
-import imgRef3 from '../../../images/shopByCategory/Shop-by-category3.png';
-import {ReactComponent as Left} from '../../../icons/shopByCategory/left-btn.svg';
-import {ReactComponent as Right} from '../../../icons/shopByCategory/right-btn.svg';
+import SectionTitle from "../../../../SectionTitle/SectionTitle";
+import imgRef1 from '../../../../../images/shopByCategory/Shop-by-category1.png';
+import imgRef2 from '../../../../../images/shopByCategory/Shop-by-category2.png';
+import imgRef3 from '../../../../../images/shopByCategory/Shop-by-category3.png';
+import {ReactComponent as Left} from '../../../../../icons/shopByCategory/left-btn.svg';
+import {ReactComponent as Right} from '../../../../../icons/shopByCategory/right-btn.svg';
 import './ShopByCategory.scss'
 
 const ShopByCategory = () => (

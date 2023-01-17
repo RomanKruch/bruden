@@ -1,5 +1,5 @@
-import videoImgRef from '../../../images/videoSection/videoSection.png' 
-import ShopNowBtn from '../../ShopNowBtn/ShopNowBtn';
+import videoImgRef from '../../../../../images/videoSection/videoSection.png' 
+import ShopNowBtn from '../../../../ShopNowBtn/ShopNowBtn';
 import './VideoSection.scss'
 
 const VideoSection = () => (

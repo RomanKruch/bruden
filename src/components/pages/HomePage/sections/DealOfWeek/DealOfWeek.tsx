@@ -1,4 +1,4 @@
-import SectionTitle from "../../SectionTitle/SectionTitle";
+import SectionTitle from "../../../../SectionTitle/SectionTitle";
 
 const DealOfWeek = () => (
     <section className="dealOfWeek">

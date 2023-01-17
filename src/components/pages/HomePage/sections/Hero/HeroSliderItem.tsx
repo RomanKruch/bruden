@@ -1,4 +1,4 @@
-import ShopNowBtn from "../../ShopNowBtn/ShopNowBtn";
+import ShopNowBtn from "../../../../ShopNowBtn/ShopNowBtn";
 
 interface IProps {
     imgRef: string
