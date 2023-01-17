@@ -1,0 +1,19 @@
+.sectionTitle {
+    font-family: 'Cormorant Garamond';
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 34px;
+    letter-spacing: 0.1em;
+    text-transform: capitalize;
+    color: #000000;
+    text-align: center;
+
+    &::after {
+        display: block;
+        content: '';
+        width: 100px;
+        margin: 10px auto 0;
+        height: 1px;
+        background-color: #DE1616;
+    }
+}

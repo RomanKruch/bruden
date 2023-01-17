@@ -1,0 +1,30 @@
+.videoSection {
+    margin-bottom: 90px;
+
+    .container {
+        position: relative;
+    }
+
+    &_title {
+        width: 235px;
+        position: absolute;
+        top: 40px;
+        right: 40px;
+
+        font-family: 'Cormorant Garamond';
+        font-weight: 400;
+        font-size: 28px;
+        line-height: 160%;
+        text-align: right;
+        letter-spacing: 0.1em;
+        text-transform: capitalize;
+        color: #fff;
+
+    }
+
+    &_btn {
+        position: absolute;
+        bottom: 40px;
+        right: 40px;
+    }
+}

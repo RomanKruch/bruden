@@ -1,0 +1,37 @@
+.shopNow_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 185px;
+    height: 48px;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 18px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: all 0.3s;
+}
+
+.black_shopNow_btn {
+    border: 1px solid transparent;
+    background: #292A33;
+    color: #FFFFFF;
+
+    &:hover {
+        border: 1px solid #292A33;
+        background: #fff;
+        color: #292A33;
+    }
+}
+
+.white_shopNow_btn {
+    border: 1px solid #292A33;
+    color: #292A33;
+    background-color: #fff;
+
+    &:hover {
+        border: 1px solid transparent;
+        background: #292A33;
+        color: #FFFFFF;
+    }
+}
