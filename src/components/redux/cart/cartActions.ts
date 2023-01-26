@@ -1,7 +1,7 @@
 import { createAction } from "@reduxjs/toolkit";
 import { IProduct } from "../../pages/ShopPage/sections/Shop/types";
 
-export const onAddProduct = createAction<IProduct, 'cart_addProduct'>('cart_addProduct');
+export const onAddProduct = createAction<{product:IProduct, qty: number}, 'cart_addProduct'>('cart_addProduct');
 
 export const onDeleteProduct = createAction<IProduct, 'cart_deleteProduct'>('cart_deleteProduct');
 

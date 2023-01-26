@@ -14,7 +14,7 @@ interface IState {
 const cartReducer = createReducer(initialState, (builder) => {
     builder
       .addCase(onAddProduct, (state, {payload}) => {
-        state.items = [...state.items, {...payload, qty: 1}];
+        state.items = [...state.items, {...payload.product, qty: payload.qty}];
       })
       .addCase(onDeleteProduct, (state, {payload}) => {
         state.items = state.items.filter(item => item.id !== payload.id);

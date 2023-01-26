@@ -1,8 +1,9 @@
 .addToCartBtn {
     padding: 8px 14px;
-    width: 130px;
     height: 30px;
     background: #292A33;
+    border: 1px solid #292A33;
+
 
     font-family: 'Josefin Sans';
     font-weight: 400;
@@ -15,7 +16,7 @@
 
     &:hover {
         background-color: #FFFFFF;
-        color: #000;
+        color: #292A33;
     }
 
     &:active {

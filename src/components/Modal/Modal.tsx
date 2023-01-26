@@ -43,7 +43,7 @@ const Modal = ({ setIsOpen, product }: IProps) => {
                             value={value}
                             onChange={e => setValue(e.target.value)}
                         />
-                        <AddToCartBtn/>
+                        <AddToCartBtn product={product} qty={+value}/>
                     </form>
                     <div className="modal_info">
                         <p className="modal_info_item">SKU:<span>NHL5-11</span></p>

@@ -1,8 +1,7 @@
 import { nanoid } from "nanoid";
 import { useRef } from 'react';
 import SectionTitle from "../../../../SectionTitle/SectionTitle";
-import imgRef1 from '../../../../../images/dealOfWeek/deal-of-the-week1.png';
-import imgRef2 from '../../../../../images/dealOfWeek/deal-of-the-week2.png';
+import products from "../../../../../products";
 import DealOfWeekItem from "./DealOfWeekItem";
 import './DealOfWeek.scss';
 
@@ -13,32 +12,6 @@ import "swiper/scss/navigation";
 import { Swiper as SwiperType, Navigation } from "swiper";
 import SliderControls from '../../../../SliderControls/SliderControls';
 
-const products = [
-    {
-        imgRef: imgRef1,
-        title: 'Fiery Red Bruden Backpack'
-    },
-    {
-        imgRef: imgRef2,
-        title: "Bruden's Backpack"
-    },
-    {
-        imgRef: imgRef1,
-        title: 'Fiery Red Bruden Backpack'
-    },
-    {
-        imgRef: imgRef2,
-        title: "Bruden's Backpack"
-    },
-    {
-        imgRef: imgRef1,
-        title: 'Fiery Red Bruden Backpack'
-    },
-    {
-        imgRef: imgRef2,
-        title: "Bruden's Backpack"
-    },
-]
 
 const DealOfWeek = () => {
     const swiperRef = useRef<SwiperType>();
@@ -58,9 +31,9 @@ const DealOfWeek = () => {
                 slidesPerView={2} 
                 className="dealOfWeek_slider"
             >
-                {products.map(({ imgRef, title }) => (
+                {products.map(item => (
                     <SwiperSlide key={nanoid()} className="dealOfWeek_item">
-                        <DealOfWeekItem imgRef={imgRef} title={title}/>
+                        <DealOfWeekItem product={item}/>
                     </SwiperSlide>
                 ))}
             </Swiper>

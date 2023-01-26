@@ -16,7 +16,7 @@ const CartBtn = ({  product }: IProps) => {
     const dispatch = useDispatch();
     
     return !isInCart ? 
-    <IconBtn onClick={() => dispatch(onAddProduct(product))}><Cart /></IconBtn>
+    <IconBtn onClick={() => dispatch(onAddProduct({product, qty: 1}))}><Cart /></IconBtn>
     :
     <Link to='/cart' className="iconBtn"><Cart /></Link>
 }

@@ -21,7 +21,11 @@
 
         &_title {
             @extend %h4;
-            margin-bottom: 47px;
+            margin-bottom: 10px;
+        }
+
+        &_rating_wrap {
+            margin-bottom: 15px;
         }
 
         &_price {
