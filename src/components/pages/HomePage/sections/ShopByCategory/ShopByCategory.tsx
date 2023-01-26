@@ -5,14 +5,13 @@ import ShopByCategorySliderItem from "./ShopByCategorySliderItem";
 import imgRef1 from '../../../../../images/shopByCategory/Shop-by-category1.png';
 import imgRef2 from '../../../../../images/shopByCategory/Shop-by-category2.png';
 import imgRef3 from '../../../../../images/shopByCategory/Shop-by-category3.png';
-import {ReactComponent as Left} from '../../../../../icons/shopByCategory/left-btn.svg';
-import {ReactComponent as Right} from '../../../../../icons/shopByCategory/right-btn.svg';
 import './ShopByCategory.scss';
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/scss";
 import "swiper/scss/navigation";
 import { Swiper as SwiperType, Navigation } from "swiper";
+import SliderControls from '../../../../SliderControls/SliderControls';
 
 const products = [
 {
@@ -63,7 +62,7 @@ const ShopByCategory = () => {
 
             <Swiper 
                 navigation={false}
-                spaceBetween={30}
+                spaceBetween={40}
                 onBeforeInit={(swiper) => {
                     swiperRef.current = swiper;
                 }}
@@ -77,14 +76,8 @@ const ShopByCategory = () => {
                     </SwiperSlide>
                 ))}
             </Swiper>
-            <div className="shopByCat_btn_wrap">
-                <button type="button" onClick={() => swiperRef.current?.slidePrev()} className="shopByCat_btn">
-                    <Left />
-                </button>
-                <button type="button" onClick={() => swiperRef.current?.slideNext()} className="shopByCat_btn">
-                    <Right />
-                </button>
-            </div>
+
+            <SliderControls swiperRef={swiperRef} maxIndex={products.length-2}/>
         </div>
     </section>
 )}

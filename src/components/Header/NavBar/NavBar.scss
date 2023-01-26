@@ -1,14 +1,12 @@
+@import '../../../variables.scss';
+
 .navigation {
     display: flex;
     gap: 40px;
 }
 
 .nav_link {
-    font-weight: 300;
-    font-size: 18px;
-    line-height: 18px;
-    letter-spacing: 0.05em;
-    color: #000;
+    @extend %menu_text;
 
     &-active {
         color: #DE1616;

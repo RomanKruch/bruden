@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import './ShopNowBtn.scss';
 
 interface IProps {
-    type: 'black' | 'white' | 'transparent';
+    type: 'black' | 'white' | 'transparentWhite' | 'transparentBlack';
     className?: string;
 }
 

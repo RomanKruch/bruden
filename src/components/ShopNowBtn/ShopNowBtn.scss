@@ -1,14 +1,12 @@
+@import '../../variables.scss';
+
 .shopNow_btn {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 185px;
     height: 48px;
-    font-weight: 300;
-    font-size: 18px;
-    line-height: 18px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
+    @extend %btn_text;
     transition: all 0.3s;
 }
 
@@ -33,5 +31,25 @@
         border: 1px solid transparent;
         background: #292A33;
         color: #FFFFFF;
+    }
+}
+
+.transparentWhite_shopNow_btn {
+    background-color: transparent;
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+
+    &:hover {
+        background-color: #ffffff40;
+    }
+}
+
+.transparentBlack_shopNow_btn {
+    background-color: transparent;
+    border: 1px solid #292A33;
+    color: #292A33;
+
+    &:hover {
+        background-color: #292A3340;
     }
 }

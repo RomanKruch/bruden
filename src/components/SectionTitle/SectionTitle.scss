@@ -1,11 +1,7 @@
+@import '../../variables.scss';
+
 .sectionTitle {
-    font-family: 'Cormorant Garamond';
-    font-weight: 400;
-    font-size: 28px;
-    line-height: 34px;
-    letter-spacing: 0.1em;
-    text-transform: capitalize;
-    color: #000000;
+    @extend %h2;
     text-align: center;
 
     &::after {

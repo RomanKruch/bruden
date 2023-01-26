@@ -1,0 +1,26 @@
+@import '../../../../../variables.scss';
+
+.firstAnyStyle {
+    margin-bottom: 90px;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        border: 1px solid #333333;
+    }
+
+    &_wrap {
+        padding: 40px;
+        border-right: 1px solid #333333;
+    }
+
+    &_title {
+        @extend %h2;
+        margin-bottom: 10px;
+    }
+
+    &_description {
+        @extend %body_text;
+        margin-bottom: 32px;
+    }
+}

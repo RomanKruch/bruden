@@ -1,12 +1,13 @@
 import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import HomePage from "./components/pages/HomePage/HomePage";
-import ShopPage from './components/pages/ShopPage';
+import ShopPage from './components/pages/ShopPage/ShopPage';
 import BlogPage from "./components/pages/BlogPage";
 import AboutPage from "./components/pages/AboutPage";
 import ContactPage from "./components/pages/ContactPage";
 import AuthPage from "./components/pages/AuthPage";
-import CartPage from "./components/pages/CartPage";
+import CartPage from "./components/pages/CartPage/CartPage";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -29,6 +30,9 @@ function App() {
         <Route path="/cart" element={<CartPage />}/>
 
       </Routes>
+
+      <Footer />
+
     </>
   );
 }

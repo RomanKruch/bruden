@@ -1,7 +1,12 @@
 import './AddToCartBtn.scss';
 
-const AddToCartBtn = () => (
-    <button type="button" className="addToCartBtn">Add to cart</button>
+interface IProps {
+    className?: String; 
+    
+}
+
+const AddToCartBtn = ({ className='' }: IProps) => (
+    <button type="button" className={`addToCartBtn ${className}`}>Add to cart</button>
 )
 
 export default AddToCartBtn;

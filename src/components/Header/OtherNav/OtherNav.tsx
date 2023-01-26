@@ -5,13 +5,19 @@ import {ReactComponent as Auth} from '../../../icons/Header/auth-icon.svg';
 import {ReactComponent as Cart} from '../../../icons/Header/cart-icon.svg';
 import "./OtherNav.scss"
 
+import { useSelector}  from 'react-redux';
+import { IState } from "../../redux/store";
+
 
 const OtherNav = () => {
+    const qty = useSelector((state: IState) => state.cart.items.reduce((acc, item) => acc+=item.qty,0));
+    const price = useSelector((state: IState) => state.cart.items.reduce((acc, item) => acc+=item.price*item.qty,0));
+
     return (
         <div className="otherNav_wrap">
-            <Link to='/'>
+            <a href='https://www.instagram.com/brudenmtl'>
                 <Instagram />
-            </Link>
+            </a>
 
             <Link to='/shop'>
                 <Search />
@@ -25,8 +31,8 @@ const OtherNav = () => {
                 <Link to='/cart'>
                     <Cart />
                 </Link>
-                <span className="cart_quantity">0</span>
-                <p className="cart_price">$ 0.00</p>
+                <span className="cart_quantity">{qty}</span>
+                <p className="cart_price">$ {price.toFixed(2)}</p>
             </div>
         </div>
     )
