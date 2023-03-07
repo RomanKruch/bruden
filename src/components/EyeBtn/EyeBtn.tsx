@@ -1,6 +1,6 @@
 import { ReactComponent as Eye } from "../../icons/dealOfWeek/Deal-of-the-week-eye.svg";
 import { useState } from "react";
-import { IProduct } from "../pages/ShopPage/sections/Shop/types";
+import { IProduct } from "../../Types"
 import IconBtn from "../IconBtn/IconBtn";
 import Modal from "../Modal/Modal";
 

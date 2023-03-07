@@ -1,10 +1,12 @@
 import IconBtn from "../IconBtn/IconBtn";
-import { IProduct } from "../pages/ShopPage/sections/Shop/types";
+import { IProduct } from "../../Types";
 import { Link } from "react-router-dom";
-import { onAddProduct } from "../redux/cart/cartActions";
+import { onAddProduct } from "../redux/user/userOperations";
 import { IState } from "../redux/store";
 import { useDispatch, useSelector } from 'react-redux';
 import { ReactComponent as Cart } from "../../icons/dealOfWeek/cart.svg";
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 interface IProps {
     product: IProduct;
@@ -12,13 +14,13 @@ interface IProps {
 
 
 const CartBtn = ({  product }: IProps) => {
-    const isInCart = useSelector((state: IState) => state.cart.items.some(item => item.id === product.id));
+    const isInCart = useSelector((state: IState) => state.user.cart.some(item => item._id === product._id));
     const dispatch = useDispatch();
     
     return !isInCart ? 
-    <IconBtn onClick={() => dispatch(onAddProduct({product, qty: 1}))}><Cart /></IconBtn>
+    <IconBtn onClick={() => dispatch<any>(onAddProduct(product._id))}><AddShoppingCartIcon /></IconBtn>
     :
-    <Link to='/cart' className="iconBtn"><Cart /></Link>
+    <Link to='/cart' className="iconBtn"><ShoppingCartIcon/></Link>
 }
 
 export default CartBtn;

@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { IState } from '../../../redux/store';
 
 const Cart = () => {
-    const products = useSelector((state: IState) => state.cart.items);
+    const products = useSelector((state: IState) => state.user.cart);
 
     return (
         <section className='cart'>
@@ -27,7 +27,7 @@ const Cart = () => {
                         <p className='cart_empty'>empty</p> 
                         :
                         products.map(item => (
-                            <CartItem product={item} key={item.id}/>
+                            <CartItem product={item} key={item._id}/>
                         ))}
                 </ul>
                 <div className="cart_footer">

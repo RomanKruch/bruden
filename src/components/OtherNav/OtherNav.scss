@@ -1,9 +1,18 @@
 .otherNav {
-
     &_wrap {
         display: flex;
         align-items: center;
         gap: 24px;
+
+        @media (max-width: 999px) {
+            gap: 8px;
+        }
+    }
+
+    &_link {
+        @media (max-width: 424px) {
+            display: none;
+        }
     }
 }
 
@@ -23,9 +32,7 @@
         height: 20px;
         background: #DE1616;
         border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        text-align: center;
     }
 
     &_price {

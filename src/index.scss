@@ -31,6 +31,7 @@ body {
     margin: 0;
     font-family: $base-font;
     position: relative;   
+    overflow-x: hidden
 }
 
 code {
@@ -51,6 +52,7 @@ ol {
 
 a {
     text-decoration: none;
+    color: #292A33;
 }
 
 button {
@@ -70,6 +72,7 @@ main {
 }
 
 .container {
-    width: 1160px;
+    max-width: 1190px;
     margin: 0 auto;
+    padding: 0 15px;
 }

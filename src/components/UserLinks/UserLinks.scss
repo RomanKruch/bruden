@@ -1,0 +1,12 @@
+@import '../../variables';
+
+.userLinks {
+    @extend %menu_text;
+    font-size: 30px;
+    text-align: center;
+
+    &_link {
+        text-decoration: underline;
+        color: #1472ff;
+    }
+}

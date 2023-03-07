@@ -1,16 +1,17 @@
-import { useState } from "react";
 import SectionTitle from "../../../../SectionTitle/SectionTitle";
-import { ITag } from "../Shop/types";
+import { ITag } from "../../../../../Types";
+import { useDispatch } from "react-redux";
+import { onToggleTag } from "../../../../redux/tags/tagsSlice";
 import './ProductTag.scss';
 
 interface IProps {
     tags: ITag[];
-    setTags: React.Dispatch<React.SetStateAction<ITag[]>>
 }
 
-const ProductTag = ({ tags, setTags}: IProps) => {
-    const onTagToggle = (idToToggle: string) => {
-        setTags(tags.map(tag => tag.id === idToToggle ? {...tag, active: !tag.active} : tag));
+const ProductTag = ({ tags }: IProps) => {
+    const dispatch = useDispatch();
+    const onClick = (idToToggle: string) => {
+        dispatch<any>(onToggleTag(idToToggle))
     }
 
     return (
@@ -18,9 +19,9 @@ const ProductTag = ({ tags, setTags}: IProps) => {
         <SectionTitle text="Product tags" className="productTag_title"/>
 
         <ul className="productTag_list">
-            {tags.map(({ tag, id, active }) => (
-                <li className="productTag_item" key={id}>
-                    <button className={`productTag_btn ${active && 'productTag_btn-active'}`} onClick={() => onTagToggle(id)}>{tag}</button>
+            {tags.map(({ name, _id, active }) => (
+                <li className="productTag_item" key={_id}>
+                    <button className={`productTag_btn ${active && 'productTag_btn-active'}`} onClick={() => onClick(_id)}>{name}</button>
                 </li>
             ))}
         </ul>

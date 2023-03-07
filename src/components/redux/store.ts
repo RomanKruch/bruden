@@ -1,13 +1,40 @@
 import { configureStore } from '@reduxjs/toolkit'
-import cartReducer from './cart/cartReducer';
+import userReducer from './user/userSlice';
+import tagsReducer from './tags/tagsSlice';
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist';
+import storage from "redux-persist/lib/storage";
+import { IUserState } from '../../Types';
 
-const store = configureStore({
+const userPersistConfig = {
+  key: 'user',
+  storage,
+  whitelist: ['token']
+}
+
+
+export const store = configureStore({
   reducer: {
-    cart: cartReducer,
+    user: persistReducer<IUserState>(userPersistConfig, userReducer),
+    tags: tagsReducer
   },
+  middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+        serializableCheck: {
+            ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+        },
+    }),
   devTools: true,
 })
 
-export type IState = ReturnType<typeof store.getState>
+export type IState = ReturnType<typeof store.getState>;
 
-export default store;
+export const persistor = persistStore(store);

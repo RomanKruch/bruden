@@ -1,8 +1,8 @@
 import './AddToCartBtn.scss';
 import { useSelector, useDispatch} from 'react-redux';
-import { onAddProduct } from '../redux/cart/cartActions';
+import { onAddProduct } from '../redux/user/userOperations';
 import { IState } from '../redux/store';
-import { IProduct } from '../pages/ShopPage/sections/Shop/types';
+import { IProduct } from '../../Types';
 import { Link } from 'react-router-dom';
 
 interface IProps {
@@ -12,11 +12,11 @@ interface IProps {
 }
 
 const AddToCartBtn = ({ className='', qty=1, product }: IProps) => {
-    const isInCart = useSelector((state: IState) => state.cart.items.some(item => item.id === product.id));
+    const isInCart = useSelector((state: IState) => state.user.cart.some(item => item._id === product._id));
     const dispatch = useDispatch();
     
     return !isInCart ?
-        <button type="button" className={`addToCartBtn ${className}`} onClick={() => dispatch(onAddProduct({product, qty}))}>Add to cart</button>
+        <button type="button" className={`addToCartBtn ${className}`} onClick={() => dispatch<any>(onAddProduct(product._id))}>Add to cart</button>
         :
         <Link to='/cart' className={`addToCartBtn ${className}`}>Go to Cart</Link>
 }

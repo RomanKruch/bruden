@@ -1,28 +1,33 @@
-import { IProduct } from "../../ShopPage/sections/Shop/types";
+import { IProduct } from "../../../../Types";
 import { useState } from "react";
+import { onChangeQty } from "../../../redux/user/userSlice";
 import { useDispatch, useSelector } from 'react-redux';
-import { onDeleteProduct, onChangeQty } from "../../../redux/cart/cartActions";
+import { onDeleteProduct } from "../../../redux/user/userOperations";
 import { IState } from "../../../redux/store";
 
 interface ILocalState {
     product: IProduct&{qty: number}
 }
 
-const CartItem = ({ product }:ILocalState) => {
-    const {img, title, price, qty} = product;
+const CartItem = ({ product }: ILocalState) => {
+    const {img, title, price, _id, totalQty, qty} = product;
 
     const dispatch = useDispatch();
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = +e.target.value;
-        dispatch(onChangeQty({id: product.id, value}));
+
+        if(totalQty < value) {
+           return  dispatch(onChangeQty({id: _id, value: totalQty}));
+        }
+        dispatch(onChangeQty({id: _id, value}));
     }
 
     return (
         <li className="cart_item">
             <div className="cart_item_contentWrap">
-                <button className="cart_item_btn" onClick={() => dispatch(onDeleteProduct(product))}>X</button>
-                <img src={img} alt="" width='60' height='60'/>
+                <button className="cart_item_btn" onClick={() => dispatch<any>(onDeleteProduct(product._id))}>X</button>
+                <img src={img.small.ref} alt="" width='60' height='60'/>
                 <h3 className="cart_item_title">{title}</h3>
             </div>
             <div className="cart_item_priceWrap">
@@ -32,7 +37,7 @@ const CartItem = ({ product }:ILocalState) => {
                     <input 
                         type="number" 
                         className='cart_item_inp'
-                        value={qty}
+                        value={qty +''}
                         onChange={onChange} 
                     />
                 </label>

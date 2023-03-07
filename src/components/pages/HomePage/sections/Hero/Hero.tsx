@@ -9,35 +9,44 @@ import "swiper/scss";
 import "swiper/scss/pagination";
 import "./Hero.scss";
 import HeroSliderItem from "./HeroSliderItem";
+import { useState } from "react";
 
-const imgRefs = [hero1, hero2, hero3, hero4]
+const imgRefs = [hero1, hero2, hero3, hero4];
 
-const Hero = () => (
-    <section className="hero">
-            <div className="container">
-                <Swiper
-                    direction={"vertical"}
-                    pagination={{
-                        clickable: true,
-                        verticalClass: 'pag',
-                        bulletClass: "pag_item",
-                        bulletActiveClass: 'pag_item-active',
-                    }}
-                    modules={[Pagination, Autoplay]}
-                    className="slider"
-                    autoplay={{
-                        delay: 4000,
-                        disableOnInteraction: false
-                    }}
-                >
-                    {imgRefs.map(ref => (
-                        <SwiperSlide className="item" key={nanoid()}>
-                            <HeroSliderItem imgRef={ref}/>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
-            </div>
-    </section>
-);
+const Hero = () => {
+    const [isMobile, setIsMobile] = useState(window.outerWidth < 768)
+    window.addEventListener('resize', () => {
+        setIsMobile(window.outerWidth < 768)
+    });
+
+    return (
+        <section className="hero">
+                <div className="container">
+                    <Swiper
+                        direction={isMobile ? "horizontal" : "vertical"}
+                        pagination={{
+                            clickable: true,
+                            verticalClass: 'pag',
+                            horizontalClass: 'pag',
+                            bulletClass: "pag_item",
+                            bulletActiveClass: 'pag_item-active',
+                        }}
+                        modules={[Pagination, Autoplay]}
+                        spaceBetween={isMobile ? 40 : 0}
+                        className="slider"
+                        autoplay={{
+                            delay: 4000,
+                            disableOnInteraction: false
+                        }}
+                    >
+                        {imgRefs.map(ref => (
+                            <SwiperSlide className="item" key={nanoid()}>
+                                <HeroSliderItem imgRef={ref}/>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                </div>
+        </section>
+)};
 
 export default Hero;

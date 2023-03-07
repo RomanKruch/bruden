@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Slider from '@mui/material/Slider';
 import SectionTitle from '../../../../SectionTitle/SectionTitle';
-import { TPriceFilterValue } from '../Shop/types';
+import { TPriceFilterValue } from '../../../../../Types';
 import './FilterByPrice.scss';
 
 interface IProps {
@@ -9,7 +9,7 @@ interface IProps {
 }
 
 const FilterByPrice = ({ setPriceFilterValue }: IProps) => { 
-    const [value, setValue] = useState([0, 200]);
+    const [value, setValue] = useState([0, 9999]);
     
     const labelFormat = (labelValue: number) => {
         return `${labelValue}$`
@@ -24,7 +24,7 @@ const FilterByPrice = ({ setPriceFilterValue }: IProps) => {
         <SectionTitle text='Filter by price' className='filterByPrice_title'/>
 
         <Slider
-            max={200}
+            max={9999}
             value={value}
             onChange={handleChange}
             valueLabelDisplay="auto"

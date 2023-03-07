@@ -3,8 +3,7 @@ import { useState } from 'react';
 import './Modal.scss';
 import products from '../../products';
 import AddToCartBtn from '../AddToCartBtn/AddToCartBtn';
-import { IProduct } from '../pages/ShopPage/sections/Shop/types';
-
+import { IProduct } from '../../Types';
 const modalRoot = document.getElementById('modal_root') as HTMLElement;
 
 interface IProps {
@@ -13,7 +12,7 @@ interface IProps {
 }
 
 const Modal = ({ setIsOpen, product }: IProps) => {
-    const { title, description, price, img, tag, id }= product; 
+    const { title, description, price, img, tag, _id: id, totalQty } = product; 
     const [value, setValue] = useState('1')
 
     const onClose = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -26,12 +25,12 @@ const Modal = ({ setIsOpen, product }: IProps) => {
         <div className="modal_overlay" onClick={onClose}>
             <div className="modal">
                 <button type='button' className='modal_close_btn' onClick={() => setIsOpen(false)}>X</button>
-                <img src={img} width='430' height='560' alt="" />
+                <img src={img.large.ref} width='430' height='560' alt="" />
                 <div className="modal_wrap">
                     <h2 className="modal_title">{title}</h2>
                     <p className="modal_price">C$ {price}</p>
                     <p className="modal_description">{description}</p>
-                    <p className="modal_stock">97 in stock</p>
+                    <p className="modal_stock">{totalQty} in stock</p>
                     <form className="modal_qty">
                         <label className="modal_qty_label" htmlFor={id}>Qty:</label>
                         <input 
@@ -47,8 +46,8 @@ const Modal = ({ setIsOpen, product }: IProps) => {
                     </form>
                     <div className="modal_info">
                         <p className="modal_info_item">SKU:<span>NHL5-11</span></p>
-                        <p className="modal_info_item">Categories:<span>{tag}</span></p>
-                        <p className="modal_info_item">Tags:<span>{tag}</span></p>
+                        <p className="modal_info_item">Categories:<span>{tag.name}</span></p>
+                        <p className="modal_info_item">Tags:<span>{tag.name}</span></p>
                     </div>
                 </div>
             </div>

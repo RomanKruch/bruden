@@ -1,7 +1,7 @@
 import AddToCartBtn from "../../../../AddToCartBtn/AddToCartBtn";
 import LikeBtn from "../../../../LikeBtn/LikeBtn";
 import EyeBtn from "../../../../EyeBtn/EyeBtn";
-import { IProduct } from "../../../ShopPage/sections/Shop/types";
+import { IProduct } from "../../../../../Types";
 import { useState } from "react";
 import Rating from '@mui/material/Rating';
 
@@ -15,7 +15,7 @@ const DealOfWeekItem = ({ product }: IProps) => {
     
     return (
     <>
-        <img src={img} alt="img" width='260' height='340'/>
+        <img src={img.large.ref} alt="img" width='260' height='340'/>
         <div className="dealOfWeek_item_wrap">
             <h3 className="dealOfWeek_item_title">{title}</h3>
 
@@ -38,7 +38,7 @@ const DealOfWeekItem = ({ product }: IProps) => {
             <p className="dealOfWeek_item_description">{description.split('').slice(0,99).join('')}...</p>
             <div className="dealOfWeek_item_btn_wrap">
                 <AddToCartBtn className='dealOfWeek_item_btn' product={product}/>
-                <LikeBtn/>
+                <LikeBtn product={product}/>
                 <EyeBtn product={product}/>
             </div>
         </div>

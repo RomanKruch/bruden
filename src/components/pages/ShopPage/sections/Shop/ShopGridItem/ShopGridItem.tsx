@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Rating from '@mui/material/Rating';
-import { IProduct } from "../types";
+import { IProduct } from "../../../../../../Types";
 import LikeBtn from "../../../../../LikeBtn/LikeBtn";
 import EyeBtn from "../../../../../EyeBtn/EyeBtn";
 import CartBtn from "../../../../../CartBtn/CartBtn";
@@ -17,10 +17,10 @@ const ShopGridItem = ({ product }: IProps) => {
     return (
         <li className="shop_gridItem">
             <div className="shop_gridItem_img_wrap">
-                <img src={img} alt="" width='260px' height='260px'/>
+                <img src={img.small.ref} alt="" width='260px' height='260px'/>
                 <div className="shop_gridItem_overlay">
                     <div className="shop_gridItem_btnWrap">
-                        <LikeBtn />
+                        <LikeBtn product={product} />
 
                         <EyeBtn product={product}/>
                     </div>

@@ -1,13 +1,15 @@
+import { ITag } from "../../../../../Types";
+import { Link } from "react-router-dom";
+
 interface IProps {
-    imgRef: string;
-    text: string;
+    tag: ITag
 }
 
-const ShopByCategorySliderItem = ({ imgRef, text }: IProps) => (
-    <>
-        <img src={imgRef} alt={text} width='360' height='290'/>
-        <h3 className="shopByCat_item_title">{text}</h3>
-    </>
+const ShopByCategorySliderItem = ({ tag }: IProps) => (
+    <Link to='/shop'>
+        <img src={tag.img} alt={tag.name} width='360' height='290'/>
+        <h3 className="shopByCat_item_title">{tag.name}</h3>
+    </Link>
 )
 
 export default ShopByCategorySliderItem;

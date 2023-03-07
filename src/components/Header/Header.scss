@@ -7,4 +7,10 @@
         justify-content: space-between;
         align-items: center;
     }
+
+    &_logo {
+        @media (max-width: 999px) {
+            width: 100px;
+        }
+    }
 }

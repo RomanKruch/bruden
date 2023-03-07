@@ -8,7 +8,7 @@
     }
 
     &_title {
-        width: 235px;
+        max-width: 235px;
         position: absolute;
         top: 40px;
         right: 40px;
@@ -18,11 +18,23 @@
         line-height: 160%;
         color: #fff;
 
+        @media (max-width: 767px) {
+            top: 15px;
+            font-size: 18px;
+        }
+
     }
 
     &_btn {
         position: absolute;
         bottom: 40px;
         right: 40px;
+
+        @media (max-width: 767px) {
+            bottom: 15px;
+            font-size: 14px;
+            width: 130px;
+            height: 30px;
+        }
     }
 }

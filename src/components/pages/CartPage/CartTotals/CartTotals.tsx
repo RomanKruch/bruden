@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { IState } from '../../../redux/store';
 
 const CartTotals = () => {
-    const price = useSelector((state: IState) => state.cart.items.reduce((acc, item) => acc+=item.price*item.qty,0));
+    const price = useSelector((state: IState) => state.user.cart.reduce((acc, item) => acc+=item.price*item.qty,0)).toFixed(2);
 
     return (
         <section className="cartTotals">

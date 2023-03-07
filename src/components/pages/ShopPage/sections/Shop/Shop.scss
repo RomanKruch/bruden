@@ -22,12 +22,16 @@
       display: grid;
       grid-template-columns: repeat(3, 260px);
       gap: 40px;
+      margin-bottom: 40px;
+
     }
 
     &-list {
       display: grid;
       grid-template-columns: 1fr;
       gap: 80px;
+      margin-bottom: 40px;
+
     }
   }
 }

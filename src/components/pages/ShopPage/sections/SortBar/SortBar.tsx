@@ -2,7 +2,7 @@ import { ReactComponent as Grid } from "../../../../../icons/shop/grid-icon.svg"
 import { ReactComponent as GridActive } from "../../../../../icons/shop/grid-icon-active.svg";
 import { ReactComponent as List } from "../../../../../icons/shop/list-icon.svg";
 import { ReactComponent as ListActive } from "../../../../../icons/shop/list-icon-active.svg";
-import { TListView, TSelectValues } from "../Shop/types";
+import { TListView, TSelectValues } from "../../../../../Types";
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { MenuItem } from "@mui/material";
 import './SortBar.scss';
