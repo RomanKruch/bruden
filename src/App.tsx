@@ -30,32 +30,32 @@ function App() {
       <Header />
 
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/bruden" element={<HomePage />} />
 
-        <Route path="/shop" element={<ShopPage />} />
+        <Route path="/bruden/shop" element={<ShopPage />} />
 
-        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/bruden/blog" element={<BlogPage />} />
 
-        <Route path="/about" element={<AboutPage />} />
+        <Route path="/bruden/about" element={<AboutPage />} />
 
-        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/bruden/contact" element={<ContactPage />} />
 
-        <Route path="/auth" element={<AuthPage />} />
+        <Route path="/bruden/auth" element={<AuthPage />} />
 
         <Route element={<PrivateRoute />}>
-          <Route path="/cart" element={<CartPage />} />
+          <Route path="/bruden/cart" element={<CartPage />} />
         </Route>
 
         <Route element={<PublicRoute />}>
-          <Route path="/login" element={<LoginPage />} />
+          <Route path="/bruden/login" element={<LoginPage />} />
 
-          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/bruden/register" element={<RegisterPage />} />
         </Route>
 
         <Route path="/admin/*" element={<AdminPage />} />
       </Routes>
 
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

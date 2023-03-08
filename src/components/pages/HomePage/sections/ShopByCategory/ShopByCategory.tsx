@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { nanoid } from "nanoid";
 import SectionTitle from "../../../../SectionTitle/SectionTitle";
 import ShopByCategorySliderItem from "./ShopByCategorySliderItem";
@@ -60,16 +60,20 @@ const products = [
 const ShopByCategory = () => {
     const swiperRef = useRef<SwiperType>();
     const dispatch = useDispatch();
-    const tags = useSelector((state: IState) => state.tags)
-
+    const tags = useSelector((state: IState) => state.tags);
+    // const [slidesPerView, setSlidesPerView] = useState(3)
+    const slidesPerView = window.outerWidth < 1000 ? window.outerWidth < 768 ? 1 : 2 : 3
+ 
     const onClick = (id: string) => {
         dispatch<any>(onToggleTag(id))
     }
+
     useEffect(() => {
         if (!tags.length) {
             dispatch<any>(onGetTags())
         }
     }, [])
+
     return (
     <section className="shopByCat">
         <div className="container">
@@ -82,7 +86,7 @@ const ShopByCategory = () => {
                     swiperRef.current = swiper;
                 }}
                 modules={[Navigation]}
-                slidesPerView={3} 
+                slidesPerView={slidesPerView} 
                 className="shopByCat_slider"
             >
                 {tags.map(item => (

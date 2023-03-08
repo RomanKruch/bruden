@@ -17,35 +17,35 @@ const BurgerMenu = ({ isOpen, setIsOpen }: IProps) => (
         <div className={`burger ${isOpen ? 'burger-open': ''}`}>
             <nav className="burger_navigation">
                 <NavLink 
-                    to='/' 
+                    to='/bruden' 
                     className={({ isActive }) => isActive ? "burger_link-active burger_link" : "burger_link"}
                     onClick={() => setIsOpen(false)}
                 >
                     Home
                 </NavLink>
                 <NavLink 
-                    to='/shop' 
+                    to='/bruden/shop' 
                     className={({ isActive }) => isActive ? "burger_link-active burger_link" : "burger_link"}
                     onClick={() => setIsOpen(false)}
                 >
                     Shop
                 </NavLink>
                 <NavLink 
-                    to='/blog' 
+                    to='/bruden/blog' 
                     className={({ isActive }) => isActive ? "burger_link-active burger_link" : "burger_link"}
                     onClick={() => setIsOpen(false)}
                 >
                     Blog
                 </NavLink>
                 <NavLink
-                    to='/about' 
+                    to='/bruden/about' 
                     className={({ isActive }) => isActive ? "burger_link-active burger_link" : "burger_link"}
                     onClick={() => setIsOpen(false)}
                 >
                     About Us
                 </NavLink>
                 <NavLink 
-                    to='/contact' 
+                    to='/bruden/contact' 
                     className={({ isActive }) => isActive ? "burger_link-active burger_link" : "burger_link"}
                     onClick={() => setIsOpen(false)}
                 >
@@ -58,11 +58,11 @@ const BurgerMenu = ({ isOpen, setIsOpen }: IProps) => (
                     <Instagram />
                 </a>
 
-                <Link to='/shop' onClick={() => setIsOpen(false)}>
+                <Link to='/bruden/shop' onClick={() => setIsOpen(false)}>
                     <Search />
                 </Link>
 
-                <Link to='/auth' onClick={() => setIsOpen(false)}>
+                <Link to='/bruden/auth' onClick={() => setIsOpen(false)}>
                     <Auth />
                 </Link>
             </div>   

@@ -10,9 +10,14 @@
 
     &_form {
         display: flex;
-        width: 560px;
+        max-width: 560px;
         height: 46px;
         margin: 0 auto;
+
+        @media (max-width: 767px) {
+            padding-left: 15px;
+            height: 30px;
+        }
     }
 
     &_inp {
@@ -28,6 +33,10 @@
         &:focus {
             outline: none;
         }
+
+        @media (max-width: 767px) {
+            padding-left: 15px;
+        }
     }
 
     &_btn {
@@ -42,6 +51,10 @@
             border: 1px solid #292A33;
             background: #fff;
             color: #292A33;
+        }
+
+        @media (max-width: 767px) {
+            padding: 7px 14px;
         }
     }
 }

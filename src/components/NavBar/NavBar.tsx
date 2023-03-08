@@ -5,33 +5,31 @@ const NavBar = () => {
     return (
         <nav className="navigation">
             <NavLink 
-                to='/' 
+                to='/bruden' 
                 className={({ isActive }) => isActive ? "nav_link-active nav_link" : "nav_link"}
             >
                 Home
             </NavLink>
             <NavLink 
-                to='/shop' 
+                to='/bruden/shop' 
                 className={({ isActive }) => isActive ? "nav_link-active nav_link" : "nav_link"}
             >
                 Shop
             </NavLink>
             <NavLink 
-                to='/blog' 
+                to='/bruden/blog' 
                 className={({ isActive }) => isActive ? "nav_link-active nav_link" : "nav_link"}
             >
                 Blog
             </NavLink>
             <NavLink 
-                end
-                to='/about' 
+                to='/bruden/about' 
                 className={({ isActive }) => isActive ? "nav_link-active nav_link" : "nav_link"}
             >
                 About Us
             </NavLink>
             <NavLink 
-                end
-                to='/contact' 
+                to='/bruden/contact' 
                 className={({ isActive }) => isActive ? "nav_link-active nav_link" : "nav_link"}
             >
                 Contact Us

@@ -1,6 +1,7 @@
 .addToCartBtn {
+    // width: 105px;
     padding: 8px 14px;
-    height: 30px;
+    // height: 30px;
     background: #292A33;
     border: 1px solid #292A33;
 
@@ -22,5 +23,11 @@
     &:active {
         background: #292A33;
         color: #FFFFFF;
+    }
+
+    @media (max-width: 767px) {
+        padding: 6px 12px;
+        font-size: 12px;
+        line-height: 12px;
     }
 }

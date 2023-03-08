@@ -14,10 +14,7 @@ import { useState } from "react";
 const imgRefs = [hero1, hero2, hero3, hero4];
 
 const Hero = () => {
-    const [isMobile, setIsMobile] = useState(window.outerWidth < 768)
-    window.addEventListener('resize', () => {
-        setIsMobile(window.outerWidth < 768)
-    });
+    const isMobile = window.outerWidth < 768;
 
     return (
         <section className="hero">

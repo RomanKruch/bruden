@@ -1,20 +1,26 @@
 import { nanoid } from "nanoid";
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import SectionTitle from "../../../../SectionTitle/SectionTitle";
-import products from "../../../../../products";
 import DealOfWeekItem from "./DealOfWeekItem";
 import './DealOfWeek.scss';
-
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/scss";
 import "swiper/scss/navigation";
 import { Swiper as SwiperType, Navigation } from "swiper";
 import SliderControls from '../../../../SliderControls/SliderControls';
+import { IProduct } from "../../../../../Types";
+import axios from "axios";
 
 
 const DealOfWeek = () => {
     const swiperRef = useRef<SwiperType>();
+    const [products, setProducts] = useState<IProduct[]>([]);
+
+    useEffect(() => {
+        axios.get('/products')
+        .then(({ data }) => setProducts(data.data.products))
+    }, [])
 
     return (
     <section className="dealOfWeek">
@@ -28,7 +34,7 @@ const DealOfWeek = () => {
                     swiperRef.current = swiper;
                 }}
                 modules={[Navigation]}
-                slidesPerView={2} 
+                slidesPerView={window.outerWidth < 1200 ? 1 : 2} 
                 className="dealOfWeek_slider"
             >
                 {products.map(item => (

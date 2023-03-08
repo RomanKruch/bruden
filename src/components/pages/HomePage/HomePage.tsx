@@ -10,13 +10,13 @@ import SpecialProducts from "./sections/SpecialProducts/SpecialProducts";
 const HomePage = () => (
     <main>
         <Hero />
-        {/* <ShopByCategory /> */}
+        <ShopByCategory />
         <VideoSection />
-        {/* <DealOfWeek /> */}
-        {/* <Baner />  */}
+        <DealOfWeek />
+        <Baner /> 
         {/* <LastNews /> */}
-        {/* <FitsAnyStyle /> */}
-        {/* <SpecialProducts /> */}
+        <FitsAnyStyle />
+        <SpecialProducts />
     </main>
 )
 

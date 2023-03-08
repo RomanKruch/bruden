@@ -3,15 +3,29 @@
 .firstAnyStyle {
     margin-bottom: 90px;
 
-    .container {
-        display: flex;
-        justify-content: space-between;
-        border: 1px solid #333333;
+    img {
+        width: 870px;
+
+        @media (max-width: 767px) {
+            height: 200px;
+        }
     }
 
     &_wrap {
+        display: flex;
+        // display: grid;
+        // grid-template-columns: 300px 1fr;    
+        overflow-x: hidden;    
+        border: 1px solid #333333;
+    }
+
+    &_textWrap {
         padding: 40px;
         border-right: 1px solid #333333;
+
+        @media (max-width: 767px) {
+            padding: 20px;
+        }
     }
 
     &_title {

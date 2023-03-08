@@ -24,16 +24,16 @@ const OtherNav = () => {
         <Instagram />
       </a>
 
-      <Link to="/shop" className="otherNav_link">
+      <Link to="/bruden/shop" className="otherNav_link">
         <Search />
       </Link>
 
-      <Link to="/auth" className="otherNav_link">
+      <Link to="/bruden/auth" className="otherNav_link">
         <Auth />
       </Link>
 
       <div className="cart_wrap">
-        <Link to="/cart">
+        <Link to="/bruden/cart">
           <Cart />
         </Link>
         <span className="cart_quantity">{qty}</span>

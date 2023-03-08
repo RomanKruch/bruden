@@ -8,6 +8,11 @@ $grey: #7F7F7F;
     line-height: 51px;
     letter-spacing: 0.1em;
     color: #000000;
+
+    @media (max-width: 767px) {
+        font-size: 36px;
+        line-height: 44px;
+    }
 }
 
 %h2 {
@@ -18,6 +23,11 @@ $grey: #7F7F7F;
     letter-spacing: 0.1em;
     text-transform: capitalize;
     color: #000000;
+
+    @media (max-width: 767px) {
+        font-size: 24px;
+        line-height: 28px;
+    }
 }
 
 %h3 {
@@ -28,6 +38,11 @@ $grey: #7F7F7F;
     letter-spacing: 0.1em;
     text-transform: capitalize;
     color: #000000;
+
+    @media (max-width: 767px) {
+        font-size: 20px;
+        line-height: 24px;
+    }
 }
 
 %h4 {
@@ -37,6 +52,11 @@ $grey: #7F7F7F;
     line-height: 22px;
     letter-spacing: 0.1em;
     color: #000000;
+
+    @media (max-width: 767px) {
+        font-size: 16px;
+        line-height: 18px;
+    }
 }
 
 %btn_text {
@@ -47,6 +67,11 @@ $grey: #7F7F7F;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: #000000;
+
+    @media (max-width: 767px) {
+        font-size: 16px;
+        line-height: 16px;
+    }
 }
 
 %price {
@@ -56,6 +81,11 @@ $grey: #7F7F7F;
     line-height: 22px;
     letter-spacing: 0.05em;
     color: #000000;
+
+    @media (max-width: 767px) {
+        font-size: 18px;
+        line-height: 18px;
+    }
 }
 
 %menu_text {
@@ -66,6 +96,11 @@ $grey: #7F7F7F;
     letter-spacing: 0.05em;
     text-transform: capitalize;
     color: #000000;
+
+    @media (max-width: 767px) {
+        font-size: 14px;
+        line-height: 14px;
+    }
 }
 
 %body_text {
@@ -75,6 +110,11 @@ $grey: #7F7F7F;
     line-height: 160%;
     letter-spacing: 0.05em;
     color: #000000;
+
+    @media (max-width: 767px) {
+        font-size: 14px;
+        line-height: 140%;
+    }
 }
 
 %sidebar_text {
@@ -85,6 +125,11 @@ $grey: #7F7F7F;
     letter-spacing: 0.05em;
     text-transform: capitalize;
     color: #000000;
+
+    @media (max-width: 767px) {
+        font-size: 12px;
+        line-height: 12px;
+    }
 }
 
 %text_underline {
@@ -94,6 +139,11 @@ $grey: #7F7F7F;
     line-height: 14px;
     text-decoration-line: underline;
     text-transform: capitalize;
+
+    @media (max-width: 767px) {
+        font-size: 12px;
+        line-height: 12px;
+    }
 }
 
 %small_btn_text {
@@ -104,4 +154,9 @@ $grey: #7F7F7F;
     letter-spacing: 0.05em;
     text-transform: capitalize;
     color: #000000;
+
+    @media (max-width: 767px) {
+        font-size: 10px;
+        line-height: 10px;
+    }
 }
