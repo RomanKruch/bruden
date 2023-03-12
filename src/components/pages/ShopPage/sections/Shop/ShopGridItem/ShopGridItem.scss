@@ -19,8 +19,10 @@
       flex-direction: column;
       justify-content: space-between;
 
-      @media (max-width: 909px) {
-        height: 160px;
+      &_small {
+        @media (max-width: 909px) {
+          height: 160px;
+        }
       }
     }
 

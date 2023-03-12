@@ -8,9 +8,10 @@ import './ShopGridItem.scss';
 
 interface IProps {
     product: IProduct;
+    small?: boolean;
 }
 
-const ShopGridItem = ({ product }: IProps) => {
+const ShopGridItem = ({ product, small=false }: IProps) => {
     const [value, setValue] = useState<number | null>(5);
     const { title, price, img } = product;
 
@@ -18,7 +19,7 @@ const ShopGridItem = ({ product }: IProps) => {
         <li className="shop_gridItem">
             <div className="shop_gridItem_img_wrap">
                 <img src={img.small.ref} alt="" width='260px' height='260px'/>
-                <div className="shop_gridItem_overlay">
+                <div className={`shop_gridItem_overlay ${small ? 'shop_gridItem_overlay_small' : ''}`}>
                     <div className="shop_gridItem_btnWrap">
                         <LikeBtn product={product} />
 

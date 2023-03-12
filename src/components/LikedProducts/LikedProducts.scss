@@ -12,9 +12,15 @@
 
   &_list {
     display: grid;
-    grid-template-columns: repeat(4, 260px);
+    grid-template-columns: repeat(auto-fit, 260px);
+    justify-content: center;
     gap: 40px;
     margin-bottom: 20px;
+
+    @media (max-width: 909px) {
+      // justify-content: center;
+      // grid-template-columns: repeat(auto-fit, 190px);
+    }
   }
 
   &_btn {

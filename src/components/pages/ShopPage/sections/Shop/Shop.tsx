@@ -97,6 +97,7 @@ const Shop = () => {
                                 <ShopGridItem 
                                     product={product}
                                     key={product._id}
+                                    small={true}
                                 />
                             ) : (
                                 <ShopListItem 

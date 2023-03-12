@@ -49,7 +49,8 @@ interface ILogin {
         email: string,
       },
       token: string,
-      cart: ICartProduct[]
+      cart: ICartProduct[],
+      liked: IProduct[]
 }
 
 
@@ -63,7 +64,11 @@ export const onLogin = createAsyncThunk<ILogin, IUserInfo, {rejectValue: null}>(
         try {
             const { data } = await axios.post('/auth/login', userInfo);
             token.set(data.data.token);
-            return {...data.data, cart: data.data.cart.map((item: IProduct) => ({...item, qty: 1}))};
+            return {
+                ...data.data, 
+                cart: data.data.cart.map((item: IProduct) => ({...item, qty: 1})),
+                liked: data.data.liked
+            };
         } catch {
             // NotificationManager.warning('User not found', '', 5000);
             return rejectWithValue(null);

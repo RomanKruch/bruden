@@ -60,7 +60,8 @@ const userSlice = createSlice({
         },
         token: payload.token,
         isLogged: true,
-        cart: payload.cart
+        cart: payload.cart,
+        liked: payload.liked
       }))
 
       .addCase(onLogin.rejected, state => ({
