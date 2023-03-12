@@ -2,14 +2,29 @@
 
 .modal {
     background: #fff;
-    width: 1040px;
+    max-width: 1040px;
     display: grid;
     grid-template-columns: 430px 1fr;
     position: relative;
+
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    // @media (max-width: 767px) {
+    //     grid-template-columns: 1fr;
+    // }
+
+    img {
+        @media (max-width: 767px) {
+            // width: 260px;
+        }
+    }
   
     &_overlay {
         width: 100vw;
         height: 100vh;
+        padding: 0 15px;
         position: fixed;
         top: 0;
         left: 0;
@@ -34,6 +49,10 @@
 
     &_wrap {
         padding: 35px 40px;
+
+        @media (max-width: 767px) {
+            padding: 17px 20px;
+        }
     }
 
     &_title {
@@ -56,6 +75,10 @@
         padding-bottom: 15px;
         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         margin-bottom: 15px;
+
+        @media (max-width: 767px) {
+            font-size: 14px;
+        }
     }
 
     &_stock { 
@@ -79,6 +102,11 @@
             font-size: 18px;
             line-height: 18px;
             letter-spacing: 0.05em;
+
+            @media (max-width: 767px) {
+                font-size: 14px;
+                line-height: 14px;
+            }
         }
 
         &_inp {
@@ -109,6 +137,11 @@
             font-size: 18px;
             line-height: 18px;
             letter-spacing: 0.05em;
+
+            @media (max-width: 767px) {
+                font-size: 16px;
+                line-height: 16px;
+            }
 
             span {
                 margin-left: 5px;
