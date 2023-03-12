@@ -18,7 +18,7 @@ const AddToCartBtn = ({ className='', qty=1, product }: IProps) => {
     return !isInCart ?
         <button type="button" className={`addToCartBtn ${className}`} onClick={() => dispatch<any>(onAddProduct(product._id))}>Add to cart</button>
         :
-        <Link to='/cart' className={`addToCartBtn ${className}`}>Go to Cart</Link>
+        <Link to='/bruden/cart' className={`addToCartBtn ${className}`}>Go to Cart</Link>
 }
 
 export default AddToCartBtn;

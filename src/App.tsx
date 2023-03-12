@@ -52,7 +52,7 @@ function App() {
           <Route path="/bruden/register" element={<RegisterPage />} />
         </Route>
 
-        <Route path="/admin/*" element={<AdminPage />} />
+        <Route path="/bruden/admin/*" element={<AdminPage />} />
       </Routes>
 
       <Footer />

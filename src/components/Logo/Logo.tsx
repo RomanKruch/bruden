@@ -3,7 +3,7 @@ import logo from "../../icons/Header/logo.png";
 
 
 const Logo = () => (
-    <Link to='/'>
+    <Link to='/bruden'>
         <img src={logo} alt="logo" width='125' height='25'/>
     </Link>
 );

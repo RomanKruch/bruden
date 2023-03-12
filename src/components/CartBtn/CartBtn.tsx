@@ -20,7 +20,7 @@ const CartBtn = ({  product }: IProps) => {
     return !isInCart ? 
     <IconBtn onClick={() => dispatch<any>(onAddProduct(product._id))}><AddShoppingCartIcon /></IconBtn>
     :
-    <Link to='/cart' className="iconBtn"><ShoppingCartIcon/></Link>
+    <Link to='/bruden/cart' className="iconBtn"><ShoppingCartIcon/></Link>
 }
 
 export default CartBtn;

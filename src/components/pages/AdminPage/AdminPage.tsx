@@ -9,13 +9,13 @@ const AdminPage = () => {
       <div className="container">
           <nav className='navigation'>
             <NavLink 
-                to='/admin/product' 
+                to='/bruden/admin/product' 
                 className={({ isActive }) => isActive ? "nav_link-active nav_link" : "nav_link"}
             >
                 Product
             </NavLink>
             <NavLink 
-                to='/admin/tag' 
+                to='/bruden/admin/tag' 
                 className={({ isActive }) => isActive ? "nav_link-active nav_link" : "nav_link"}
             >
                 Tag

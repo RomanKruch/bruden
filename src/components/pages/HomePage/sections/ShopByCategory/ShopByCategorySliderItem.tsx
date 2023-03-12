@@ -6,7 +6,7 @@ interface IProps {
 }
 
 const ShopByCategorySliderItem = ({ tag }: IProps) => (
-    <Link to='/shop'>
+    <Link to='/bruden/shop'>
         <img src={tag.img} alt={tag.name} width='360' height='290'/>
         <h3 className="shopByCat_item_title">{tag.name}</h3>
     </Link>

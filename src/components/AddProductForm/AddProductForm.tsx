@@ -24,7 +24,7 @@ const AddProductForm = () => {
     const [listView, setListView] = useState<TListView>('grid')
 
     useEffect(() => {
-        axios.get('/admin/tag')
+        axios.get('/tag')
         .then(({data}) => setTags(data.data.tags))
     }, [])
   

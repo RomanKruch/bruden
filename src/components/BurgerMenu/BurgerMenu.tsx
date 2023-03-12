@@ -20,6 +20,7 @@ const BurgerMenu = ({ isOpen, setIsOpen }: IProps) => (
                     to='/bruden' 
                     className={({ isActive }) => isActive ? "burger_link-active burger_link" : "burger_link"}
                     onClick={() => setIsOpen(false)}
+                    end
                 >
                     Home
                 </NavLink>

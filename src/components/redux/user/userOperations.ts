@@ -4,7 +4,7 @@ import axios from "axios";
 import { IState } from "../store";
 import { ICartProduct, IProduct } from "../../../Types";
 
-axios.defaults.baseURL = 'http://localhost:3000/api';
+axios.defaults.baseURL = 'https://bruden.herokuapp.com/api';
 
 const token = {
     set(token: string) {
@@ -119,7 +119,7 @@ export const onRefresh = createAsyncThunk<IRefresh, void, {state: IState, reject
 export const onAddProduct = createAsyncThunk<ICartProduct, string, {rejectValue: null}>('cart_addProduct', 
     async (productId, {rejectWithValue}) => {
         try {
-            const { data } = await axios.patch('/cart', { productId })
+            const { data } = await axios.post('/cart', { productId })
             return {
                 ...data.data.newProduct,
                 id: data.data.newProduct._id,
