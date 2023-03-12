@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/bruden/static/css/main.3b60e427.css",
+    "main.css": "/bruden/static/css/main.9e33cd8d.css",
     "main.js": "/bruden/static/js/main.a5d4b127.js",
     "static/media/videoSection.png": "/bruden/static/media/videoSection.fd9bb98e1f49845285a3.png",
     "static/media/baner-2.png": "/bruden/static/media/baner-2.682e0c386fb2c033b1d8.png",
@@ -26,11 +26,11 @@
     "index.html": "/bruden/index.html",
     "static/media/grid-icon-active.svg": "/bruden/static/media/grid-icon-active.bf425aa8d3eea31d35dfde11d2c47bdf.svg",
     "static/media/grid-icon.svg": "/bruden/static/media/grid-icon.9e9358fc9be333006739120ea5af7b12.svg",
-    "main.3b60e427.css.map": "/bruden/static/css/main.3b60e427.css.map",
+    "main.9e33cd8d.css.map": "/bruden/static/css/main.9e33cd8d.css.map",
     "main.a5d4b127.js.map": "/bruden/static/js/main.a5d4b127.js.map"
   },
   "entrypoints": [
-    "static/css/main.3b60e427.css",
+    "static/css/main.9e33cd8d.css",
     "static/js/main.a5d4b127.js"
   ]
 }
