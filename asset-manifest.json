@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/bruden/static/css/main.f3acb7f9.css",
-    "main.js": "/bruden/static/js/main.6f7daffc.js",
+    "main.css": "/bruden/static/css/main.65224619.css",
+    "main.js": "/bruden/static/js/main.aab21090.js",
     "static/media/videoSection.png": "/bruden/static/media/videoSection.fd9bb98e1f49845285a3.png",
     "static/media/baner-2.png": "/bruden/static/media/baner-2.682e0c386fb2c033b1d8.png",
     "static/media/hero4.png": "/bruden/static/media/hero4.f7402f07368e817e35d2.png",
@@ -10,9 +10,6 @@
     "static/media/hero3.png": "/bruden/static/media/hero3.49b76b39f956f42d14e8.png",
     "static/media/fits-any-style.png": "/bruden/static/media/fits-any-style.fc9e531c5d152a3d414e.png",
     "static/media/baner-1.png": "/bruden/static/media/baner-1.33e030f859d56ad3c8ed.png",
-    "static/media/Shop-by-category1.png": "/bruden/static/media/Shop-by-category1.74a8ab6bb944d35279e1.png",
-    "static/media/Shop-by-category2.png": "/bruden/static/media/Shop-by-category2.c5a9d19fecb27ff39b7b.png",
-    "static/media/Shop-by-category3.png": "/bruden/static/media/Shop-by-category3.40eeb06b814b60d0944c.png",
     "static/media/logo.png": "/bruden/static/media/logo.2cd9c3cdcc71b483c220.png",
     "static/media/left-btn.svg": "/bruden/static/media/left-btn.96e516a0c18d77074cfb7bb8ab9735c4.svg",
     "static/media/right-btn.svg": "/bruden/static/media/right-btn.8a70198122f4ebb92cbd63a9f3f5ba1e.svg",
@@ -26,11 +23,11 @@
     "index.html": "/bruden/index.html",
     "static/media/grid-icon-active.svg": "/bruden/static/media/grid-icon-active.bf425aa8d3eea31d35dfde11d2c47bdf.svg",
     "static/media/grid-icon.svg": "/bruden/static/media/grid-icon.9e9358fc9be333006739120ea5af7b12.svg",
-    "main.f3acb7f9.css.map": "/bruden/static/css/main.f3acb7f9.css.map",
-    "main.6f7daffc.js.map": "/bruden/static/js/main.6f7daffc.js.map"
+    "main.65224619.css.map": "/bruden/static/css/main.65224619.css.map",
+    "main.aab21090.js.map": "/bruden/static/js/main.aab21090.js.map"
   },
   "entrypoints": [
-    "static/css/main.f3acb7f9.css",
-    "static/js/main.6f7daffc.js"
+    "static/css/main.65224619.css",
+    "static/js/main.aab21090.js"
   ]
 }
