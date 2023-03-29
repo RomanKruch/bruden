@@ -1,9 +1,9 @@
 import './BurgerMenu.scss';
 import { createPortal } from 'react-dom';
 import { NavLink, Link } from 'react-router-dom';
-import {ReactComponent as Instagram} from '../../icons/Header/instagram-icon.svg';
-import {ReactComponent as Search} from '../../icons/Header/search-icon.svg';
-import {ReactComponent as Auth} from '../../icons/Header/auth-icon.svg';
+import {ReactComponent as Instagram} from '../../assets/icons/Header/instagram-icon.svg';
+import {ReactComponent as Search} from '../../assets/icons/Header/search-icon.svg';
+import {ReactComponent as Auth} from '../../assets/icons/Header/auth-icon.svg';
 
 const root = document.getElementById('burger_root') as HTMLElement;
 

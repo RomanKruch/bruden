@@ -1,26 +1,26 @@
-@import '../../variables.scss';
+@import '../../constants/variables.scss';
 
 .navigation {
-    display: flex;
-    gap: 40px;
+  display: flex;
+  gap: 40px;
 
-    @media (max-width: 999px) {
-        gap: 18px;
-    }
+  @media (max-width: 999px) {
+    gap: 18px;
+  }
 
-    @media (max-width: 767px) {
-        display: none;
-    }
+  @media (max-width: 767px) {
+    display: none;
+  }
 }
 
 .nav_link {
-    @extend %menu_text;
+  @extend %menu_text;
 
-    &-active {
-        color: #DE1616;
-    }
+  &-active {
+    color: #de1616;
+  }
 
-    @media (max-width: 999px) {
-        font-size: 16px;
-    }
+  @media (max-width: 999px) {
+    font-size: 16px;
+  }
 }

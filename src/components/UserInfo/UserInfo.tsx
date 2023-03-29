@@ -1,7 +1,7 @@
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import { useSelector, useDispatch } from 'react-redux';
-import { onLogout } from '../redux/user/userOperations';
-import { IState } from '../redux/store';
+import { onLogout } from '../../redux/user/userOperations';
+import { IState } from '../../redux/store';
 import './UserInfo.scss'
 
 const UserInfo = () => {

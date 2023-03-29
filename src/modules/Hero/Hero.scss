@@ -1,0 +1,43 @@
+.hero {
+  margin-bottom: 91px;
+
+  &_slider {
+    height: 700px;
+
+    @media (max-width: 767px) {
+      margin-top: 60px;
+      height: 800px;
+    }
+  }
+
+  .pag {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    @media (max-width: 767px) {
+      width: fit-content;
+      top: 781px;
+      left: 50%;
+      transform: translateX(-50%);
+      flex-direction: row;
+    }
+
+    &_item {
+      width: 10px;
+      height: 10px;
+      border: 1px solid #000000;
+      border-radius: 50%;
+      display: block;
+      cursor: pointer;
+
+      &-active {
+        background-color: #000000;
+      }
+    }
+  }
+}

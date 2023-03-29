@@ -1,11 +1,11 @@
-import { ReactComponent as Like } from "../../icons/dealOfWeek/Deal-of-the-week-heart.svg";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useDispatch, useSelector } from 'react-redux';
-import { onAddToLike, onDeleteFromLike } from "../redux/user/userOperations";
-import { IProduct } from "../../Types";
-import { IState } from "../redux/store";
-import IconBtn from "../IconBtn/IconBtn";
+import { onAddToLike, onDeleteFromLike } from "../../redux/user/userOperations";
+import { IProduct } from "../../types/Types";
+import { IState } from "../../redux/store";
+import IconBtn from "../../AI/IconBtn/IconBtn";
+import { Link } from "react-router-dom";
 
 interface IProps {
     product: IProduct;
@@ -13,6 +13,7 @@ interface IProps {
 
 const LikeBtn = ({ product }:IProps) => {
     const isInLiked = useSelector((state: IState) => state.user.liked.some(item => item._id === product._id));
+    const isLogged = useSelector((state: IState) => state.user.isLogged);
     const dispatch = useDispatch();
 
     const onClick = () => {
@@ -23,7 +24,10 @@ const LikeBtn = ({ product }:IProps) => {
         }
     }
     
-    return  <IconBtn onClick={onClick}>{isInLiked ? <FavoriteIcon/> : <FavoriteBorderIcon/>}</IconBtn>
+    return  isLogged ? 
+    <IconBtn onClick={onClick}>{isInLiked ? <FavoriteIcon/> : <FavoriteBorderIcon/>}</IconBtn> 
+    : 
+    <Link to='/bruden/auth' className="iconBtn"><FavoriteBorderIcon/></Link>
 }
 
 export default LikeBtn;

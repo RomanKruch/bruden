@@ -1,1 +1,1 @@
-export {default} from './OtherNav';
+export { default } from './OtherNav';

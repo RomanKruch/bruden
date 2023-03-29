@@ -1,0 +1,32 @@
+@import '../../constants/variables';
+
+.paginationControls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+
+  &_btn {
+    @extend %menu_text;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #fff;
+    color: #292a33;
+    border: 1px solid #292a33;
+    transition: all 0.3s;
+
+    &:nth-child(2) {
+      background: #292a33;
+      color: #fff;
+    }
+
+    &:hover:not(:nth-child(2)) {
+      background: #d2d2d2;
+      color: #292a33;
+    }
+  }
+}

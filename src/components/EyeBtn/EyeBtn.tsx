@@ -1,8 +1,8 @@
-import { ReactComponent as Eye } from "../../icons/dealOfWeek/Deal-of-the-week-eye.svg";
+import { ReactComponent as Eye } from "../../assets/icons/dealOfWeek/Deal-of-the-week-eye.svg";
 import { useState } from "react";
-import { IProduct } from "../../Types"
-import IconBtn from "../IconBtn/IconBtn";
-import Modal from "../Modal/Modal";
+import { IProduct } from "../../types/Types"
+import IconBtn from "../../AI/IconBtn/IconBtn";
+import ProductModal from "../ProductModal/ProductModal";
 
 interface IProps {
     product: IProduct;
@@ -15,7 +15,7 @@ const EyeBtn = ({ product }: IProps) => {
         <>
             <IconBtn onClick={() => setIsOpen(true)}><Eye /></IconBtn>
             
-            {isOpen && <Modal product={product} setIsOpen={setIsOpen}/>}
+            {isOpen && <ProductModal product={product} setIsOpen={setIsOpen}/>}
         </>
     )
 }

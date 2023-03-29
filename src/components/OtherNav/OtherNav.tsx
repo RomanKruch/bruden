@@ -1,18 +1,15 @@
 import { Link } from 'react-router-dom';
-import { ReactComponent as Instagram } from '../../icons/Header/instagram-icon.svg';
-import { ReactComponent as Search } from '../../icons/Header/search-icon.svg';
-import { ReactComponent as Auth } from '../../icons/Header/auth-icon.svg';
-import { ReactComponent as Cart } from '../../icons/Header/cart-icon.svg';
+import { ReactComponent as Instagram } from '../../assets/icons/Header/instagram-icon.svg';
+import { ReactComponent as Search } from '../../assets/icons/Header/search-icon.svg';
+import { ReactComponent as Auth } from '../../assets/icons/Header/auth-icon.svg';
+import { ReactComponent as Cart } from '../../assets/icons/Header/cart-icon.svg';
+import { useSelector } from 'react-redux';
+import { IState } from '../../redux/store';
+import BurgerBtn from '../../modules/BurgerBtn/BurgerBtn';
 import './OtherNav.scss';
 
-import { useSelector } from 'react-redux';
-import { IState } from '../redux/store';
-import BurgerBtn from '../BurgerBtn/BurgerBtn';
-
 const OtherNav = () => {
-  const qty = useSelector((state: IState) =>
-    state.user.cart.reduce((acc, item) => (acc += item.qty), 0),
-  );
+  const qty = useSelector((state: IState) => state.user.cart.length);
   
   const price = useSelector((state: IState) =>
     state.user.cart.reduce((acc, item) => (acc += item.price * item.qty), 0),

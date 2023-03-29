@@ -1,0 +1,12 @@
+@import '../../constants/variables';
+
+.shopByCatItem {
+  &_title {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    box-shadow: inset 0px 0px 10px #dedede;
+
+    @extend %h3;
+  }
+}

@@ -1,0 +1,71 @@
+@import '../../constants/variables';
+
+.cartItem {
+  padding: 6px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  &:not(:last-child) {
+    @media (max-width: 767px) {
+      border-bottom: 1px solid #7f7f7f;
+    }
+  }
+
+  &_contentWrap {
+    max-width: 400px;
+    display: grid;
+    grid-template-columns: 14px 60px 1fr;
+    gap: 50px;
+    align-items: center;
+  }
+
+  &_btn {
+    width: 14px;
+    height: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &_title {
+    @extend %h3;
+  }
+
+  &_priceWrap {
+    max-width: 350px;
+    display: grid;
+    grid-template-columns: 100px 100px 1fr;
+    align-items: center;
+  }
+
+  &_inpLabel {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    @extend %price;
+  }
+
+  &_inp {
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+
+    @extend %menu_text;
+    text-align: center;
+
+    &:focus {
+      outline: none;
+      border: 1px solid rgba(0, 0, 0, 0.8);
+    }
+  }
+
+  &_price {
+    @extend %price;
+  }
+}

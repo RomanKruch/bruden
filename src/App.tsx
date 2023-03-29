@@ -1,29 +1,31 @@
 import { Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from "react-redux";
-import Header from './components/Header';
-import HomePage from './components/pages/HomePage/HomePage';
-import ShopPage from './components/pages/ShopPage/ShopPage';
-import BlogPage from './components/pages/BlogPage';
-import AboutPage from './components/pages/AboutPage';
-import ContactPage from './components/pages/ContactPage';
-import LoginPage from './components/pages/LoginPage/LoginPage';
-import RegisterPage from './components/pages/RegisterPage/RegisterPage';
-import AuthPage from './components/pages/AuthPage/AuthPage';
-import CartPage from './components/pages/CartPage/CartPage';
-import AdminPage from './components/pages/AdminPage/AdminPage';
-import Footer from './components/Footer/Footer';
-
-import PrivateRoute from './components/PrivateRoute';
-import PublicRoute from './components/PublicRoute';
-import { onRefresh } from './components/redux/user/userOperations';
+import { useDispatch } from "react-redux";
+// import {NotificationContainer, NotificationManager} from 'react-notifications';
+import Header from './modules/Header';
+import HomePage from './pages/HomePage/HomePage';
+import ShopPage from './pages/ShopPage/ShopPage';
+import BlogPage from './pages/BlogPage';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
+import LoginPage from './pages/LoginPage/LoginPage';
+import RegisterPage from './pages/RegisterPage/RegisterPage';
+import AuthPage from './pages/AuthPage/AuthPage';
+import CartPage from './pages/CartPage/CartPage';
+import AdminPage from './pages/AdminPage/AdminPage';
+import Footer from './modules/Footer/Footer';
+import PrivateRoute from './helpers/PrivateRoute';
+import PublicRoute from './helpers/PublicRoute';
+import { onRefresh } from './redux/user/userOperations';
+import './config/axiosConfig';
+import './config/swiperConfig';
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch<any>(onRefresh())
-  }, [])
+  }, [dispatch])
 
   return (
     <>

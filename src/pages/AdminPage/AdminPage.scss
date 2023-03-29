@@ -1,0 +1,67 @@
+@import '../../constants/variables';
+
+.adminPage {
+  margin-top: 90px;
+
+  &_title {
+    margin-bottom: 60px;
+  }
+
+  &_form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 60px;
+  }
+
+  &_label {
+    @extend %menu_text;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    &:nth-child(3) {
+      align-items: start;
+    }
+  }
+
+  &_inp {
+    border: 1px solid #999;
+    border-radius: 5px;
+    padding: 5px 5px 5px 10px;
+    transition: all 0.3s;
+
+    &:focus {
+      outline: none;
+      border: 1px solid #0073ff;
+      box-shadow: 0 0 10px #0073ff;
+    }
+  }
+
+  &_btn {
+    @extend %btn_text;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 10px 15px;
+    border: 1px solid #999;
+    border-radius: 5px;
+    transition: all 0.3s;
+
+    &:hover {
+      border: 1px solid #0073ff;
+      box-shadow: 0 0 10px #0073ff;
+    }
+
+    &:active {
+      box-shadow: none;
+    }
+  }
+
+  &_select_wrap {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+}
