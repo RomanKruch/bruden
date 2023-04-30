@@ -1,4 +1,4 @@
-import Logo from "../../AI/Logo/Logo";
+import Logo from "../../UI/Logo/Logo";
 import NavBar from "../../components/NavBar/NavBar";
 import OtherNav from "../../components/OtherNav";
 import "./Header.scss";

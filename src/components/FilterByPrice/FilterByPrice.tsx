@@ -1,47 +1,56 @@
 import { useState } from 'react';
 import Slider from '@mui/material/Slider';
-import SectionTitle from '../../AI/SectionTitle/SectionTitle';
+import SectionTitle from '../../UI/SectionTitle/SectionTitle';
 import { TPriceFilterValue } from '../../types/Types';
 import './FilterByPrice.scss';
 
 interface IProps {
-    setPriceFilterValue: React.Dispatch<React.SetStateAction<TPriceFilterValue>>;
+  setPriceFilterValue: React.Dispatch<React.SetStateAction<TPriceFilterValue>>;
 }
 
-const FilterByPrice = ({ setPriceFilterValue }: IProps) => { 
-    const [value, setValue] = useState([0, 9999]);
-    
-    const labelFormat = (labelValue: number) => {
-        return `${labelValue}$`
-    }
+const FilterByPrice = ({ setPriceFilterValue }: IProps) => {
+  const [value, setValue] = useState([0, 9999]);
 
-    const handleChange = (event: Event, newValue: number | TPriceFilterValue) => {
-        setValue(newValue as TPriceFilterValue);
-    };
+  const labelFormat = (labelValue: number) => {
+    return `${labelValue}$`;
+  };
 
-    return (
+  const handleChange = (event: Event, newValue: number | TPriceFilterValue) => {
+    setValue(newValue as TPriceFilterValue);
+  };
+
+  return (
     <div className="filterByPrice">
-        <SectionTitle text='Filter by price' className='filterByPrice_title'/>
+      <SectionTitle text="Filter by price" className="filterByPrice_title" />
 
-        <Slider
-            max={9999}
-            value={value}
-            onChange={handleChange}
-            valueLabelDisplay="auto"
-            valueLabelFormat={labelFormat}
-            size='small'
-            sx={{
-                color: '#7F7F7F',
-                marginBottom: '20px',
-                '& .MuiSlider-thumb': {
-                    color: '#292A33'
-                },
-            }}
-        />
+      <Slider
+        max={9999}
+        value={value}
+        onChange={handleChange}
+        valueLabelDisplay="auto"
+        valueLabelFormat={labelFormat}
+        size="small"
+        sx={{
+          color: '#7F7F7F',
+          marginBottom: '20px',
+          '& .MuiSlider-thumb': {
+            color: '#292A33',
+          },
+        }}
+      />
 
-        <button type='button' className='filterByPrice_btn' onClick={() =>  setPriceFilterValue(value)}>filter</button>
-        <p className='filterByPrice_price'>Price: ${value[0]} - ${value[1]}</p>
+      <button
+        type="button"
+        className="filterByPrice_btn"
+        onClick={() => setPriceFilterValue(value)}
+      >
+        filter
+      </button>
+      <p className="filterByPrice_price">
+        Price: ${value[0]} - ${value[1]}
+      </p>
     </div>
-)};
+  );
+};
 
 export default FilterByPrice;

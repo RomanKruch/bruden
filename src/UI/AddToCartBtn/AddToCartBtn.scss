@@ -1,0 +1,32 @@
+.addToCartBtn {
+  // width: 105px;
+  padding: 8px 14px;
+  // height: 30px;
+  background: #292a33;
+  border: 1px solid #292a33;
+
+  font-family: 'Josefin Sans';
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  letter-spacing: 0.1em;
+  text-transform: capitalize;
+  color: #ffffff;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: #ffffff;
+    color: #292a33;
+  }
+
+  &:active {
+    background: #292a33;
+    color: #ffffff;
+  }
+
+  @media (max-width: 767px) {
+    padding: 6px 12px;
+    font-size: 12px;
+    line-height: 12px;
+  }
+}

@@ -1,7 +1,15 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { onSignUp, onLogin, onLogout, onRefresh, onAddProduct, onDeleteProduct, onAddToLike, onDeleteFromLike } from './userOperations';
+import {
+  onSignUp,
+  onLogin,
+  onLogout,
+  onRefresh,
+  onAddProduct,
+  onDeleteProduct,
+  onAddToLike,
+  onDeleteFromLike,
+} from './userOperations';
 import { IUserState } from '../../types/Types';
-
 
 const initialState: IUserState = {
   userInfo: {
@@ -13,17 +21,21 @@ const initialState: IUserState = {
   isRefreshing: false,
   isLogged: false,
   cart: [],
-  liked: []
+  liked: [],
 };
 
 const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    onChangeQty(state,  {payload}: PayloadAction<{id: string, value: number}>){
-      
-       state.cart = state.cart.map(item => item._id === payload.id ? {...item, qty: payload.value}: item)
-      }
+    onChangeQty(
+      state,
+      { payload }: PayloadAction<{ id: string; value: number }>,
+    ) {
+      state.cart = state.cart.map(item =>
+        item._id === payload.id ? { ...item, qty: payload.value } : item,
+      );
+    },
   },
   extraReducers: builder => {
     builder
@@ -61,7 +73,7 @@ const userSlice = createSlice({
         token: payload.token,
         isLogged: true,
         cart: payload.cart,
-        liked: payload.liked
+        liked: payload.liked,
       }))
 
       .addCase(onLogin.rejected, state => ({
@@ -87,34 +99,34 @@ const userSlice = createSlice({
         isLogged: true,
         isRefreshing: false,
       }))
-      
+
       .addCase(onRefresh.rejected, state => ({
         ...state,
         isRefreshing: false,
       }))
 
-      .addCase(onAddProduct.fulfilled, (state, {payload }) => ({
+      .addCase(onAddProduct.fulfilled, (state, { payload }) => ({
         ...state,
-        cart: [...state.cart, payload]
+        cart: [...state.cart, payload],
       }))
 
-      .addCase(onDeleteProduct.fulfilled, (state, {payload}) => ({
+      .addCase(onDeleteProduct.fulfilled, (state, { payload }) => ({
         ...state,
-        cart: state.cart.filter(item => item._id !== payload)
+        cart: state.cart.filter(item => item._id !== payload),
       }))
 
-      .addCase(onAddToLike.fulfilled, (state, {payload }) => ({
+      .addCase(onAddToLike.fulfilled, (state, { payload }) => ({
         ...state,
-        liked: [...state.liked, payload]
+        liked: [...state.liked, payload],
       }))
 
-      .addCase(onDeleteFromLike.fulfilled, (state, {payload}) => ({
+      .addCase(onDeleteFromLike.fulfilled, (state, { payload }) => ({
         ...state,
-        liked: state.liked.filter(item => item._id !== payload)
-      }))
-    }
+        liked: state.liked.filter(item => item._id !== payload),
+      }));
+  },
 });
 
-export const { onChangeQty } = userSlice.actions
+export const { onChangeQty } = userSlice.actions;
 
 export default userSlice.reducer;

@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import AddToCartBtn from '../../AI/AddToCartBtn/AddToCartBtn';
+import AddToCartBtn from '../../UI/AddToCartBtn/AddToCartBtn';
 import { IProduct } from '../../types/Types';
-import Modal from '../../AI/Modal/Modal';
+import Modal from '../../UI/Modal/Modal';
 import './ProductModal.scss'
 
 interface IProps {

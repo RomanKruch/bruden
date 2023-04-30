@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import SectionTitle from "../../AI/SectionTitle/SectionTitle";
+import SectionTitle from "../../UI/SectionTitle/SectionTitle";
 import ShopByCategorySliderItem from "../../components/ShopByCategoryItem/ShopByCategoryItem";
 import './ShopByCategory.scss';
 

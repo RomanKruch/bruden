@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { onAddToLike, onDeleteFromLike } from "../../redux/user/userOperations";
 import { IProduct } from "../../types/Types";
 import { IState } from "../../redux/store";
-import IconBtn from "../../AI/IconBtn/IconBtn";
+import IconBtn from "../../UI/IconBtn/IconBtn";
 import { Link } from "react-router-dom";
 
 interface IProps {

@@ -1,6 +1,6 @@
 import { nanoid } from "nanoid";
 import { useState, useEffect } from 'react';
-import SectionTitle from "../../AI/SectionTitle/SectionTitle";
+import SectionTitle from "../../UI/SectionTitle/SectionTitle";
 import DealOfWeekItem from "../../components/DealOfWeekItem/DealOfWeekItem";
 import './DealOfWeek.scss';
 

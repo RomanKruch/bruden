@@ -1,4 +1,4 @@
-import IconBtn from "../../AI/IconBtn/IconBtn";
+import IconBtn from "../../UI/IconBtn/IconBtn";
 import { IProduct } from "../../types/Types";
 import { Link } from "react-router-dom";
 import { onAddProduct } from "../../redux/user/userOperations";

@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid';
 import { useRef } from 'react';
-import SectionTitle from '../../AI/SectionTitle/SectionTitle';
+import SectionTitle from '../../UI/SectionTitle/SectionTitle';
 import imgRef1 from '../../../../../images/lastNews/Latest-news1.png'
 import imgRef2 from '../../../../../images/lastNews/Latest-news2.png'
 import imgRef3 from '../../../../../images/lastNews/Latest-news3.png'

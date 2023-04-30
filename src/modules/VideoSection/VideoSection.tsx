@@ -1,5 +1,5 @@
 import videoImgRef from '../../assets/images/videoSection/videoSection.png' 
-import ShopNowBtn from '../../AI/ShopNowBtn/ShopNowBtn';
+import ShopNowBtn from '../../UI/ShopNowBtn/ShopNowBtn';
 import './VideoSection.scss'
 
 const VideoSection = () => (

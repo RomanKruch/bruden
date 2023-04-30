@@ -1,22 +1,24 @@
 @import '../../constants/variables.scss';
 
 .burger {
-  width: 100vw;
+  width: 0;
   height: calc(100vh - 57.8px);
   background: #fff;
   position: absolute;
   top: 57.8px;
-  right: -100%;
+  right: 0;
   transition: all 0.3s;
-  padding: 40px 15px;
+  padding: 40px 0;
   z-index: 999;
+  overflow: hidden;
 
   @media (min-width: 768px) {
     display: none;
   }
 
   &-open {
-    right: 0;
+    padding: 40px 15px;
+    width: 100vw;
   }
 
   &_navigation {

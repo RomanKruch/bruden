@@ -1,4 +1,4 @@
-import AddToCartBtn from "../../AI/AddToCartBtn/AddToCartBtn";
+import AddToCartBtn from "../../UI/AddToCartBtn/AddToCartBtn";
 import LikeBtn from "../LikeBtn/LikeBtn";
 import EyeBtn from "../EyeBtn/EyeBtn";
 import { IProduct } from "../../types/Types";

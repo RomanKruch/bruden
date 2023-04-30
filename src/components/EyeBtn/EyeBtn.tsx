@@ -1,7 +1,7 @@
 import { ReactComponent as Eye } from "../../assets/icons/dealOfWeek/Deal-of-the-week-eye.svg";
 import { useState } from "react";
 import { IProduct } from "../../types/Types"
-import IconBtn from "../../AI/IconBtn/IconBtn";
+import IconBtn from "../../UI/IconBtn/IconBtn";
 import ProductModal from "../ProductModal/ProductModal";
 
 interface IProps {

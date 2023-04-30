@@ -1,4 +1,4 @@
-import SectionTitle from '../../AI/SectionTitle/SectionTitle';
+import SectionTitle from '../../UI/SectionTitle/SectionTitle';
 import './SpecialProducts.scss';
 
 const SpecialProducts = () => (

@@ -1,4 +1,4 @@
-import ShopNowBtn from "../../AI/ShopNowBtn/ShopNowBtn";
+import ShopNowBtn from "../../UI/ShopNowBtn/ShopNowBtn";
 import imgRef from '../../assets/images/fitsAnyStyle/fits-any-style.png'
 import './FitsAnyStyle.scss'
 

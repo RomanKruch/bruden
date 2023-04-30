@@ -1,4 +1,4 @@
-import ShopNowBtn from "../../AI/ShopNowBtn/ShopNowBtn";
+import ShopNowBtn from "../../UI/ShopNowBtn/ShopNowBtn";
 import './HeroItem.scss';
 
 interface IProps {

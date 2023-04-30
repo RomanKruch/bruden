@@ -1,4 +1,4 @@
-import SectionTitle from "../../AI/SectionTitle/SectionTitle";
+import SectionTitle from "../../UI/SectionTitle/SectionTitle";
 import { ITag } from "../../types/Types";
 import { useDispatch } from "react-redux";
 import { onToggleTag } from "../../redux/tags/tagsSlice";
