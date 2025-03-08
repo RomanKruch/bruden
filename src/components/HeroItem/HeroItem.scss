@@ -1,0 +1,74 @@
+.heroItem {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  padding-left: 30px;
+
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+    padding-left: 0;
+    padding-bottom: 30px;
+    align-items: inherit;
+  }
+
+  &_subtitle {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 160%;
+    letter-spacing: 0.05em;
+    text-transform: lowercase;
+    color: #7f7f7f;
+
+    @media (max-width: 767px) {
+      font-size: 14px;
+      line-height: 140%;
+      text-align: center;
+    }
+  }
+
+  &_title {
+    font-family: 'Cormorant Garamond';
+    font-weight: 400;
+    font-size: 42px;
+    line-height: 130%;
+    letter-spacing: 0.07em;
+    text-transform: capitalize;
+    color: #292a33;
+    margin-bottom: 20px;
+
+    @media (max-width: 767px) {
+      font-size: 32px;
+      line-height: 110%;
+      text-align: center;
+    }
+  }
+
+  &_description {
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 160%;
+    letter-spacing: 0.1em;
+    color: #000000;
+    margin-bottom: 35px;
+
+    @media (max-width: 767px) {
+      font-size: 16px;
+      line-height: 140%;
+      text-align: center;
+    }
+  }
+
+  &_btn {
+    @media (max-width: 767px) {
+      margin: 0 auto;
+    }
+  }
+
+  img {
+    @media (max-width: 767px) {
+      width: 425px;
+      margin: 20px auto 0; 
+    }
+  }
+}

@@ -1,0 +1,16 @@
+.header {
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.7);
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &_logo {
+    @media (max-width: 999px) {
+      width: 100px;
+    }
+  }
+}

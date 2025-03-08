@@ -1,0 +1,39 @@
+@import '../../constants/variables.scss';
+
+.videoSection {
+  margin-bottom: 90px;
+
+  .container {
+    position: relative;
+  }
+
+  &_title {
+    max-width: 235px;
+    position: absolute;
+    top: 40px;
+    right: 40px;
+
+    @extend %h2;
+    text-align: right;
+    line-height: 160%;
+    color: #fff;
+
+    @media (max-width: 767px) {
+      top: 15px;
+      font-size: 18px;
+    }
+  }
+
+  &_btn {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+
+    @media (max-width: 767px) {
+      bottom: 15px;
+      font-size: 14px;
+      width: 130px;
+      height: 30px;
+    }
+  }
+}

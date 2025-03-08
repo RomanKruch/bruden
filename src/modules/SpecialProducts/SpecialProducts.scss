@@ -1,0 +1,58 @@
+@import '../../constants/variables.scss';
+
+.specialProducts {
+  &_subtitle {
+    margin: 60px 0 20px;
+    @extend %menu_text;
+    text-align: center;
+  }
+
+  &_form {
+    display: flex;
+    max-width: 560px;
+    height: 46px;
+    margin: 0 auto;
+
+    @media (max-width: 767px) {
+      padding-left: 15px;
+      height: 30px;
+    }
+  }
+
+  &_inp {
+    width: 100%;
+    padding-left: 30px;
+    border-width: 1px 0px 1px 1px;
+    border-style: solid;
+    border-color: #292a33;
+
+    @extend %menu_text;
+
+    &:focus {
+      outline: none;
+    }
+
+    @media (max-width: 767px) {
+      padding-left: 15px;
+    }
+  }
+
+  &_btn {
+    padding: 14px 28px;
+    background-color: #292a33;
+    @extend %btn_text;
+    color: #ffffff;
+    border: 1px solid transparent;
+    transition: all 0.3s;
+
+    &:hover {
+      border: 1px solid #292a33;
+      background: #fff;
+      color: #292a33;
+    }
+
+    @media (max-width: 767px) {
+      padding: 7px 14px;
+    }
+  }
+}

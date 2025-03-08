@@ -1,0 +1,46 @@
+.sortBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+
+    &_wrap {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    &_subtitle {
+        font-family: 'Josefin Sans';
+        font-weight: 300;
+        font-size: 18px;
+        line-height: 18px;
+        letter-spacing: 0.05em;
+        text-transform: capitalize;
+
+        @media (max-width: 767px) {
+            font-size: 14px;
+            line-height: 14px;
+        }
+    }
+
+    &_select {
+        font-family: 'Josefin Sans';
+        font-weight: 300;
+        font-size: 18px;
+        // line-height: 18px;
+        letter-spacing: 0.05em;
+        text-transform: capitalize;
+        color: #000;
+    }
+
+    &_select_item {
+        font-family: 'Josefin Sans';
+        font-weight: 300;
+        font-size: 18px;
+        line-height: 18px;
+        letter-spacing: 0.05em;
+        text-transform: capitalize;
+        color: #000
+    }
+}

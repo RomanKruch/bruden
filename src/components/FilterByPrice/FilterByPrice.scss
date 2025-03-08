@@ -1,0 +1,47 @@
+@import '../../constants/variables';
+
+.filterByPrice {
+  width: 260px;
+  margin-bottom: 30px;
+
+  &_title {
+    margin-bottom: 26px;
+    text-align: left;
+
+    &::after {
+      margin: 10px 0 0;
+    }
+  }
+
+  &_btn {
+    padding: 14px 28px;
+    width: 128px;
+    height: 46px;
+    border: 1px solid #292a33;
+    margin-bottom: 20px;
+
+    @extend %btn_text;
+    color: #292a33;
+    transition: all 0.3s;
+
+    &:hover {
+      border: 1px solid transparent;
+      background: #292a33;
+      color: #ffffff;
+    }
+
+    &:active {
+      border: 1px solid #292a33;
+      color: #292a33;
+      background-color: #ffffff;
+    }
+  }
+
+  &_price {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 160%;
+    letter-spacing: 0.05em;
+    text-transform: capitalize;
+  }
+}

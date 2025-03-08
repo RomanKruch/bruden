@@ -1,0 +1,15 @@
+@import '../../constants/variables.scss';
+
+.sectionTitle {
+  @extend %h2;
+  text-align: center;
+
+  &::after {
+    display: block;
+    content: '';
+    width: 100px;
+    margin: 10px auto 0;
+    height: 1px;
+    background-color: #de1616;
+  }
+}

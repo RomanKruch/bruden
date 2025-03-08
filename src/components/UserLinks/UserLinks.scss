@@ -1,0 +1,21 @@
+@import '../../constants/variables';
+
+.userLinks {
+  font-size: 30px;
+  text-align: center;
+  font-family: 'Josefin Sans';
+  font-weight: 300;
+  line-height: 35px;
+  letter-spacing: 0.05em;
+  text-transform: capitalize;
+  color: #000000;
+
+  @media (max-width: 767px) {
+    font-size: 24px;
+  }
+
+  &_link {
+    text-decoration: underline;
+    color: #1472ff;
+  }
+}

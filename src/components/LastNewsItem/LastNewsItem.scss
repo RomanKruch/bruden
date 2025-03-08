@@ -1,0 +1,47 @@
+.lastNewsItem {
+  width: 360px;
+  padding: 0 20px 20px;
+  position: relative;
+
+  &_data {
+    @extend %small_btn_text;
+    color: #7f7f7f;
+    transform: rotate(-90deg);
+    position: absolute;
+    top: 128px;
+    left: -60px;
+  }
+
+  &_img {
+    margin-bottom: 20px;
+  }
+
+  &_title {
+    width: 220px;
+    margin: 0 auto 10px;
+    font-family: 'Cormorant Garamond';
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 160%;
+    text-align: center;
+    letter-spacing: 0.1em;
+  }
+
+  &_description {
+    font-family: 'Josefin Sans';
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 160%;
+    letter-spacing: 0.05em;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+  }
+
+  &_link {
+    @extend %text_underline;
+    display: block;
+    width: 100%;
+    text-align: right;
+    color: #000000;
+  }
+}

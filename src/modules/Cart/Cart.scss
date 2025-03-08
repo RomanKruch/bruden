@@ -1,0 +1,129 @@
+@import '../../constants/variables.scss';
+
+.cart {
+  margin-bottom: 60px;
+
+  &_title {
+    @extend %h1;
+    text-align: center;
+    margin: 30px 50px;
+  }
+
+  &_wrapper {
+    border: 1px solid $grey;
+  }
+
+  &_header {
+    display: flex;
+    gap: 140px;
+    padding: 16px 25px;
+    border-bottom: 1px solid $grey;
+
+    @media (max-width: 767px) {
+      display: none;
+    }
+
+    &_wrap {
+      width: 40%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &_title {
+      @extend %menu_text;
+
+      &-main {
+        width: 60%;
+        text-align: center;
+      }
+    }
+  }
+
+  &_empty {
+    text-align: center;
+    padding: 30.5px 0;
+    @extend %h3;
+  }
+
+  &_footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 10px 25px;
+    border-top: 1px solid $grey;
+
+    &_form {
+      display: flex;
+
+      &_inp {
+        padding-left: 15px;
+        border-width: 1px 0px 1px 1px;
+        border-style: solid;
+        border-color: #292a33;
+
+        @extend %menu_text;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      &_btn {
+        padding: 8px 14px;
+        max-width: 140px;
+        height: 30px;
+        background: $black;
+        border: 1px solid transparent;
+
+        @extend %small_btn_text;
+        color: #ffffff;
+        transition: all 0.3s;
+
+        @media (max-width: 767px) {
+          padding: 6px 10px;
+        }
+
+        &:hover {
+          background-color: #ffffff;
+          border: 1px solid $black;
+          color: $black;
+        }
+
+        &:active {
+          background: $black;
+          color: #ffffff;
+          border: 1px solid transparent;
+        }
+      }
+    }
+
+    &_btn {
+      padding: 8px 14px;
+      height: 30px;
+      background: $black;
+      opacity: 0.5;
+      border: 1px solid transparent;
+
+      @extend %small_btn_text;
+      color: #ffffff;
+      transition: all 0.3s;
+
+      @media (max-width: 767px) {
+        padding: 6px 10px;
+      }
+
+      &:hover {
+        background-color: #ffffff;
+        border: 1px solid $black;
+        color: $black;
+      }
+
+      &:active {
+        background: $black;
+        color: #ffffff;
+        border: 1px solid transparent;
+      }
+    }
+  }
+}

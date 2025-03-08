@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Josefin+Sans:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
+
+$base-font: 'Josefin Sans', sans-serif;
+$second-font: 'Cormorant Garamond', serif;
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    font-family: $base-font;
+    position: relative;   
+    overflow-x: hidden
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #292A33;
+}
+
+button {
+      display: block;
+      border: 0;
+      background-color: transparent;
+      cursor: pointer;
+}
+
+main {
+    margin-bottom: 90px;
+}
+
+#modal_root {
+    position: absolute;
+    z-index: 999;
+}
+
+// #burger_root {
+//     position: absolute;
+//     z-index: 9;
+// }
+
+.container {
+    max-width: 1190px;
+    margin: 0 auto;
+    padding: 0 15px;
+}

@@ -1,0 +1,33 @@
+.burgerBtn {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  &::after,
+  &::before,
+  span {
+    width: 30px;
+    height: 2px;
+    content: '';
+    background-color: #333;
+    transition: all 0.3s;
+  }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+
+  &-open {
+    &::before {
+      transform: translateY(+7px) rotate(45deg);
+    }
+
+    span {
+      opacity: 0;
+    }
+
+    &::after {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+  }
+}

@@ -1,0 +1,56 @@
+@import '../../constants/variables.scss';
+
+.cartTotals {
+  max-width: 560px;
+  margin-left: auto;
+  border: 1px solid $grey;
+
+  @media (max-width: 767px) {
+    margin: 0 auto;
+  }
+
+  &_title {
+    padding: 18px 25px;
+    @extend %h3;
+    border-bottom: 1px solid $grey;
+  }
+
+  &_subtitle {
+    padding: 21px 25px;
+    @extend %menu_text;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $grey;
+  }
+
+  &_price {
+    @extend %price;
+  }
+
+  &_btn_wrap {
+    padding: 12px 24.5px;
+  }
+
+  &_btn {
+    height: 46px;
+    width: 100%;
+    background: $black;
+    border: 1px solid transparent;
+    @extend %btn_text;
+    color: #fff;
+    transition: all 0.3s;
+
+    &:hover {
+      background: #fff;
+      border: 1px solid $black;
+      color: $black;
+    }
+
+    &:active {
+      background: $black;
+      border: 1px solid transparent;
+      color: #fff;
+    }
+  }
+}

@@ -1,0 +1,54 @@
+@import '../../constants/variables.scss';
+
+.burger {
+  width: 0;
+  height: calc(100vh - 57.8px);
+  background: #fff;
+  position: absolute;
+  top: 57.8px;
+  right: 0;
+  transition: all 0.3s;
+  padding: 40px 0;
+  z-index: 999;
+  overflow: hidden;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+
+  &-open {
+    padding: 40px 15px;
+    width: 100vw;
+  }
+
+  &_navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+
+    @media (max-width: 424px) {
+      margin-bottom: 40px;
+    }
+  }
+
+  &_link {
+    @extend %menu_text;
+    font-size: 24px;
+    line-height: 24px;
+
+    &-active {
+      color: #de1616;
+    }
+  }
+
+  &_icons_wrap {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+
+    @media (min-width: 425px) {
+      display: none;
+    }
+  }
+}

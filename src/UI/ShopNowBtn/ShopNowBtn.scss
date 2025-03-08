@@ -1,0 +1,62 @@
+@import '../../constants/variables.scss';
+
+.shopNow_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 185px;
+  height: 48px;
+  @extend %btn_text;
+  transition: all 0.3s;
+
+  @media (max-width: 767px) {
+    width: 155px;
+    height: 32px;
+    font-size: 14px;
+    line-height: 14px;
+  }
+}
+
+.black_shopNow_btn {
+  border: 1px solid transparent;
+  background: #292a33;
+  color: #ffffff;
+
+  &:hover {
+    border: 1px solid #292a33;
+    background: #fff;
+    color: #292a33;
+  }
+}
+
+.white_shopNow_btn {
+  border: 1px solid #292a33;
+  color: #292a33;
+  background-color: #fff;
+
+  &:hover {
+    border: 1px solid transparent;
+    background: #292a33;
+    color: #ffffff;
+  }
+}
+
+.transparentWhite_shopNow_btn {
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+
+  &:hover {
+    background-color: #ffffff40;
+  }
+}
+
+.transparentBlack_shopNow_btn {
+  background-color: transparent;
+  border: 1px solid #292a33;
+  color: #292a33;
+
+  &:hover {
+    background-color: #292a3340;
+  }
+}

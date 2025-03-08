@@ -1,0 +1,26 @@
+@import '../../constants/variables.scss';
+
+.navigation {
+  display: flex;
+  gap: 40px;
+
+  @media (max-width: 999px) {
+    gap: 18px;
+  }
+
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
+.nav_link {
+  @extend %menu_text;
+
+  &-active {
+    color: #de1616;
+  }
+
+  @media (max-width: 999px) {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,56 @@
+@import '../../constants/variables';
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+
+  &_wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+  }
+
+  &_name {
+    @extend %h3;
+    font-size: 32px;
+    font-weight: 700;
+
+    @media (max-width: 900px) {
+      font-size: 26px;
+    }
+  }
+
+  &_email {
+    @extend %menu_text;
+    text-transform: none;
+    font-size: 28px;
+
+    @media (max-width: 900px) {
+      font-size: 22px;
+    }
+  }
+
+  &_btn {
+    display: flex;
+    gap: 10px;
+    @extend %btn_text;
+    line-height: 24px;
+    font-weight: 400;
+    padding: 10px 8px;
+    border-radius: 10px;
+    transition: all 0.4s;
+
+    &:hover {
+      background: #d7d7d7;
+    }
+
+    &:active {
+      background: #a0a0a0;
+    }
+  }
+}
