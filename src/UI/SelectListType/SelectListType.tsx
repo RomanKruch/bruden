@@ -1,7 +1,7 @@
-import { ReactComponent as Grid } from '../../assets/icons/shop/grid-icon.svg';
-import { ReactComponent as GridActive } from '../../assets/icons/shop/grid-icon-active.svg';
-import { ReactComponent as List } from '../../assets/icons/shop/list-icon.svg';
-import { ReactComponent as ListActive } from '../../assets/icons/shop/list-icon-active.svg';
+import  Grid  from '../../assets/icons/shop/grid-icon.svg?react';
+import  GridActive  from '../../assets/icons/shop/grid-icon-active.svg?react';
+import  List  from '../../assets/icons/shop/list-icon.svg?react';
+import  ListActive  from '../../assets/icons/shop/list-icon-active.svg?react';
 import { TListView } from '../../types/Types';
 
 interface IProps {

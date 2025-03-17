@@ -58,32 +58,17 @@ const Shop = () => {
 
     axios
       .get(
-        `/products?page=${currentPage}&perPage=${perPage}&filter=${priceFilterValue.join(
+        `/products?page=${currentPage}&limit=${perPage}&filter=${priceFilterValue.join(
           '|',
         )}${
           activeTags.length ? `&tags=${activeTags.join('|')}` : ''
         }${sortOpt}`,
       )
       .then(({ data }) => {
-        setProducts(data.data.products);
-        setLimit(data.data.totalPages);
+        setProducts(data.products);
+        setLimit(data.total);
       });
   }, [currentPage, listView, priceFilterValue, tags, sortValue]);
-
-  // const filteredByPrice = products?.filter(item => item.price>priceFilterValue[0] && item.price<priceFilterValue[1]);
-  // const tagsEmpty = tags.some(tag => tag.active);
-  // const filteredByTags = tagsEmpty ? filteredByPrice.filter(item => tags.some(tag => tag.tag === item.tag && tag.active)) : filteredByPrice;
-
-  // switch (sortValue) {
-  //     case 'priceUp' :
-  //         filteredByTags.sort((a, b) => a.price - b.price);
-  //         break;
-  //     case 'priceDown' :
-  //         filteredByTags.sort((a, b) => b.price - a.price);
-  //         break;
-  //     case 'rating' :
-  //         break;
-  // }
 
   return (
     <section className="shop">

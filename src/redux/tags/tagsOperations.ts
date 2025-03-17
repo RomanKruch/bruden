@@ -7,8 +7,8 @@ import { ITag } from "../../types/Types";
 export const onGetTags = createAsyncThunk<ITag[], void, {rejectValue: null}>('tags',
     async (_, {rejectWithValue}) => {
         try {
-            const { data } = await axios.get('/tag');
-            return data.data.tags.map((tag: ITag) => ({...tag, active: false}));
+            const { data } = await axios.get('/tags');
+            return data.map((tag: ITag) => ({...tag, active: false}));
         } catch {
             // NotificationManager.warning('User error :(', '', 5000);
             return rejectWithValue(null);

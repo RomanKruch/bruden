@@ -1,4 +1,4 @@
-import { ReactComponent as Eye } from "../../assets/icons/dealOfWeek/Deal-of-the-week-eye.svg";
+import  Eye  from "../../assets/icons/dealOfWeek/Deal-of-the-week-eye.svg?react";
 import { useState } from "react";
 import { IProduct } from "../../types/Types"
 import IconBtn from "../../UI/IconBtn/IconBtn";

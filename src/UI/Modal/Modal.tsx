@@ -1,3 +1,4 @@
+import { JSX } from 'react';
 import './Modal.scss';
 import { createPortal } from 'react-dom';
 const modalRoot = document.getElementById('modal_root') as HTMLElement;

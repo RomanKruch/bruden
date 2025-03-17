@@ -1,6 +1,6 @@
 import Logo from "../../UI/Logo/Logo";
 import { Link } from "react-router-dom";
-import {ReactComponent as Instagram} from '../../assets/icons/Header/instagram-icon.svg';
+import  Instagram from '../../assets/icons/Header/instagram-icon.svg?react';
 import './Footer.scss'
 
 

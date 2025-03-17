@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay } from "swiper";
+// import { Pagination, Autoplay } from "swiper";
 import { nanoid } from "nanoid";
 import hero1 from "../../assets/images/hero/hero1.png";
 import hero2 from '../../assets/images/hero/hero2.png';
@@ -23,7 +23,7 @@ const Hero = () => {
                             bulletClass: "pag_item",
                             bulletActiveClass: 'pag_item-active',
                         }}
-                        modules={[Pagination, Autoplay]}
+                        // modules={[Pagination, Autoplay]}
                         spaceBetween={0}
                         className="hero_slider"
                         autoplay={{

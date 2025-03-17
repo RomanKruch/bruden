@@ -5,7 +5,7 @@ import DealOfWeekItem from "../../components/DealOfWeekItem/DealOfWeekItem";
 import './DealOfWeek.scss';
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper";
+// import { Navigation } from "swiper";
 import SliderControls from "../../components/SliderControls/SliderControls";
 import { IProduct } from "../../types/Types";
 import axios from "axios";
@@ -41,7 +41,7 @@ const DealOfWeek = () => {
                         slidesPerView: 1
                     }
                 }}
-                modules={[Navigation]}
+                // modules={[Navigation]}
                 slidesPerView={2} 
                 className="dealOfWeek_slider"
             >

@@ -1,5 +1,5 @@
-import {ReactComponent as Left} from '../../assets/icons/shopByCategory/left-btn.svg';
-import {ReactComponent as Right} from '../../assets/icons/shopByCategory/right-btn.svg';
+import  Left from '../../assets/icons/shopByCategory/left-btn.svg?react';
+import  Right from '../../assets/icons/shopByCategory/right-btn.svg?react';
 import "./SliderControls.scss";
 
 interface IProps {

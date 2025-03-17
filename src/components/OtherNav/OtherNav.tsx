@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import { ReactComponent as Instagram } from '../../assets/icons/Header/instagram-icon.svg';
-import { ReactComponent as Search } from '../../assets/icons/Header/search-icon.svg';
-import { ReactComponent as Auth } from '../../assets/icons/Header/auth-icon.svg';
-import { ReactComponent as Cart } from '../../assets/icons/Header/cart-icon.svg';
+import Instagram  from '../../assets/icons/Header/instagram-icon.svg?react';
+import Search from '../../assets/icons/Header/search-icon.svg?react';
+import Auth  from '../../assets/icons/Header/auth-icon.svg?react';
+import Cart  from '../../assets/icons/Header/cart-icon.svg?react';
 import { useSelector } from 'react-redux';
 import { IState } from '../../redux/store';
 import BurgerBtn from '../../modules/BurgerBtn/BurgerBtn';

@@ -4,7 +4,7 @@ import ShopByCategorySliderItem from "../../components/ShopByCategoryItem/ShopBy
 import './ShopByCategory.scss';
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper";
+// import { Navigation } from "swiper";
 import SliderControls from '../../components/SliderControls/SliderControls';
 import { nanoid } from 'nanoid';
 
@@ -38,7 +38,7 @@ const ShopByCategory = () => {
                     prevEl: `.${PREV_CLASS}`
                 }}
                 spaceBetween={40}
-                modules={[Navigation]}
+                // modules={[Navigation]}
                 slidesPerView={3} 
                 breakpoints={{
                     1000: {

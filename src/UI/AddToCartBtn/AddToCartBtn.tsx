@@ -6,7 +6,7 @@ import { IProduct } from '../../types/Types';
 import { Link } from 'react-router-dom';
 
 interface IProps {
-  className?: String;
+  className?: string;
   qty?: number;
   product: IProduct;
 }
