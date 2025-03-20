@@ -4,10 +4,8 @@ import {
   onLogin,
   onLogout,
   onRefresh,
-  onAddProduct,
-  onDeleteProduct,
-  onAddToLike,
-  onDeleteFromLike,
+  onLikeProduct,
+  onUserCart
 } from './userOperations';
 import { IUserState } from '../../types/Types';
 
@@ -47,8 +45,8 @@ const userSlice = createSlice({
       .addCase(onSignUp.fulfilled, (_, { payload }) => ({
         ...initialState,
         userInfo: {
-          name: payload.user.name,
-          email: payload.user.email,
+          name: payload.name,
+          email: payload.email,
         },
         token: payload.token,
         isLogged: true,
@@ -67,8 +65,8 @@ const userSlice = createSlice({
       .addCase(onLogin.fulfilled, (_, { payload }) => ({
         ...initialState,
         userInfo: {
-          name: payload.user.name,
-          email: payload.user.email,
+          name: payload.name,
+          email: payload.email,
         },
         token: payload.token,
         isLogged: true,
@@ -92,7 +90,10 @@ const userSlice = createSlice({
 
       .addCase(onRefresh.fulfilled, (_, { payload }) => ({
         ...initialState,
-        userInfo: payload.userInfo,
+        userInfo: {
+          name: payload.name,
+          email: payload.email,
+        },
         token: payload.token,
         cart: payload.cart,
         liked: payload.liked,
@@ -105,25 +106,33 @@ const userSlice = createSlice({
         isRefreshing: false,
       }))
 
-      .addCase(onAddProduct.fulfilled, (state, { payload }) => ({
-        ...state,
-        cart: [...state.cart, payload],
-      }))
+      .addCase(onLikeProduct.fulfilled, (state, { payload }) => {
+        if (typeof payload === 'string') {
+          return {
+            ...state,
+            liked: state.liked.filter(item => item._id !== payload),
+          };
+        }
 
-      .addCase(onDeleteProduct.fulfilled, (state, { payload }) => ({
-        ...state,
-        cart: state.cart.filter(item => item._id !== payload),
-      }))
+        return {
+          ...state,
+          liked: [...state.liked, payload],
+        };
+      })
 
-      .addCase(onAddToLike.fulfilled, (state, { payload }) => ({
-        ...state,
-        liked: [...state.liked, payload],
-      }))
+      .addCase(onUserCart.fulfilled, (state, { payload }) => {
+        if (typeof payload === 'string') {
+          return {
+            ...state,
+            cart: state.cart.filter(item => item._id !== payload),
+          };
+        }
 
-      .addCase(onDeleteFromLike.fulfilled, (state, { payload }) => ({
-        ...state,
-        liked: state.liked.filter(item => item._id !== payload),
-      }));
+        return {
+          ...state,
+          cart: [...state.cart, payload],
+        };
+      })
   },
 });
 

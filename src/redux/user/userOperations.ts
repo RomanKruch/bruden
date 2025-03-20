@@ -28,8 +28,8 @@ export const onSignUp = createAsyncThunk<
 >('user/signUp', async (userInfo, { rejectWithValue }) => {
   try {
     const { data } = await axios.post('/auth/register', userInfo);
-    token.set(data.data.token);
-    return data.data;
+    token.set(data.token);
+    return data;
   } catch {
     // NotificationManager.warning('User error :(', '', 5000);
     return rejectWithValue(null);
@@ -43,11 +43,10 @@ export const onLogin = createAsyncThunk<
 >('user/login', async (userInfo, { rejectWithValue }) => {
   try {
     const { data } = await axios.post('/auth/login', userInfo);
-    token.set(data.data.token);
+    token.set(data.token);
     return {
-      ...data.data,
-      cart: data.data.cart.map((item: IProduct) => ({ ...item, qty: 1 })),
-      liked: data.data.liked,
+      ...data,
+      cart: data.cart.map((item: IProduct) => ({ ...item, qty: 1 })),
     };
   } catch {
     // NotificationManager.warning('User not found', '', 5000);
@@ -81,14 +80,10 @@ export const onRefresh = createAsyncThunk<
 
   try {
     token.set(persistToken);
-    const {
-      data: { data },
-    } = await axios.get('/auth/refresh');
+    const { data } = await axios.get('/auth/refresh');
     return {
-      userInfo: { ...data.user },
-      token: persistToken,
+      ...data,
       cart: data.cart.map((item: IProduct) => ({ ...item, qty: 1 })),
-      liked: data.liked,
     };
   } catch {
     return rejectWithValue(null);
@@ -99,7 +94,7 @@ export const onAddProduct = createAsyncThunk<
   ICartProduct,
   TOnAddProduct,
   { rejectValue: null }
->('cart_addProduct', async ([productId, qty = 1], { rejectWithValue }) => {
+>('cart/addProduct', async ([productId, qty = 1], { rejectWithValue }) => {
   try {
     const { data } = await axios.post('/cart', { productId });
     return {
@@ -116,7 +111,7 @@ export const onDeleteProduct = createAsyncThunk<
   string,
   string,
   { rejectValue: null }
->('cart_deleteProduct', async (productId, { rejectWithValue }) => {
+>('cart/deleteProduct', async (productId, { rejectWithValue }) => {
   try {
     await axios.delete(`/cart/${productId}`);
     return productId;
@@ -125,28 +120,60 @@ export const onDeleteProduct = createAsyncThunk<
   }
 });
 
-export const onAddToLike = createAsyncThunk<
-  IProduct,
+export const onLikeProduct = createAsyncThunk<
+  IProduct | string,
   string,
   { rejectValue: null }
->('liked_addProduct', async (productId, { rejectWithValue }) => {
+>('user/likeProduct', async (productId, { rejectWithValue }) => {
   try {
-    const { data } = await axios.post('/liked', { productId });
-    return data.data.newProduct;
-  } catch (e) {
+    const { data } = await axios.post(`/users/like/${productId}`);
+    if (data.id) {
+      return data.id;
+    }
+    return data;
+  } catch {
     return rejectWithValue(null);
   }
 });
 
-export const onDeleteFromLike = createAsyncThunk<
-  string,
-  string,
+export const onUserCart = createAsyncThunk<
+  ICartProduct | string,
+  TOnAddProduct,
   { rejectValue: null }
->('liked_deleteProduct', async (productId, { rejectWithValue }) => {
+>('user/cart', async ([productId, qty = 1], { rejectWithValue }) => {
   try {
-    await axios.delete(`/liked/${productId}`);
-    return productId;
-  } catch (e) {
+    const { data } = await axios.post(`/users/cart/${productId}`);
+    if (data.id) {
+      return data.id;
+    }
+    return { ...data, qty };
+  } catch {
     return rejectWithValue(null);
   }
 });
+
+// export const onAddToLike = createAsyncThunk<
+//   IProduct,
+//   string,
+//   { rejectValue: null }
+// >('liked/addProduct', async (productId, { rejectWithValue }) => {
+//   try {
+//     const { data } = await axios.post('/liked', { productId });
+//     return data.data.newProduct;
+//   } catch (e) {
+//     return rejectWithValue(null);
+//   }
+// });
+
+// export const onDeleteFromLike = createAsyncThunk<
+//   string,
+//   string,
+//   { rejectValue: null }
+// >('liked/deleteProduct', async (productId, { rejectWithValue }) => {
+//   try {
+//     await axios.delete(`/liked/${productId}`);
+//     return productId;
+//   } catch (e) {
+//     return rejectWithValue(null);
+//   }
+// });

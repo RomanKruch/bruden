@@ -18,7 +18,7 @@ const DealOfWeek = () => {
 
     useEffect(() => {
         axios.get('/products')
-        .then(({ data }) => setProducts(data.data.products))
+        .then(({ data }) => setProducts(data.products))
     }, [])
 
     return (

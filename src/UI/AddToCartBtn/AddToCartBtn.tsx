@@ -1,6 +1,6 @@
 import './AddToCartBtn.scss';
 import { useSelector, useDispatch } from 'react-redux';
-import { onAddProduct } from '../../redux/user/userOperations';
+import { onUserCart } from '../../redux/user/userOperations';
 import { IState } from '../../redux/store';
 import { IProduct } from '../../types/Types';
 import { Link } from 'react-router-dom';
@@ -18,12 +18,16 @@ const AddToCartBtn = ({ className = '', qty = 1, product }: IProps) => {
   const isLogged = useSelector((state: IState) => state.user.isLogged);
   const dispatch = useDispatch();
 
+  const onCartBtn = () => {
+    dispatch<any>(onUserCart([product._id, qty]))
+  }
+
   return isLogged ? (
     !isInCart ? (
       <button
         type="button"
         className={`addToCartBtn ${className}`}
-        onClick={() => dispatch<any>(onAddProduct([product._id, qty]))}
+        onClick={onCartBtn}
       >
         Add to cart
       </button>

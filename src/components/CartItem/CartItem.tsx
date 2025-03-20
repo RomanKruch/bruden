@@ -1,7 +1,7 @@
 import { IProduct } from "../../types/Types";
 import { onChangeQty } from "../../redux/user/userSlice";
 import { useDispatch } from 'react-redux';
-import { onDeleteProduct } from "../../redux/user/userOperations";
+import { onDeleteProduct, onUserCart } from "../../redux/user/userOperations";
 import './CartItem.scss';
 
 interface ILocalState {
@@ -22,10 +22,14 @@ const CartItem = ({ product }: ILocalState) => {
         dispatch(onChangeQty({id: _id, value}));
     }
 
+    const onCartBtn = () => {
+        dispatch<any>(onUserCart([product._id]))
+    }
+
     return (
         <li className="cartItem">
             <div className="cartItem_contentWrap">
-                <button className="cartItem_btn" onClick={() => dispatch<any>(onDeleteProduct(product._id))}>X</button>
+                <button className="cartItem_btn" onClick={onCartBtn}>X</button>
                 <img src={img.small.ref} alt="" width='60' height='60'/>
                 <h3 className="cartItem_title">{title}</h3>
             </div>

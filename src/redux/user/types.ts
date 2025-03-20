@@ -1,11 +1,11 @@
 import { ICartProduct, IProduct } from '../../types/Types';
 
 export interface ISign {
-  user: {
-    name: string;
-    email: string;
-  };
+  name: string;
+  email: string;
   token: string;
+  cart: ICartProduct[];
+  liked: IProduct[];
 }
 
 export interface IUserInfoSing {
@@ -15,10 +15,8 @@ export interface IUserInfoSing {
 }
 
 export interface ILogin {
-  user: {
-    name: string;
-    email: string;
-  };
+  name: string;
+  email: string;
   token: string;
   cart: ICartProduct[];
   liked: IProduct[];
@@ -29,10 +27,8 @@ export interface IUserInfo {
 }
 
 export interface IRefresh {
-  userInfo: {
-    name: string;
-    email: string;
-  };
+  name: string;
+  email: string;
   token: string;
   cart: ICartProduct[];
   liked: IProduct[];

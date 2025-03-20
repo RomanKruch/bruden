@@ -1,7 +1,7 @@
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useDispatch, useSelector } from 'react-redux';
-import { onAddToLike, onDeleteFromLike } from "../../redux/user/userOperations";
+import { onLikeProduct } from "../../redux/user/userOperations";
 import { IProduct } from "../../types/Types";
 import { IState } from "../../redux/store";
 import IconBtn from "../../UI/IconBtn/IconBtn";
@@ -17,11 +17,7 @@ const LikeBtn = ({ product }:IProps) => {
     const dispatch = useDispatch();
 
     const onClick = () => {
-        if (isInLiked) {
-            dispatch<any>(onDeleteFromLike(product._id))
-        } else {
-            dispatch<any>(onAddToLike(product._id))
-        }
+        dispatch<any>(onLikeProduct(product._id))
     }
     
     return  isLogged ? 
