@@ -1,6 +1,6 @@
 import SectionTitle from "../../UI/SectionTitle/SectionTitle";
 import { ITag } from "../../types/Types";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../redux/hooks";
 import { onToggleTag } from "../../redux/tags/tagsSlice";
 import './ProductTag.scss';
 
@@ -9,9 +9,9 @@ interface IProps {
 }
 
 const ProductTag = ({ tags }: IProps) => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const onClick = (idToToggle: string) => {
-        dispatch<any>(onToggleTag(idToToggle))
+        dispatch(onToggleTag(idToToggle))
     }
 
     return (

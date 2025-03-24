@@ -2,8 +2,7 @@ import IconBtn from "../../UI/IconBtn/IconBtn";
 import { IProduct } from "../../types/Types";
 import { Link } from "react-router-dom";
 import { onUserCart } from "../../redux/user/userOperations";
-import { IState } from "../../redux/store";
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
@@ -12,12 +11,12 @@ interface IProps {
 }
 
 const CartBtn = ({  product }: IProps) => {
-    const isInCart = useSelector((state: IState) => state.user.cart.some(item => item._id === product._id));
-    const isLogged = useSelector((state: IState) => state.user.isLogged);
-    const dispatch = useDispatch();
+    const isInCart = useAppSelector(state => state.user.cart.some(item => item._id === product._id));
+    const isLogged = useAppSelector(state => state.user.isLogged);
+    const dispatch = useAppDispatch();
 
     const onCartBtn = () => {
-        dispatch<any>(onUserCart([product._id]))
+        dispatch(onUserCart([product._id]))
     }
     
     return isLogged ? 

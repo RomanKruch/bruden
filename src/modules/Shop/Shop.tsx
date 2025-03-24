@@ -11,9 +11,8 @@ import {
   TPriceFilterValue,
   IProduct,
 } from '../../types/Types';
-import { useSelector, useDispatch } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { onGetTags } from '../../redux/tags/tagsOperations';
-import { IState } from '../../redux/store';
 import './Shop.scss';
 import axios from 'axios';
 
@@ -27,12 +26,12 @@ const Shop = () => {
   const [limit, setLimit] = useState<number | null>(null);
   const [products, setProducts] = useState<IProduct[]>([]);
 
-  const dispatch = useDispatch();
-  const tags = useSelector((state: IState) => state.tags);
+  const dispatch = useAppDispatch();
+  const tags = useAppSelector(state => state.tags);
 
   useEffect(() => {
     if (!tags.length) {
-      dispatch<any>(onGetTags());
+      dispatch(onGetTags());
     }
   }, [dispatch, tags.length]);
 

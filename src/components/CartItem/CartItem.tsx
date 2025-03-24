@@ -1,7 +1,7 @@
 import { IProduct } from "../../types/Types";
 import { onChangeQty } from "../../redux/user/userSlice";
-import { useDispatch } from 'react-redux';
-import { onDeleteProduct, onUserCart } from "../../redux/user/userOperations";
+import { useAppDispatch } from "../../redux/hooks";
+import { onUserCart } from "../../redux/user/userOperations";
 import './CartItem.scss';
 
 interface ILocalState {
@@ -11,7 +11,7 @@ interface ILocalState {
 const CartItem = ({ product }: ILocalState) => {
     const {img, title, price, _id, totalQty, qty} = product;
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = +e.target.value;
@@ -23,7 +23,7 @@ const CartItem = ({ product }: ILocalState) => {
     }
 
     const onCartBtn = () => {
-        dispatch<any>(onUserCart([product._id]))
+        dispatch(onUserCart([product._id]))
     }
 
     return (

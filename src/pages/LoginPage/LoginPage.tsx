@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { onLogin } from '../../redux/user/userOperations';
 import {
   Button,
@@ -10,7 +10,6 @@ import {
   IconButton,
 } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
-import { IState } from '../../redux/store';
 // import 'react-notifications/lib/notifications.css';
 import './LoginPage.scss'
 
@@ -19,9 +18,9 @@ const LoginPage = () => {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
-  const isLoading = useSelector((state: IState) => state.user.isLoading);
+  const isLoading = useAppSelector(state=> state.user.isLoading);
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -31,7 +30,7 @@ const LoginPage = () => {
       password,
     };
 
-    dispatch<any>(onLogin(user));
+    dispatch(onLogin(user));
   };
 
   return (

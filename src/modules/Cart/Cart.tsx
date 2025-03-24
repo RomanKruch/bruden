@@ -1,10 +1,9 @@
 import './Cart.scss';
 import CartItem from '../../components/CartItem/CartItem';
-import { useSelector } from 'react-redux';
-import { IState } from '../../redux/store';
+import { useAppSelector } from '../../redux/hooks';
 
 const Cart = () => {
-    const products = useSelector((state: IState) => state.user.cart);
+    const products = useAppSelector(state => state.user.cart);
 
     return (
         <section className='cart'>

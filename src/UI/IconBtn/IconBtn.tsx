@@ -1,8 +1,9 @@
+import { ReactElement } from 'react';
 import './IconBtn.scss';
 
 interface IProps {
   onClick: () => void;
-  children: JSX.Element;
+  children: ReactElement | string;
 }
 
 const IconBtn = ({ onClick, children }: IProps) => (

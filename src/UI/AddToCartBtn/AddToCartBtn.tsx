@@ -1,7 +1,6 @@
 import './AddToCartBtn.scss';
-import { useSelector, useDispatch } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { onUserCart } from '../../redux/user/userOperations';
-import { IState } from '../../redux/store';
 import { IProduct } from '../../types/Types';
 import { Link } from 'react-router-dom';
 
@@ -12,14 +11,14 @@ interface IProps {
 }
 
 const AddToCartBtn = ({ className = '', qty = 1, product }: IProps) => {
-  const isInCart = useSelector((state: IState) =>
+  const isInCart = useAppSelector(state =>
     state.user.cart.some(item => item._id === product._id),
   );
-  const isLogged = useSelector((state: IState) => state.user.isLogged);
-  const dispatch = useDispatch();
+  const isLogged = useAppSelector(state => state.user.isLogged);
+  const dispatch = useAppDispatch();
 
   const onCartBtn = () => {
-    dispatch<any>(onUserCart([product._id, qty]))
+    dispatch(onUserCart([product._id, qty]))
   }
 
   return isLogged ? (

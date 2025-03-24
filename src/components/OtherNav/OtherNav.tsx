@@ -3,15 +3,14 @@ import Instagram  from '../../assets/icons/Header/instagram-icon.svg?react';
 import Search from '../../assets/icons/Header/search-icon.svg?react';
 import Auth  from '../../assets/icons/Header/auth-icon.svg?react';
 import Cart  from '../../assets/icons/Header/cart-icon.svg?react';
-import { useSelector } from 'react-redux';
-import { IState } from '../../redux/store';
+import { useAppSelector } from '../../redux/hooks';
 import BurgerBtn from '../../modules/BurgerBtn/BurgerBtn';
 import './OtherNav.scss';
 
 const OtherNav = () => {
-  const qty = useSelector((state: IState) => state.user.cart.length);
+  const qty = useAppSelector(state => state.user.cart.length);
   
-  const price = useSelector((state: IState) =>
+  const price = useAppSelector(state=>
     state.user.cart.reduce((acc, item) => (acc += item.price * item.qty), 0),
   );
 

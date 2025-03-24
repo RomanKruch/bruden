@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useDispatch , useSelector } from 'react-redux';
-import { onLogin, onSignUp } from '../../redux/user/userOperations';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { onSignUp } from '../../redux/user/userOperations';
 import {
   Button,
   TextField,
@@ -11,7 +11,7 @@ import {
 } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 // import 'react-notifications/lib/notifications.css';
-import { IState } from '../../redux/store';
+
 import './RegisterPage.scss';
 
 const RegisterPage = () => {
@@ -20,9 +20,9 @@ const RegisterPage = () => {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
-    const isLoading = useSelector((state: IState) => state.user.isLoading);
+    const isLoading = useAppSelector(state=> state.user.isLoading);
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -33,7 +33,7 @@ const RegisterPage = () => {
       password,
     };
 
-    dispatch<any>(onSignUp(user));
+    dispatch(onSignUp(user));
   };
 
   return (
@@ -87,6 +87,7 @@ const RegisterPage = () => {
             fullWidth
             color="inherit"
             size="small"
+            disabled={isLoading}
           >
             Register
           </Button>
