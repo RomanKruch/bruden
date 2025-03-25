@@ -31,9 +31,9 @@ const ProductListItem = ({ product }: IProps) => {
         <p className="productListItem_price">C$ {price}</p>
         <p className="productListItem_description">{description}</p>
         <div className="productListItem_btn_wrap">
-          <LikeBtn product={product} />
+          <LikeBtn id={product._id} />
           <EyeBtn id={product._id} />
-          <CartBtn product={product} />
+          <CartBtn id={product._id} />
         </div>
       </div>
     </li>

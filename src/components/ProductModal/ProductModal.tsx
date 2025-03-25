@@ -84,7 +84,7 @@ const ProductModal = () => {
                 value={value + ''}
                 onChange={onChange}
               />
-              <AddToCartBtn product={product} qty={+value} />
+              <AddToCartBtn id={product._id} qty={+value} />
             </form>
             <div className="productModal_info">
               <p className="productModal_info_item">

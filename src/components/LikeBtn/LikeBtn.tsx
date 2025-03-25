@@ -4,31 +4,32 @@ import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { onLikeProduct } from '../../redux/user/userOperations';
 import { IProduct } from '../../types/Types';
 import IconBtn from '../../UI/IconBtn/IconBtn';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 interface IProps {
-  product: IProduct;
+  id: string;
 }
 
-const LikeBtn = ({ product }: IProps) => {
+const LikeBtn = ({ id }: IProps) => {
   const isInLiked = useAppSelector(state =>
-    state.user.liked.some(item => item._id === product._id),
+    state.user.liked.some(item => item._id === id),
   );
   const isLogged = useAppSelector(state => state.user.isLogged);
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
   const onClick = () => {
-    dispatch(onLikeProduct(product._id));
+    if (isLogged) {
+      dispatch(onLikeProduct(id));
+    } else {
+      navigate('/auth');
+    }
   };
 
-  return isLogged ? (
+  return (
     <IconBtn onClick={onClick}>
       {isInLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
     </IconBtn>
-  ) : (
-    <Link to="/bruden/auth" className="iconBtn">
-      <FavoriteBorderIcon />
-    </Link>
   );
 };
 

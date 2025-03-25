@@ -21,11 +21,11 @@ const ProductGridItem = ({ product, small=false }: IProps) => {
                 <img src={img.small.ref} alt="" width='260px' height='260px'/>
                 <div className={`productGridItem_overlay ${small ? 'productGridItem_overlay_small' : ''}`}>
                     <div className="productGridItem_btnWrap">
-                        <LikeBtn product={product} />
+                        <LikeBtn id={product._id} />
 
                         <EyeBtn id={product._id}/>
                     </div>
-                    <CartBtn product={product}/>
+                    <CartBtn id={product._id}/>
                 </div>
             </div>
             <h3 className="productGridItem_title">{title}</h3>

@@ -40,8 +40,8 @@ const DealOfWeekItem = ({ product }: IProps) => {
           {description.split('').slice(0, 99).join('')}...
         </p>
         <div className="dealOfWeekItem_btn_wrap">
-          <AddToCartBtn className="dealOfWeekItem_btn" product={product} />
-          <LikeBtn product={product} />
+          <AddToCartBtn className="dealOfWeekItem_btn" id={product._id} />
+          <LikeBtn id={product._id} />
           <EyeBtn id={product._id} />
         </div>
       </div>

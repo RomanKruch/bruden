@@ -1,44 +1,42 @@
 import './AddToCartBtn.scss';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { onUserCart } from '../../redux/user/userOperations';
-import { IProduct } from '../../types/Types';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 interface IProps {
   className?: string;
   qty?: number;
-  product: IProduct;
+  id: string;
 }
 
-const AddToCartBtn = ({ className = '', qty = 1, product }: IProps) => {
+const AddToCartBtn = ({ className = '', qty = 1, id }: IProps) => {
   const isInCart = useAppSelector(state =>
-    state.user.cart.some(item => item._id === product._id),
+    state.user.cart.some(item => item._id === id),
   );
   const isLogged = useAppSelector(state => state.user.isLogged);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
-  const onCartBtn = () => {
-    dispatch(onUserCart([product._id, qty]))
-  }
+  const onClick = () => {
+    if (isLogged) {
+      if (isInCart) {
+        navigate('/cart');
+      } else {
+        dispatch(onUserCart([id, qty]));
+      }
+    } else {
+      navigate('/auth');
+    }
+  };
 
-  return isLogged ? (
-    !isInCart ? (
-      <button
-        type="button"
-        className={`addToCartBtn ${className}`}
-        onClick={onCartBtn}
-      >
-        Add to cart
-      </button>
-    ) : (
-      <Link to="/bruden/cart" className={`addToCartBtn ${className}`}>
-        Go to Cart
-      </Link>
-    )
-  ) : (
-    <Link to="/bruden/auth" className={`addToCartBtn ${className}`}>
-      Add to cart
-    </Link>
+  return (
+    <button
+      type="button"
+      className={`addToCartBtn ${className}`}
+      onClick={onClick}
+    >
+      {isInCart ? 'Go to cart' : 'Add to cart'}
+    </button>
   );
 };
 

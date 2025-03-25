@@ -1,31 +1,39 @@
-import IconBtn from "../../UI/IconBtn/IconBtn";
-import { IProduct } from "../../types/Types";
-import { Link } from "react-router-dom";
-import { onUserCart } from "../../redux/user/userOperations";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import IconBtn from '../../UI/IconBtn/IconBtn';
+import { useNavigate } from 'react-router-dom';
+import { onUserCart } from '../../redux/user/userOperations';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 interface IProps {
-    product: IProduct;
+  id: string;
 }
 
-const CartBtn = ({  product }: IProps) => {
-    const isInCart = useAppSelector(state => state.user.cart.some(item => item._id === product._id));
-    const isLogged = useAppSelector(state => state.user.isLogged);
-    const dispatch = useAppDispatch();
+const CartBtn = ({ id }: IProps) => {
+  const isInCart = useAppSelector(state =>
+    state.user.cart.some(item => item._id === id),
+  );
+  const isLogged = useAppSelector(state => state.user.isLogged);
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
-    const onCartBtn = () => {
-        dispatch(onUserCart([product._id]))
+  const onClick = () => {
+    if (isLogged) {
+      if (isInCart) {
+        navigate('/cart');
+      } else {
+        dispatch(onUserCart([id]));
+      }
+    } else {
+      navigate('/auth');
     }
-    
-    return isLogged ? 
-        !isInCart ? 
-        <IconBtn onClick={onCartBtn}><AddShoppingCartIcon /></IconBtn>
-        :
-        <Link to='/bruden/cart' className="iconBtn"><ShoppingCartIcon/></Link>
-    :
-    <Link to='/bruden/auth' className="iconBtn"><AddShoppingCartIcon /></Link>
-}
+  };
+
+  return (
+    <IconBtn onClick={onClick}>
+      {isInCart ? <ShoppingCartIcon /> : <AddShoppingCartIcon />}
+    </IconBtn>
+  );
+};
 
 export default CartBtn;

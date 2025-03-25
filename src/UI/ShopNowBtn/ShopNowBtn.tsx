@@ -7,10 +7,7 @@ interface IProps {
 }
 
 const ShopNowBtn = ({ type, className = '' }: IProps) => (
-  <Link
-    to="/bruden/shop"
-    className={` ${type}_shopNow_btn shopNow_btn ${className} `}
-  >
+  <Link to="/shop" className={` ${type}_shopNow_btn shopNow_btn ${className} `}>
     SHOP NOW
   </Link>
 );
