@@ -4,7 +4,7 @@ import { IState } from '../redux/store';
 
 const PublicRoute = () => {
   const isLogged = useSelector((state: IState) => state.user.isLogged);
-  return !isLogged ? <Outlet /> : <Navigate to="/bruden" />;
+  return !isLogged ? <Outlet /> : <Navigate to="/" />;
 };
 
 export default PublicRoute;

@@ -1,23 +1,26 @@
-import  Eye  from "../../assets/icons/dealOfWeek/Deal-of-the-week-eye.svg?react";
-import { useState } from "react";
-import { IProduct } from "../../types/Types"
-import IconBtn from "../../UI/IconBtn/IconBtn";
-import ProductModal from "../ProductModal/ProductModal";
+import Eye from '../../assets/icons/dealOfWeek/Deal-of-the-week-eye.svg?react';
+import IconBtn from '../../UI/IconBtn/IconBtn';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 interface IProps {
-    product: IProduct;
+  id: string;
 }
 
-const EyeBtn = ({ product }: IProps) => {
-    const [isOpen, setIsOpen] = useState(false);
-    
-    return (
-        <>
-            <IconBtn onClick={() => setIsOpen(true)}><Eye /></IconBtn>
-            
-            {isOpen && <ProductModal product={product} setIsOpen={setIsOpen}/>}
-        </>
-    )
-}
+const EyeBtn = ({ id }: IProps) => {
+  const navigate = useNavigate();
+  const routeLocation = useLocation();
+  const path = routeLocation.pathname;
+
+  const onOpenModal = () => {
+    const fixPath = path === '/' ? path : path + '/';
+
+    navigate(fixPath + id, { state: { from: path } });
+  };
+  return (
+    <IconBtn onClick={onOpenModal}>
+      <Eye />
+    </IconBtn>
+  );
+};
 
 export default EyeBtn;

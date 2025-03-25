@@ -6,6 +6,7 @@ import Baner from "../../modules/Baner/Baner";
 import LastNews from "../../modules/LastNews/LastNews";
 import FitsAnyStyle from "../../modules/FitsAnyStyle/FitsAnyStyle";
 import SpecialProducts from "../../modules/SpecialProducts/SpecialProducts";
+import { Outlet } from "react-router-dom";
 
 const HomePage = () => (
     <main>
@@ -17,6 +18,8 @@ const HomePage = () => (
         {/* <LastNews /> */}
         <FitsAnyStyle />
         <SpecialProducts />
+
+        <Outlet/>
     </main>
 )
 

@@ -19,6 +19,7 @@ import PublicRoute from './helpers/PublicRoute';
 import { onRefresh } from './redux/user/userOperations';
 import './config/axiosConfig';
 import './config/swiperConfig';
+import ProductModal from './components/ProductModal/ProductModal';
 
 function App() {
   const dispatch = useDispatch();
@@ -32,9 +33,13 @@ function App() {
       <Header />
 
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage />}>
+          <Route path=":id" element={<ProductModal />} />
+        </Route>
 
-        <Route path="shop" element={<ShopPage />} />
+        <Route path="shop" element={<ShopPage />}>
+          <Route path=":id" element={<ProductModal />} />
+        </Route>
 
         <Route path="blog" element={<BlogPage />} />
 

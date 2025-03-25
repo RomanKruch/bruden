@@ -23,7 +23,7 @@ const ProductGridItem = ({ product, small=false }: IProps) => {
                     <div className="productGridItem_btnWrap">
                         <LikeBtn product={product} />
 
-                        <EyeBtn product={product}/>
+                        <EyeBtn id={product._id}/>
                     </div>
                     <CartBtn product={product}/>
                 </div>
