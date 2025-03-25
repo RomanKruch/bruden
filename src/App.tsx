@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useDispatch } from "react-redux";
+import { useDispatch } from 'react-redux';
 // import {NotificationContainer, NotificationManager} from 'react-notifications';
 import Header from './modules/Header';
 import HomePage from './pages/HomePage/HomePage';
@@ -24,37 +24,37 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch<any>(onRefresh())
-  }, [dispatch])
+    dispatch<any>(onRefresh());
+  }, [dispatch]);
 
   return (
     <>
       <Header />
 
       <Routes>
-        <Route path="/bruden" element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
 
-        <Route path="/bruden/shop" element={<ShopPage />} />
+        <Route path="shop" element={<ShopPage />} />
 
-        <Route path="/bruden/blog" element={<BlogPage />} />
+        <Route path="blog" element={<BlogPage />} />
 
-        <Route path="/bruden/about" element={<AboutPage />} />
+        <Route path="about" element={<AboutPage />} />
 
-        <Route path="/bruden/contact" element={<ContactPage />} />
+        <Route path="contact" element={<ContactPage />} />
 
-        <Route path="/bruden/auth" element={<AuthPage />} />
+        <Route path="auth" element={<AuthPage />} />
 
         <Route element={<PrivateRoute />}>
-          <Route path="/bruden/cart" element={<CartPage />} />
+          <Route path="cart" element={<CartPage />} />
         </Route>
 
         <Route element={<PublicRoute />}>
-          <Route path="/bruden/login" element={<LoginPage />} />
+          <Route path="auth/login" element={<LoginPage />} />
 
-          <Route path="/bruden/register" element={<RegisterPage />} />
+          <Route path="auth/register" element={<RegisterPage />} />
         </Route>
 
-        <Route path="/bruden/admin/*" element={<AdminPage />} />
+        <Route path="admin/*" element={<AdminPage />} />
       </Routes>
 
       <Footer />

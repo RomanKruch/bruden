@@ -7,14 +7,14 @@ import './index.scss';
 import App from './App';
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById('root') as HTMLElement,
 );
 root.render(
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter>
-          <App />     
-        </BrowserRouter>
-     </PersistGate>
-    </Provider>
+  <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
+      <BrowserRouter basename="/bruden">
+        <App />
+      </BrowserRouter>
+    </PersistGate>
+  </Provider>,
 );
