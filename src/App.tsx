@@ -20,6 +20,7 @@ import { onRefresh } from './redux/user/userOperations';
 import './config/axiosConfig';
 import './config/swiperConfig';
 import ProductModal from './components/ProductModal/ProductModal';
+import { NotificationContainer } from './modules/NotificationContainer/NotificationContainer';
 
 function App() {
   const dispatch = useDispatch();
@@ -63,6 +64,8 @@ function App() {
       </Routes>
 
       <Footer />
+
+      <NotificationContainer />
     </>
   );
 }

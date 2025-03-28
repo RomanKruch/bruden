@@ -25,6 +25,7 @@
     border-width: 1px 0px 1px 1px;
     border-style: solid;
     border-color: #292a33;
+    text-transform: inherit;
 
     @extend %menu_text;
 
@@ -39,7 +40,7 @@
 
   &_btn {
     padding: 14px 28px;
-    background-color: #292a33;
+    background: #292a33;
     @extend %btn_text;
     color: #ffffff;
     border: 1px solid transparent;
@@ -49,6 +50,16 @@
       border: 1px solid #292a33;
       background: #fff;
       color: #292a33;
+    }
+
+    &:disabled {
+      background: #6b6b74;
+
+      &:hover {
+        border: 1px solid transparent;
+        background: #6b6b74;
+        color: #fff;
+      }
     }
 
     @media (max-width: 767px) {

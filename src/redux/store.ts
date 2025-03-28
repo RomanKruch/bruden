@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import userReducer from './user/userSlice';
 import tagsReducer from './tags/tagsSlice';
+import notificationsReducer from './notifications/notificationsSlice';
 import {
   persistStore,
   persistReducer,
@@ -24,6 +25,7 @@ export const store = configureStore({
   reducer: {
     user: persistReducer<IUserState>(userPersistConfig, userReducer),
     tags: tagsReducer,
+    notifications: notificationsReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
