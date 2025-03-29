@@ -16,10 +16,6 @@ const OtherNav = () => {
 
   return (
     <div className="otherNav_wrap">
-      <a href="https://www.instagram.com/brudenmtl" className="otherNav_link">
-        <Instagram />
-      </a>
-
       <Link to="shop" className="otherNav_link">
         <Search />
       </Link>

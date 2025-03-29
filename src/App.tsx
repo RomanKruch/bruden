@@ -1,13 +1,10 @@
 import { Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-// import {NotificationContainer, NotificationManager} from 'react-notifications';
 import Header from './modules/Header';
 import HomePage from './pages/HomePage/HomePage';
 import ShopPage from './pages/ShopPage/ShopPage';
-import BlogPage from './pages/BlogPage';
-import AboutPage from './pages/AboutPage';
-import ContactPage from './pages/ContactPage';
+import AboutPage from './pages/AboutPage/AboutPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import AuthPage from './pages/AuthPage/AuthPage';
@@ -21,6 +18,7 @@ import './config/axiosConfig';
 import './config/swiperConfig';
 import ProductModal from './components/ProductModal/ProductModal';
 import { NotificationContainer } from './modules/NotificationContainer/NotificationContainer';
+import CartTotalModal from './components/CartTotalModal/CartTotalModal';
 
 function App() {
   const dispatch = useDispatch();
@@ -42,16 +40,14 @@ function App() {
           <Route path=":id" element={<ProductModal />} />
         </Route>
 
-        <Route path="blog" element={<BlogPage />} />
-
         <Route path="about" element={<AboutPage />} />
-
-        <Route path="contact" element={<ContactPage />} />
 
         <Route path="auth" element={<AuthPage />} />
 
         <Route element={<PrivateRoute />}>
-          <Route path="cart" element={<CartPage />} />
+          <Route path="cart" element={<CartPage />}>
+            <Route path="cartTotals" element={<CartTotalModal />} />
+          </Route>
         </Route>
 
         <Route element={<PublicRoute />}>

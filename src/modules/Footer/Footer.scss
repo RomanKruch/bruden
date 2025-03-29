@@ -84,7 +84,7 @@
     @extend %sidebar_text;
     line-height: 160%;
     color: #292a33;
-    text-transform: capitalize;
+    text-transform: none;
   }
 
   &_title {
@@ -95,5 +95,54 @@
     @media (max-width: 767px) {
       margin-bottom: 0;
     }
+  }
+
+  &_flag {
+    display: inline-flex;
+    width: 30px;
+    height: 15px;
+
+    &_stripe {
+      width: calc(100% / 6);
+      animation: wave 2s infinite ease-in-out alternate;
+
+      &:nth-child(1) {
+        animation-delay: 0s;
+      }
+      &:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      &:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+      &:nth-child(4) {
+        animation-delay: 0.6s;
+      }
+      &:nth-child(5) {
+        animation-delay: 0.8s;
+      }
+      &:nth-child(6) {
+        animation-delay: 1s;
+      }
+    }
+
+    &_blue {
+      height: 50%;
+      background-color: #0057b8;
+    }
+
+    &_yellow {
+      height: 50%;
+      background-color: #fbd400;
+    }
+  }
+}
+
+@keyframes wave {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(5px);
   }
 }
