@@ -6,6 +6,13 @@ import path from 'path';
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), svgr()],
+  base: '/bruden',
+  server: {
+    hmr: true,
+    fs: {
+      strict: false,
+    },
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),

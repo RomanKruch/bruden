@@ -17,7 +17,7 @@ const BurgerMenu = ({ isOpen, setIsOpen }: IProps) =>
     <div className={`burger ${isOpen ? 'burger-open' : ''}`}>
       <nav className="burger_navigation">
         <NavLink
-          to="/bruden"
+          to="/"
           className={({ isActive }) =>
             isActive ? 'burger_link-active burger_link' : 'burger_link'
           }
@@ -27,7 +27,7 @@ const BurgerMenu = ({ isOpen, setIsOpen }: IProps) =>
           Home
         </NavLink>
         <NavLink
-          to="/bruden/shop"
+          to="shop"
           className={({ isActive }) =>
             isActive ? 'burger_link-active burger_link' : 'burger_link'
           }
@@ -36,16 +36,7 @@ const BurgerMenu = ({ isOpen, setIsOpen }: IProps) =>
           Shop
         </NavLink>
         <NavLink
-          to="/bruden/blog"
-          className={({ isActive }) =>
-            isActive ? 'burger_link-active burger_link' : 'burger_link'
-          }
-          onClick={() => setIsOpen(false)}
-        >
-          Blog
-        </NavLink>
-        <NavLink
-          to="/bruden/about"
+          to="about"
           className={({ isActive }) =>
             isActive ? 'burger_link-active burger_link' : 'burger_link'
           }
@@ -53,27 +44,14 @@ const BurgerMenu = ({ isOpen, setIsOpen }: IProps) =>
         >
           About Us
         </NavLink>
-        <NavLink
-          to="/bruden/contact"
-          className={({ isActive }) =>
-            isActive ? 'burger_link-active burger_link' : 'burger_link'
-          }
-          onClick={() => setIsOpen(false)}
-        >
-          Contact Us
-        </NavLink>
       </nav>
 
       <div className="burger_icons_wrap">
-        <a href="https://www.instagram.com/brudenmtl">
-          <Instagram />
-        </a>
-
-        <Link to="/bruden/shop" onClick={() => setIsOpen(false)}>
+        <Link to="shop" onClick={() => setIsOpen(false)}>
           <Search />
         </Link>
 
-        <Link to="/bruden/auth" onClick={() => setIsOpen(false)}>
+        <Link to="auth" onClick={() => setIsOpen(false)}>
           <Auth />
         </Link>
       </div>

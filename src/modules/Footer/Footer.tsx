@@ -11,7 +11,7 @@ const Footer = () => (
         </div>
 
         <p className="footer_text">©2023 by Roman Kruch :)</p>
-        <p className="footer_text">
+        <div className="footer_text">
           Made in UKRAINE{' '}
           <div className="footer_flag">
             <div className="footer_flag_stripe">
@@ -39,7 +39,7 @@ const Footer = () => (
               <div className="footer_flag_yellow"></div>
             </div>
           </div>
-        </p>
+        </div>
       </div>
 
       <ul className="footer_list">

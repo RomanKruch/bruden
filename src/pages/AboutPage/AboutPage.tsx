@@ -5,11 +5,10 @@ const AboutPage = () => (
     <div className="container">
       <h1 className="aboutPage_title">About Us</h1>
       <p className="aboutPage_description">
-        About Us - Bruden Store Welcome to Bruden, a portfolio project designed
-        to showcase a modern and stylish online store for accessories. While
-        this isn't a real e-commerce platform, it offers a fully interactive
-        experience, allowing you to explore various features just like in a real
-        online shop.
+        Welcome to Bruden, a portfolio project designed to showcase a modern and
+        stylish online store for accessories. While this isn't a real e-commerce
+        platform, it offers a fully interactive experience, allowing you to
+        explore various features just like in a real online shop.
       </p>
       <h2 className="aboutPage_subtitle">🌟 What You'll Find Here</h2>
       <p className="aboutPage_description">

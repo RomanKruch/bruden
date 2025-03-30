@@ -15,6 +15,7 @@ const Hero = () => {
     <section className="hero">
       <div className="container">
         <Swiper
+          key="hero"
           direction={'vertical'}
           pagination={{
             clickable: true,
@@ -43,7 +44,7 @@ const Hero = () => {
           }}
         >
           {imgRefs.map(ref => (
-            <SwiperSlide className="item" key={nanoid()}>
+            <SwiperSlide className="item" key={nanoid(3)}>
               <HeroItem imgRef={ref} />
             </SwiperSlide>
           ))}
