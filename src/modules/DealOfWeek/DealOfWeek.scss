@@ -3,7 +3,11 @@
 .dealOfWeek {
   margin-bottom: 90px;
 
+  &_title {
+    margin-bottom: 60px;
+  }
+
   &_slider {
-    margin: 60px 0 40px;
+    margin: 0 0 40px;
   }
 }

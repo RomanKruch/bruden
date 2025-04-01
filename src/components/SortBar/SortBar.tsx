@@ -60,8 +60,11 @@ const SortBar = ({
         <MenuItem value="priceDown" className="sortBar_select_item">
           sort by price &#8595;
         </MenuItem>
-        <MenuItem value="rating" className="sortBar_select_item">
-          sort by rating
+        <MenuItem value="ratingUp" className="sortBar_select_item">
+          sort by rating &#8593;
+        </MenuItem>
+        <MenuItem value="ratingDown" className="sortBar_select_item">
+          sort by rating &#8595;
         </MenuItem>
       </Select>
     </div>

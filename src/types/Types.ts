@@ -2,7 +2,12 @@ export type TPriceFilterValue = number[];
 
 export type TListView = 'grid' | 'list';
 
-export type TSelectValues = 'def' | 'priceUp' | 'priceDown' | 'rating';
+export type TSelectValues =
+  | 'def'
+  | 'priceUp'
+  | 'priceDown'
+  | 'ratingUp'
+  | 'ratingDown';
 
 export interface ITag {
   img: string;

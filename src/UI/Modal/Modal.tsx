@@ -1,6 +1,7 @@
 import { JSX, useState } from 'react';
 import './Modal.scss';
 import { createPortal } from 'react-dom';
+import Loader from '../Loader/Loader';
 const modalRoot = document.getElementById('modal_root') as HTMLElement;
 
 interface IProps {
@@ -29,7 +30,7 @@ const Modal = ({ onClose, children, loading = false }: IProps) => {
       onMouseDown={onClickOver}
     >
       {loading ? (
-        <h2>Loading...</h2>
+        <Loader />
       ) : (
         <div className={`modal ${isClosing ? 'modal-closing' : ''}`}>
           <button type="button" className="modal_close_btn" onClick={onClick}>

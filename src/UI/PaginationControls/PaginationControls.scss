@@ -28,5 +28,10 @@
       background: #d2d2d2;
       color: #292a33;
     }
+
+    &:disabled:hover {
+      background: #fff;
+      color: #292a33;
+    }
   }
 }

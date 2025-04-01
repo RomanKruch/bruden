@@ -3,7 +3,7 @@ import './PaginationControls.scss';
 interface IProps {
   currentPage: number;
   setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
-  limit: null | number;
+  limit: number;
 }
 
 const PaginationControls = ({ currentPage, setCurrentPage, limit }: IProps) => {

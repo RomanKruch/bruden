@@ -15,6 +15,7 @@ import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { onGetTags } from '../../redux/tags/tagsOperations';
 import './Shop.scss';
 import axios from 'axios';
+import Loader from '../../UI/Loader/Loader';
 
 const Shop = () => {
   const [priceFilterValue, setPriceFilterValue] = useState<TPriceFilterValue>([
@@ -23,8 +24,9 @@ const Shop = () => {
   const [listView, setListView] = useState<TListView>('grid');
   const [sortValue, setSortValue] = useState<TSelectValues>('def');
   const [currentPage, setCurrentPage] = useState(1);
-  const [limit, setLimit] = useState<number | null>(null);
+  const [limit, setLimit] = useState<number>(1);
   const [products, setProducts] = useState<IProduct[]>([]);
+  const [loading, setLoading] = useState(false);
 
   const dispatch = useAppDispatch();
   const tags = useAppSelector(state => state.tags);
@@ -40,6 +42,10 @@ const Shop = () => {
         return { sortBy: 'price' };
       case 'priceDown':
         return { sortByDesc: 'price' };
+      case 'ratingUp':
+        return { sortBy: 'rating' };
+      case 'ratingDown':
+        return { sortByDesc: 'rating' };
       default:
         return {};
     }
@@ -53,7 +59,7 @@ const Shop = () => {
 
   useEffect(() => {
     const limit = listView === 'grid' ? 6 : 2;
-
+    setLoading(true);
     axios
       .get('/products', {
         params: {
@@ -66,8 +72,9 @@ const Shop = () => {
       })
       .then(({ data }) => {
         setProducts(data.products);
-        setLimit(data.total);
-      });
+        setLimit(data.totalPages);
+      })
+      .finally(() => setLoading(false));
   }, [currentPage, listView, priceFilterValue, activeTags, sortParams]);
 
   useEffect(() => {
@@ -90,24 +97,30 @@ const Shop = () => {
             sortValue={sortValue}
             setSortValue={setSortValue}
           />
-          <ul className={`shop_list-${listView}`}>
-            {products?.map(product => {
-              return listView === 'grid' ? (
-                <ShopGridItem
-                  product={product}
-                  key={product._id}
-                  small={true}
-                />
-              ) : (
-                <ShopListItem product={product} key={product._id} />
-              );
-            })}
-          </ul>
-          <PaginationControls
-            limit={limit}
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
-          />
+          {loading ? (
+            <Loader />
+          ) : (
+            <>
+              <ul className={`shop_list-${listView}`}>
+                {products?.map(product => {
+                  return listView === 'grid' ? (
+                    <ShopGridItem
+                      product={product}
+                      key={product._id}
+                      small={true}
+                    />
+                  ) : (
+                    <ShopListItem product={product} key={product._id} />
+                  );
+                })}
+              </ul>
+              <PaginationControls
+                limit={limit}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+              />
+            </>
+          )}
         </div>
       </div>
     </section>
