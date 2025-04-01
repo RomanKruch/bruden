@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import FilterByPrice from '../../components/FilterByPrice/FilterByPrice';
 import ProductTag from '../../components/ProductTag/ProductTag';
 import SortBar from '../../components/SortBar/SortBar';
@@ -29,6 +29,22 @@ const Shop = () => {
   const dispatch = useAppDispatch();
   const tags = useAppSelector(state => state.tags);
 
+  const activeTags = useMemo(
+    () => tags.filter(tag => tag.active).map(tag => tag._id),
+    [tags],
+  );
+
+  const sortParams = useMemo(() => {
+    switch (sortValue) {
+      case 'priceUp':
+        return { sortBy: 'price' };
+      case 'priceDown':
+        return { sortByDesc: 'price' };
+      default:
+        return {};
+    }
+  }, [sortValue]);
+
   useEffect(() => {
     if (!tags.length) {
       dispatch(onGetTags());
@@ -36,38 +52,27 @@ const Shop = () => {
   }, [dispatch, tags.length]);
 
   useEffect(() => {
-    const perPage = listView === 'grid' ? '6' : '2';
-    const activeTags = tags.filter(tag => tag.active).map(tag => tag._id);
-    let sortOpt = null;
-
-    switch (sortValue) {
-      case 'priceUp':
-        sortOpt = '&sortBy=price';
-        break;
-      case 'priceDown':
-        sortOpt = '&sortByDesc=price';
-        break;
-      case 'rating':
-        sortOpt = '';
-        break;
-      default:
-        sortOpt = '';
-        break;
-    }
+    const limit = listView === 'grid' ? 6 : 2;
 
     axios
-      .get(
-        `/products?page=${currentPage}&limit=${perPage}&filter=${priceFilterValue.join(
-          '|',
-        )}${
-          activeTags.length ? `&tags=${activeTags.join('|')}` : ''
-        }${sortOpt}`,
-      )
+      .get('/products', {
+        params: {
+          page: currentPage,
+          limit,
+          filter: priceFilterValue.join('|'),
+          ...(activeTags.length && { tags: activeTags.join('|') }),
+          ...sortParams,
+        },
+      })
       .then(({ data }) => {
         setProducts(data.products);
         setLimit(data.total);
       });
-  }, [currentPage, listView, priceFilterValue, tags, sortValue]);
+  }, [currentPage, listView, priceFilterValue, activeTags, sortParams]);
+
+  useEffect(() => {
+    if (currentPage !== 1) setCurrentPage(1);
+  }, [listView, sortValue, activeTags, priceFilterValue]);
 
   return (
     <section className="shop">

@@ -14,7 +14,7 @@ const LikedProducts = () => {
     <div className="likedProducts">
       <SectionTitle text="Liked products" className="likedProducts_title" />
 
-      {shortProducts.length !== 0 && (
+      {shortProducts.length !== 0 ? (
         <>
           <ul className="likedProducts_list">
             {shortProducts.map(item => (
@@ -31,6 +31,8 @@ const LikedProducts = () => {
             </button>
           )}
         </>
+      ) : (
+        <p>There aren't liked products...</p>
       )}
     </div>
   );

@@ -29,6 +29,7 @@ export interface IProduct {
   tag: ITag;
   description: string;
   totalQty: number;
+  rating: number;
 }
 
 export type ICartProduct = IProduct & { qty: number };

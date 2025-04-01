@@ -41,7 +41,6 @@ const SortBar = ({
         >
           {listView === 'list' ? <ListActive /> : <List />}
         </button>
-        <p className="sortBar_subtitle">Showing 1-12 of 15 results</p>
       </div>
 
       <Select

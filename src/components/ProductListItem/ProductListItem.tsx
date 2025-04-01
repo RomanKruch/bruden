@@ -1,5 +1,4 @@
 import Rating from '@mui/material/Rating';
-import { useState } from 'react';
 import LikeBtn from '../LikeBtn/LikeBtn';
 import EyeBtn from '../EyeBtn/EyeBtn';
 import CartBtn from '../CartBtn/CartBtn';
@@ -11,8 +10,7 @@ interface IProps {
 }
 
 const ProductListItem = ({ product }: IProps) => {
-  const [value, setValue] = useState<number | null>(5);
-  const { title, img, description, price } = product;
+  const { title, img, description, price, rating } = product;
 
   return (
     <li className="productListItem">
@@ -20,13 +18,7 @@ const ProductListItem = ({ product }: IProps) => {
       <div className="productListItem_wrap">
         <h3 className="productListItem_title">{title}</h3>
         <div className="productListItem_rating_wrap">
-          <Rating
-            value={value}
-            onChange={(event, newValue) => {
-              setValue(newValue);
-            }}
-            precision={0.5}
-          />
+          <Rating value={rating} precision={0.1} inert />
         </div>
         <p className="productListItem_price">C$ {price}</p>
         <p className="productListItem_description">{description}</p>

@@ -2,7 +2,6 @@ import AddToCartBtn from '../../UI/AddToCartBtn/AddToCartBtn';
 import LikeBtn from '../LikeBtn/LikeBtn';
 import EyeBtn from '../EyeBtn/EyeBtn';
 import { IProduct } from '../../types/Types';
-import { useState } from 'react';
 import Rating from '@mui/material/Rating';
 import './DealOfWeekItem.scss';
 
@@ -11,8 +10,7 @@ interface IProps {
 }
 
 const DealOfWeekItem = ({ product }: IProps) => {
-  const [value, setValue] = useState<number | null>(5);
-  const { img, title, description, price } = product;
+  const { img, title, description, price, rating } = product;
 
   return (
     <div className="dealOfWeekItem">
@@ -21,13 +19,7 @@ const DealOfWeekItem = ({ product }: IProps) => {
         <h3 className="dealOfWeekItem_title">{title}</h3>
 
         <div className="dealOfWeekItem_rating_wrap">
-          <Rating
-            value={value}
-            onChange={(_, newValue) => {
-              setValue(newValue);
-            }}
-            precision={0.5}
-          />
+          <Rating value={rating} precision={0.1} inert/>
         </div>
 
         <div className="dealOfWeekItem_rating"></div>

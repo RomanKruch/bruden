@@ -14,23 +14,23 @@ const ProductModal = () => {
   const [value, setValue] = useState(1);
   const [showInfo, setShowInfo] = useState(false);
 
-  useEffect(() => {
-    const fetchTours = async () => {
-      try {
-        setLoading(true);
-        const { data } = await axios.get(`products/${id}`);
-        if (!data) {
-          navigate('/');
-        }
-        setProduct(data);
-      } catch (err: any) {
+  const fetchProduct = async () => {
+    try {
+      setLoading(true);
+      const { data } = await axios.get(`products/${id}`);
+      if (!data) {
         navigate('/');
-      } finally {
-        setLoading(false);
       }
-    };
+      setProduct(data);
+    } catch (err: any) {
+      navigate('/');
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    fetchTours();
+  useEffect(() => {
+    fetchProduct();
   }, []);
 
   const routeLocation = useLocation();
@@ -41,7 +41,7 @@ const ProductModal = () => {
   };
 
   if (product) {
-    const { title, description, price, img, tag, _id, totalQty } = product;
+    const { title, description, price, img, tag, totalQty } = product;
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const value = +e.target.value;
@@ -86,17 +86,10 @@ const ProductModal = () => {
               />
               <AddToCartBtn id={product._id} qty={+value} />
             </form>
-            <div className="productModal_info">
-              <p className="productModal_info_item">
-                SKU:<span>NHL5-11</span>
-              </p>
-              <p className="productModal_info_item">
-                Categories:<span>{tag.name}</span>
-              </p>
-              <p className="productModal_info_item">
-                Tags:<span>{tag.name}</span>
-              </p>
-            </div>
+
+            <p className="productModal_info_item">
+              Categories:<span>{tag.name}</span>
+            </p>
           </div>
         </div>
       </Modal>
