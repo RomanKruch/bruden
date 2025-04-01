@@ -1,6 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
-import { nanoid } from 'nanoid';
 import hero1 from '../../assets/images/hero/hero1.png';
 import hero2 from '../../assets/images/hero/hero2.png';
 import hero3 from '../../assets/images/hero/hero3.png';
@@ -8,7 +7,12 @@ import hero4 from '../../assets/images/hero/hero4.png';
 import './Hero.scss';
 import HeroItem from '../../components/HeroItem/HeroItem';
 
-const imgRefs = [hero1, hero2, hero3, hero4];
+const imgRefs = [
+  { id: 'hero1', ref: hero1 },
+  { id: 'hero2', ref: hero2 },
+  { id: 'hero3', ref: hero3 },
+  { id: 'hero4', ref: hero4 },
+];
 
 const Hero = () => {
   return (
@@ -43,9 +47,9 @@ const Hero = () => {
             },
           }}
         >
-          {imgRefs.map(ref => (
-            <SwiperSlide className="item" key={nanoid(3)}>
-              <HeroItem imgRef={ref} />
+          {imgRefs.map(item => (
+            <SwiperSlide className="item" key={item.id}>
+              <HeroItem imgRef={item.ref} />
             </SwiperSlide>
           ))}
         </Swiper>

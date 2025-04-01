@@ -6,15 +6,11 @@ import './ShopByCategory.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import SliderControls from '../../components/SliderControls/SliderControls';
-import { nanoid } from 'nanoid';
 
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { onToggleTag } from '../../redux/tags/tagsSlice';
 import { onGetTags } from '../../redux/tags/tagsOperations';
 import { ITag } from '../../types/Types';
-
-const PREV_CLASS = nanoid(4);
-const NEXT_CLASS = nanoid(4);
 
 const ShopByCategory = () => {
   const dispatch = useAppDispatch();
@@ -38,8 +34,8 @@ const ShopByCategory = () => {
         <Swiper
           key="shopByCat"
           navigation={{
-            nextEl: `.${NEXT_CLASS}`,
-            prevEl: `.${PREV_CLASS}`,
+            nextEl: '.shopByCat_control_next',
+            prevEl: '.shopByCat_control_prev',
           }}
           spaceBetween={40}
           modules={[Navigation]}
@@ -70,7 +66,10 @@ const ShopByCategory = () => {
           ))}
         </Swiper>
 
-        <SliderControls nextClass={NEXT_CLASS} prevClass={PREV_CLASS} />
+        <SliderControls
+          nextClass="shopByCat_control_next"
+          prevClass="shopByCat_control_prev"
+        />
       </div>
     </section>
   );

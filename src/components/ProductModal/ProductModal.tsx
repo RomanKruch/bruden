@@ -24,7 +24,7 @@ const ProductModal = () => {
         }
         setProduct(data);
       } catch (err: any) {
-        console.log(err);
+        navigate('/');
       } finally {
         setLoading(false);
       }

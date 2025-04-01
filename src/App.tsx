@@ -20,7 +20,6 @@ import ProductModal from './components/ProductModal/ProductModal';
 import { NotificationContainer } from './modules/NotificationContainer/NotificationContainer';
 import CartTotalModal from './components/CartTotalModal/CartTotalModal';
 
-
 function App() {
   const dispatch = useDispatch();
 

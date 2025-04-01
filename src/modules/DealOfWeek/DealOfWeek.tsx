@@ -1,4 +1,3 @@
-import { nanoid } from 'nanoid';
 import { useState, useEffect } from 'react';
 import SectionTitle from '../../UI/SectionTitle/SectionTitle';
 import DealOfWeekItem from '../../components/DealOfWeekItem/DealOfWeekItem';
@@ -10,9 +9,6 @@ import { Navigation } from 'swiper/modules';
 import SliderControls from '../../components/SliderControls/SliderControls';
 import { IProduct } from '../../types/Types';
 import axios from 'axios';
-
-const PREV_CLASS = nanoid(4);
-const NEXT_CLASS = nanoid(4);
 
 const DealOfWeek = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
@@ -31,8 +27,8 @@ const DealOfWeek = () => {
         <Swiper
           key="dealOfWeek"
           navigation={{
-            nextEl: `.${NEXT_CLASS}`,
-            prevEl: `.${PREV_CLASS}`,
+            nextEl: '.dealOfWeek_control_next',
+            prevEl: '.dealOfWeek_control_prev',
           }}
           spaceBetween={40}
           breakpoints={{
@@ -49,13 +45,16 @@ const DealOfWeek = () => {
           className="dealOfWeek_slider"
         >
           {products.map(item => (
-            <SwiperSlide key={nanoid(3)} className="dealOfWeek_item">
+            <SwiperSlide key={item._id} className="dealOfWeek_item">
               <DealOfWeekItem product={item} />
             </SwiperSlide>
           ))}
         </Swiper>
 
-        <SliderControls nextClass={NEXT_CLASS} prevClass={PREV_CLASS} />
+        <SliderControls
+          nextClass="dealOfWeek_control_next"
+          prevClass="dealOfWeek_control_prev"
+        />
       </div>
     </section>
   );
