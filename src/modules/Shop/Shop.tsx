@@ -78,7 +78,7 @@ const Shop = () => {
   }, [currentPage, listView, priceFilterValue, activeTags, sortParams]);
 
   useEffect(() => {
-    if (currentPage !== 1) setCurrentPage(1);
+    setCurrentPage(1);
   }, [listView, sortValue, activeTags, priceFilterValue]);
 
   return (

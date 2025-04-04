@@ -9,6 +9,10 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { MenuItem } from '@mui/material';
 
 import { TListView } from '../../types/Types';
+import { Outlet } from 'react-router-dom';
+import { useAppDispatch } from '../../redux/hooks';
+import Loader from '../../UI/Loader/Loader';
+import { onAxiosError } from '../../helpers/onAxiosError';
 
 interface ITag {
   name: string;
@@ -22,9 +26,12 @@ const AddProductForm = () => {
   const [tags, setTags] = useState<ITag[]>([]);
   const [selectedTag, setSelectedTag] = useState<string>();
   const [listView, setListView] = useState<TListView>('grid');
+  const [loading, setLoading] = useState(false);
+
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    axios.get('/tag').then(({ data }) => setTags(data.data.tags));
+    axios.get('/tags').then(({ data }) => setTags(data));
   }, []);
 
   const formik = useFormik({
@@ -33,26 +40,32 @@ const AddProductForm = () => {
       price: 0,
       description: '',
       totalQty: 1,
-      img: '',
+      rating: 0,
+      smallImg: '',
       largeImg: '',
     },
     onSubmit: values => {
-      let data = new FormData();
+      const data = new FormData();
 
-      data.append('img', values.img);
-      data.append('largeImg', values.largeImg);
+      const { smallImg, largeImg, ...body } = values;
+      data.append('smallImg', smallImg);
+      data.append('largeImg', largeImg);
       const tag = tags.find(item => item.name === selectedTag);
-      data.append('data', JSON.stringify({ ...values, tag: tag?._id }));
+      data.append('tag', tag?._id ?? '');
+      Object.entries(body).forEach(([key, value]) => {
+        data.append(key, value + '');
+      });
 
+      setLoading(true);
       axios
-        .post('/admin/product', data, {
+        .post('/products', data, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
         })
-        .then(({ data }) =>
-          setProduct({ ...data.data.product, tag: data.data.product.tag.name }),
-        );
+        .then(({ data }) => setProduct(data))
+        .catch(err => onAxiosError(err, dispatch))
+        .finally(() => setLoading(false));
     },
   });
 
@@ -107,6 +120,17 @@ const AddProductForm = () => {
             onChange={formik.handleChange}
           />
         </label>
+
+        <label className="adminPage_label">
+          Rating:
+          <input
+            className="adminPage_inp"
+            type="number"
+            name="rating"
+            value={formik.values.rating}
+            onChange={formik.handleChange}
+          />
+        </label>
         <label className="adminPage_label">
           tag:
           <Select
@@ -129,16 +153,16 @@ const AddProductForm = () => {
           </Select>
         </label>
         <label className="adminPage_label">
-          Img:
+          Small img:
           <input
             type="file"
-            name="img"
+            name="smallImg"
             onChange={event => {
               const file = event.currentTarget.files
                 ? event.currentTarget.files[0]
                 : null;
               if (file) {
-                formik.setFieldValue('img', file);
+                formik.setFieldValue('smallImg', file);
               }
             }}
           />
@@ -159,8 +183,8 @@ const AddProductForm = () => {
           />
         </label>
 
-        <button type="submit" className="adminPage_btn">
-          Create
+        <button type="submit" className="adminPage_btn" disabled={loading}>
+          {loading ? <Loader /> : 'Create'}
         </button>
       </form>
       {product && (
@@ -175,6 +199,7 @@ const AddProductForm = () => {
           )}
         </>
       )}
+      <Outlet />
     </>
   );
 };

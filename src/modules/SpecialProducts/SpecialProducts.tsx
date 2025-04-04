@@ -4,6 +4,7 @@ import './SpecialProducts.scss';
 import axios from 'axios';
 import { useAppDispatch } from '../../redux/hooks';
 import { addNotification } from '../../redux/notifications/notificationsSlice';
+import { onAxiosError } from '../../helpers/onAxiosError';
 
 const SpecialProducts = () => {
   const [email, setEmail] = useState('');
@@ -22,8 +23,7 @@ const SpecialProducts = () => {
       const { data } = await axios.post('subscribe', { email });
       dispatch(addNotification({ message: data.message, type: 'success' }));
     } catch (err: any) {
-      const { message } = err?.response.data;
-      dispatch(addNotification({ message, type: 'error' }));
+      onAxiosError(err, dispatch);
     } finally {
       setLoading(false);
     }

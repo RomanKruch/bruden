@@ -22,7 +22,7 @@ const ProductModal = () => {
         navigate('/');
       }
       setProduct(data);
-    } catch (err: any) {
+    } catch {
       navigate('/');
     } finally {
       setLoading(false);
@@ -31,7 +31,7 @@ const ProductModal = () => {
 
   useEffect(() => {
     fetchProduct();
-  }, []);
+  });
 
   const routeLocation = useLocation();
   const path = routeLocation.state?.from || '/';

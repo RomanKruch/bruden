@@ -11,6 +11,7 @@ import {
   TOnAddProduct,
 } from './types';
 import { addNotification } from '../notifications/notificationsSlice';
+import { onAxiosError } from '../../helpers/onAxiosError';
 
 const token = {
   set(token: string) {
@@ -34,8 +35,7 @@ export const onSignUp = createAsyncThunk<
     );
     return data;
   } catch (err: any) {
-    const { message } = err?.response.data;
-    dispatch(addNotification({ message, type: 'error' }));
+    onAxiosError(err, dispatch);
     return rejectWithValue(null);
   }
 });
@@ -56,8 +56,7 @@ export const onLogin = createAsyncThunk<
       cart: data.cart.map((item: IProduct) => ({ ...item, qty: 1 })),
     };
   } catch (err: any) {
-    const { message } = err?.response.data;
-    dispatch(addNotification({ message, type: 'error' }));
+    onAxiosError(err, dispatch);
     return rejectWithValue(null);
   }
 });
@@ -72,8 +71,7 @@ export const onLogout = createAsyncThunk<void, void, { rejectValue: null }>(
         addNotification({ message: 'Logout successful!', type: 'success' }),
       );
     } catch (err: any) {
-      const { message } = err?.response.data;
-      dispatch(addNotification({ message, type: 'error' }));
+      onAxiosError(err, dispatch);
       return rejectWithValue(null);
     }
   },
@@ -118,8 +116,7 @@ export const onAddProduct = createAsyncThunk<
         qty,
       };
     } catch (err: any) {
-      const { message } = err?.response.data;
-      dispatch(addNotification({ message, type: 'error' }));
+      onAxiosError(err, dispatch);
       return rejectWithValue(null);
     }
   },
@@ -134,8 +131,7 @@ export const onDeleteProduct = createAsyncThunk<
     await axios.delete(`/cart/${productId}`);
     return productId;
   } catch (err: any) {
-    const { message } = err?.response.data;
-    dispatch(addNotification({ message, type: 'error' }));
+    onAxiosError(err, dispatch);
     return rejectWithValue(null);
   }
 });
@@ -152,8 +148,7 @@ export const onLikeProduct = createAsyncThunk<
     }
     return data;
   } catch (err: any) {
-    const { message } = err?.response.data;
-    dispatch(addNotification({ message, type: 'error' }));
+    onAxiosError(err, dispatch);
     return rejectWithValue(null);
   }
 });
@@ -170,8 +165,7 @@ export const onUserCart = createAsyncThunk<
     }
     return { ...data, qty };
   } catch (err: any) {
-    const { message } = err?.response.data;
-    dispatch(addNotification({ message, type: 'error' }));
+    onAxiosError(err, dispatch);
     return rejectWithValue(null);
   }
 });

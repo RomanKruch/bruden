@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { ITag } from '../../types/Types';
-import { addNotification } from '../notifications/notificationsSlice';
+import { onAxiosError } from '../../helpers/onAxiosError';
 
 export const onGetTags = createAsyncThunk<ITag[], void, { rejectValue: null }>(
   'tags',
@@ -10,8 +10,7 @@ export const onGetTags = createAsyncThunk<ITag[], void, { rejectValue: null }>(
       const { data } = await axios.get('/tags');
       return data.map((tag: ITag) => ({ ...tag, active: false }));
     } catch (err: any) {
-      const { message } = err?.response.data;
-      dispatch(addNotification({ message, type: 'error' }));
+      onAxiosError(err, dispatch)
       return rejectWithValue(null);
     }
   },

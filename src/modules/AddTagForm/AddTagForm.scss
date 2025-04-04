@@ -1,0 +1,12 @@
+.tagForm_item {
+  width: 360px;
+  margin: 0 auto;
+
+  &_title {
+    padding: 20px 0;
+    box-shadow: inset 0px 0px 10px #dedede;
+    text-align: center;
+
+    @extend %h3;
+  }
+}

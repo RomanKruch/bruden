@@ -1,7 +1,6 @@
 import './BurgerMenu.scss';
 import { createPortal } from 'react-dom';
 import { NavLink, Link } from 'react-router-dom';
-import Instagram from '../../assets/icons/Header/instagram-icon.svg?react';
 import Search from '../../assets/icons/Header/search-icon.svg?react';
 import Auth from '../../assets/icons/Header/auth-icon.svg?react';
 

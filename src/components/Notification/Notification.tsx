@@ -22,7 +22,7 @@ const Notification = ({ item }: IProps) => {
     return () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
-  }, []);
+  }, [id]);
 
   const onClose = useCallback(
     (id: string) => {

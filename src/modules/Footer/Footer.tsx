@@ -63,6 +63,9 @@ const Footer = () => (
           <Link to="cart" className="footer_link">
             Cart
           </Link>
+          <Link to="admin" className="footer_link">
+            Admin
+          </Link>
         </li>
         <li className="footer_item">
           <h3 className="footer_title">Information</h3>

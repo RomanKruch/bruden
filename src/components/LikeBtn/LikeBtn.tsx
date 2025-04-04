@@ -2,9 +2,8 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { onLikeProduct } from '../../redux/user/userOperations';
-import { IProduct } from '../../types/Types';
 import IconBtn from '../../UI/IconBtn/IconBtn';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 interface IProps {
   id: string;

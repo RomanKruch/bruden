@@ -1,6 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import Header from './modules/Header';
 import HomePage from './pages/HomePage/HomePage';
 import ShopPage from './pages/ShopPage/ShopPage';
@@ -19,12 +18,13 @@ import './config/swiperConfig';
 import ProductModal from './components/ProductModal/ProductModal';
 import { NotificationContainer } from './modules/NotificationContainer/NotificationContainer';
 import CartTotalModal from './components/CartTotalModal/CartTotalModal';
+import { useAppDispatch } from './redux/hooks';
 
 function App() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch<any>(onRefresh());
+    dispatch(onRefresh());
   }, [dispatch]);
 
   return (
