@@ -3,6 +3,11 @@
 .adminPage {
   margin-top: 90px;
 
+  &_navigation {
+    display: flex;
+    gap: 40px;
+  }
+
   &_title {
     margin-bottom: 60px;
   }
@@ -64,4 +69,8 @@
     align-items: center;
     margin-bottom: 40px;
   }
+}
+
+.admin_product_wrap {
+  width: 260px;
 }

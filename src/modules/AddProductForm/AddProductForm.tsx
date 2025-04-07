@@ -21,6 +21,16 @@ interface ITag {
   _id: string;
 }
 
+const initialValues = {
+  title: '',
+  price: 0,
+  description: '',
+  totalQty: 1,
+  rating: 0,
+  smallImg: '',
+  largeImg: '',
+};
+
 const AddProductForm = () => {
   const [product, setProduct] = useState(null);
   const [tags, setTags] = useState<ITag[]>([]);
@@ -35,20 +45,17 @@ const AddProductForm = () => {
   }, []);
 
   const formik = useFormik({
-    initialValues: {
-      title: '',
-      price: 0,
-      description: '',
-      totalQty: 1,
-      rating: 0,
-      smallImg: '',
-      largeImg: '',
-    },
-    onSubmit: values => {
+    initialValues,
+
+    onSubmit: (values, helpers) => {
       const data = new FormData();
 
       const { smallImg, largeImg, ...body } = values;
-      data.append('smallImg', smallImg);
+      if (!smallImg) {
+        data.append('smallImg', largeImg);
+      } else {
+        data.append('smallImg', smallImg);
+      }
       data.append('largeImg', largeImg);
       const tag = tags.find(item => item.name === selectedTag);
       data.append('tag', tag?._id ?? '');
@@ -63,7 +70,10 @@ const AddProductForm = () => {
             'Content-Type': 'multipart/form-data',
           },
         })
-        .then(({ data }) => setProduct(data))
+        .then(({ data }) => {
+          setProduct(data);
+          helpers.resetForm();
+        })
         .catch(err => onAxiosError(err, dispatch))
         .finally(() => setLoading(false));
     },
@@ -193,7 +203,9 @@ const AddProductForm = () => {
             <SelectListType listView={listView} setListView={setListView} />
           </div>
           {listView === 'grid' ? (
-            <ProductGridItem product={product} />
+            <div className="admin_product_wrap">
+              <ProductGridItem product={product} />
+            </div>
           ) : (
             <ProductListItem product={product} />
           )}

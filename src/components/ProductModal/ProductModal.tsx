@@ -14,24 +14,14 @@ const ProductModal = () => {
   const [value, setValue] = useState(1);
   const [showInfo, setShowInfo] = useState(false);
 
-  const fetchProduct = async () => {
-    try {
-      setLoading(true);
-      const { data } = await axios.get(`products/${id}`);
-      if (!data) {
-        navigate('/');
-      }
-      setProduct(data);
-    } catch {
-      navigate('/');
-    } finally {
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
-    fetchProduct();
-  });
+    setLoading(true);
+    axios
+      .get(`products/${id}`)
+      .then(({ data }) => setProduct(data))
+      .catch(() => navigate('/'))
+      .finally(() => setLoading(false));
+  }, [id]);
 
   const routeLocation = useLocation();
   const path = routeLocation.state?.from || '/';
@@ -41,7 +31,7 @@ const ProductModal = () => {
   };
 
   if (product) {
-    const { title, description, price, img, tag, totalQty } = product;
+    const { title, description, price, img, tag, totalQty, rating } = product;
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const value = +e.target.value;
@@ -89,6 +79,9 @@ const ProductModal = () => {
 
             <p className="productModal_info_item">
               Categories:<span>{tag.name}</span>
+            </p>
+            <p className="productModal_info_item">
+              Rating:<span>{rating}</span>
             </p>
           </div>
         </div>

@@ -9,7 +9,7 @@ interface IProps {
 }
 
 const FilterByPrice = ({ setPriceFilterValue }: IProps) => {
-  const [value, setValue] = useState([0, 9999]);
+  const [value, setValue] = useState([0, 199]);
 
   const labelFormat = (labelValue: number) => {
     return `${labelValue}$`;
@@ -24,7 +24,7 @@ const FilterByPrice = ({ setPriceFilterValue }: IProps) => {
       <SectionTitle text="Filter by price" className="filterByPrice_title" />
 
       <Slider
-        max={9999}
+        max={199}
         value={value}
         onChange={handleChange}
         valueLabelDisplay="auto"

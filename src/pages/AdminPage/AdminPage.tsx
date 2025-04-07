@@ -22,7 +22,7 @@ const AdminPage = () => {
   return (
     <main className="adminPage">
       <div className="container">
-        <nav className="navigation">
+        <nav className="adminPage_navigation">
           <NavLink
             to="/admin/product"
             className={({ isActive }) =>

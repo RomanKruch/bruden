@@ -24,7 +24,7 @@ const AddTagForm = () => {
       name: '',
       img: '',
     },
-    onSubmit: values => {
+    onSubmit: (values, helpers) => {
       const data = new FormData();
 
       data.append('img', values.img);
@@ -37,7 +37,10 @@ const AddTagForm = () => {
             'Content-Type': 'multipart/form-data',
           },
         })
-        .then(({ data }) => setTag(data))
+        .then(({ data }) => {
+          setTag(data);
+          helpers.resetForm();
+        })
         .catch(err => onAxiosError(err, dispatch))
         .finally(() => setLoading(false));
     },
