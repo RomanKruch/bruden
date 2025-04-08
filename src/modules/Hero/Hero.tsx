@@ -7,11 +7,43 @@ import hero4 from '../../assets/images/hero/hero4.png';
 import './Hero.scss';
 import HeroItem from '../../components/HeroItem/HeroItem';
 
-const imgRefs = [
-  { id: 'hero1', ref: hero1 },
-  { id: 'hero2', ref: hero2 },
-  { id: 'hero3', ref: hero3 },
-  { id: 'hero4', ref: hero4 },
+export interface IHeroItem {
+  id: string;
+  title: string;
+  subtitle: string;
+  image: string;
+}
+
+const data: IHeroItem[] = [
+  {
+    id: 'hero1',
+    title: 'Bags for the Bold',
+    subtitle:
+      'Exclusive accessories for connoisseurs of style. Designed in Montreal, Bruden’s backpacks embody luxury fashion with unmatched comfort and versatility.',
+    image: hero1,
+  },
+  {
+    id: 'hero2',
+    title: 'Sunglasses with Edge',
+    subtitle:
+      'Step into the light with frames that fuse timeless elegance and modern attitude—crafted for visionaries.',
+
+    image: hero2,
+  },
+  {
+    id: 'hero3',
+    title: 'Belts that Define',
+    subtitle:
+      'From clean minimalism to bold statements, Bruden belts complete your look with precision and refined style.',
+    image: hero3,
+  },
+  {
+    id: 'hero4',
+    title: 'Jewelry that Speaks',
+    subtitle:
+      'Crafted to captivate, Bruden’s jewelry pairs understated luxury with expressive design for the modern aesthete.',
+    image: hero4,
+  },
 ];
 
 const Hero = () => {
@@ -47,9 +79,9 @@ const Hero = () => {
             },
           }}
         >
-          {imgRefs.map(item => (
+          {data.map(item => (
             <SwiperSlide className="item" key={item.id}>
-              <HeroItem imgRef={item.ref} />
+              <HeroItem item={item} />
             </SwiperSlide>
           ))}
         </Swiper>
