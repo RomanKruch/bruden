@@ -37,10 +37,31 @@
       color: $black;
       font-size: 20px;
       transition: all 0.3s;
+      animation: blinking 2s infinite ease-in-out;
 
       &:hover {
         background: $black;
+        border: 1px solid #fff;
         color: #fff;
+        animation: none;
+      }
+
+      @keyframes blinking {
+        from {
+          border: 1px solid $black;
+          color: $black;
+          background: transparent;
+        }
+        50% {
+          background: $black;
+          border: 1px solid #fff;
+          color: #fff;
+        }
+        to {
+          border: 1px solid $black;
+          color: $black;
+          background: transparent;
+        }
       }
     }
   }
@@ -172,7 +193,7 @@
       font-size: 18px;
       line-height: 18px;
       letter-spacing: 0.05em;
-      
+
       &:not(:last-child) {
         margin-bottom: 15px;
       }
