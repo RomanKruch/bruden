@@ -1,4 +1,4 @@
 import axios from 'axios';
 
-// axios.defaults.baseURL = 'https://bruden.herokuapp.com/api';
-axios.defaults.baseURL = 'http://localhost:3000';
+axios.defaults.baseURL = 'https://brudenserver.onrender.com/';
+// axios.defaults.baseURL = 'http://localhost:3000';

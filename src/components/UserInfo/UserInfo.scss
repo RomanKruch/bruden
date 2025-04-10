@@ -19,6 +19,7 @@
     @extend %h3;
     font-size: 32px;
     font-weight: 700;
+    line-height: 24px;
 
     @media (max-width: 900px) {
       font-size: 26px;
@@ -29,6 +30,7 @@
     @extend %menu_text;
     text-transform: none;
     font-size: 28px;
+    line-height: 24px;
 
     @media (max-width: 900px) {
       font-size: 22px;
@@ -39,7 +41,7 @@
     display: flex;
     gap: 10px;
     @extend %btn_text;
-    line-height: 24px;
+    line-height: 28px;
     font-weight: 400;
     padding: 10px 8px;
     border-radius: 10px;
