@@ -15,7 +15,7 @@ const FilterByPrice = ({ setPriceFilterValue }: IProps) => {
     return `${labelValue}$`;
   };
 
-  const handleChange = (event: Event, newValue: number | TPriceFilterValue) => {
+  const handleChange = (_: any, newValue: number | TPriceFilterValue) => {
     setValue(newValue as TPriceFilterValue);
   };
 
