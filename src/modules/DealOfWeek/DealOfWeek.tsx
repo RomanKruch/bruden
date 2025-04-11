@@ -18,7 +18,7 @@ const DealOfWeek = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get('/products?limit=10')
+      .get('/products?limit=10&sortByDesc=rating')
       .then(({ data }) => setProducts(data.products))
       .finally(() => setLoading(false));
   }, []);

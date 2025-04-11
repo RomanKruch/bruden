@@ -1,4 +1,4 @@
-import { JSX, useState } from 'react';
+import { JSX, useCallback, useEffect, useRef, useState } from 'react';
 import './Modal.scss';
 import { createPortal } from 'react-dom';
 import Loader from '../Loader/Loader';
@@ -12,6 +12,13 @@ interface IProps {
 
 const Modal = ({ onClose, children, loading = false }: IProps) => {
   const [isClosing, setIsClosing] = useState(false);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
 
   const onClickOver = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     if (e.target === e.currentTarget) {
@@ -19,10 +26,10 @@ const Modal = ({ onClose, children, loading = false }: IProps) => {
     }
   };
 
-  const onClick = () => {
+  const onClick = useCallback(() => {
     setIsClosing(true);
-    setTimeout(onClose, 300);
-  };
+    timeoutRef.current = setTimeout(onClose, 300);
+  }, [isClosing]);
 
   return createPortal(
     <div
