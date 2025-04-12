@@ -3,7 +3,6 @@ import './Modal.scss';
 import { createPortal } from 'react-dom';
 import Loader from '../Loader/Loader';
 import CloseIcon from '../../assets/icons/close_icon.svg?react';
-import IconBtn from '../IconBtn/IconBtn';
 
 const modalRoot = document.getElementById('modal_root') as HTMLElement;
 
