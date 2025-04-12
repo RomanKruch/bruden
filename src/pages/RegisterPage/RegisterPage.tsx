@@ -9,8 +9,8 @@ import {
   InputLabel,
   IconButton,
 } from '@mui/material';
-import { Visibility, VisibilityOff } from '@mui/icons-material';
-// import 'react-notifications/lib/notifications.css';
+import Visibility from '../../assets/icons/visibility_icon.svg?react';
+import VisibilityOff from '../../assets/icons/visibility_off_icon.svg?react';
 
 import './RegisterPage.scss';
 
@@ -20,9 +20,9 @@ const RegisterPage = () => {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
-    const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
 
-    const isLoading = useAppSelector(state=> state.user.isLoading);
+  const isLoading = useAppSelector(state => state.user.isLoading);
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

@@ -1,17 +1,18 @@
 .iconBtn {
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  transition: all 0.3s;
+
+  &:hover {
+    background: rgb(217, 215, 215);
+  }
+
+  &:active {
     background: #fff;
-    transition: all 0.3s;
-
-    &:hover {
-        background: rgb(217, 215, 215);
-    }
-
-    &:active {
-        background: #fff;
-    }
+  }
 }

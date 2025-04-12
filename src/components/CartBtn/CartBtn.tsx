@@ -2,8 +2,8 @@ import IconBtn from '../../UI/IconBtn/IconBtn';
 import { useNavigate } from 'react-router-dom';
 import { onUserCart } from '../../redux/user/userOperations';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import CartAddIcon from '../../assets/icons/cart_add_icon.svg?react';
+import CartIcon from '../../assets/icons/cart_icon.svg?react';
 
 interface IProps {
   id: string;
@@ -31,7 +31,7 @@ const CartBtn = ({ id }: IProps) => {
 
   return (
     <IconBtn onClick={onClick}>
-      {isInCart ? <ShoppingCartIcon /> : <AddShoppingCartIcon />}
+      {isInCart ? <CartIcon /> : <CartAddIcon />}
     </IconBtn>
   );
 };

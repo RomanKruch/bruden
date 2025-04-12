@@ -1,8 +1,8 @@
 import './BurgerMenu.scss';
 import { createPortal } from 'react-dom';
 import { NavLink, Link } from 'react-router-dom';
-import Search from '../../assets/icons/Header/search-icon.svg?react';
-import Auth from '../../assets/icons/Header/auth-icon.svg?react';
+import Search from '../../assets/icons/search_icon.svg?react';
+import Auth from '../../assets/icons/user_icon.svg?react';
 
 const root = document.getElementById('burger_root') as HTMLElement;
 

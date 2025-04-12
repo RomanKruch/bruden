@@ -1,9 +1,9 @@
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { onLikeProduct } from '../../redux/user/userOperations';
 import IconBtn from '../../UI/IconBtn/IconBtn';
 import { useNavigate } from 'react-router-dom';
+import LikeIcon from '../../assets/icons/like_icon.svg?react';
+import LikeIconFilled from '../../assets/icons/like_icon_filled.svg?react';
 
 interface IProps {
   id: string;
@@ -27,7 +27,7 @@ const LikeBtn = ({ id }: IProps) => {
 
   return (
     <IconBtn onClick={onClick}>
-      {isInLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+      {isInLiked ? <LikeIconFilled /> : <LikeIcon />}
     </IconBtn>
   );
 };

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import logo from '../../assets/icons/Header/logo.png';
+import logo from '../../assets/icons/logo.png';
 
 const Logo = () => (
   <Link to="/">

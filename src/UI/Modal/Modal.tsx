@@ -2,6 +2,9 @@ import { JSX, useCallback, useEffect, useRef, useState } from 'react';
 import './Modal.scss';
 import { createPortal } from 'react-dom';
 import Loader from '../Loader/Loader';
+import CloseIcon from '../../assets/icons/close_icon.svg?react';
+import IconBtn from '../IconBtn/IconBtn';
+
 const modalRoot = document.getElementById('modal_root') as HTMLElement;
 
 interface IProps {
@@ -41,7 +44,7 @@ const Modal = ({ onClose, children, loading = false }: IProps) => {
       ) : (
         <div className={`modal ${isClosing ? 'modal-closing' : ''}`}>
           <button type="button" className="modal_close_btn" onClick={onClick}>
-            X
+            <CloseIcon />
           </button>
           {children}
         </div>

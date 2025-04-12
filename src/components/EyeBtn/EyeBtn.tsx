@@ -1,4 +1,4 @@
-import Eye from '../../assets/icons/dealOfWeek/Deal-of-the-week-eye.svg?react';
+import Eye from '../../assets/icons//eye_icon.svg?react';
 import IconBtn from '../../UI/IconBtn/IconBtn';
 import { useLocation, useNavigate } from 'react-router-dom';
 

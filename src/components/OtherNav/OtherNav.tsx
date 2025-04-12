@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import Search from '../../assets/icons/Header/search-icon.svg?react';
-import Auth from '../../assets/icons/Header/auth-icon.svg?react';
-import Cart from '../../assets/icons/Header/cart-icon.svg?react';
+import Search from '../../assets/icons/search_icon.svg?react';
+import User from '../../assets/icons/user_icon.svg?react';
+import Cart from '../../assets/icons/cart_icon.svg?react';
 import { useAppSelector } from '../../redux/hooks';
 import BurgerBtn from '../../modules/BurgerBtn/BurgerBtn';
 import './OtherNav.scss';
@@ -20,11 +20,11 @@ const OtherNav = () => {
       </Link>
 
       <Link to="auth" className="otherNav_link">
-        <Auth />
+        <User />
       </Link>
 
       <div className="cart_wrap">
-        <Link to="cart">
+        <Link to="cart" className="otherNav_icon">
           <Cart />
         </Link>
         <span className="cart_quantity">{qty}</span>

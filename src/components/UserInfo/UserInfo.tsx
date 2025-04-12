@@ -1,4 +1,4 @@
-import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import Logout from '../../assets/icons/logout_icon.svg?react';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { onLogout } from '../../redux/user/userOperations';
 import './UserInfo.scss';
@@ -18,7 +18,7 @@ const UserInfo = () => {
         <p className="userInfo_email">{email}</p>
       </div>
       <button className="userInfo_btn" onClick={onClick}>
-        Logout <ExitToAppIcon />
+        Logout <Logout />
       </button>
     </div>
   );

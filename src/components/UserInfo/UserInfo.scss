@@ -39,6 +39,7 @@
 
   &_btn {
     display: flex;
+    align-items: center;
     gap: 10px;
     @extend %btn_text;
     line-height: 28px;
