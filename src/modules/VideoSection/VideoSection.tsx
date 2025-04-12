@@ -4,7 +4,16 @@ import './VideoSection.scss';
 const VideoSection = () => (
   <section className="videoSection">
     <div className="container">
-      <video width="100%" height="auto" loop muted autoPlay>
+      <video
+        width="100%"
+        height="auto"
+        autoPlay
+        playsInline
+        webkit-playsinline="true"
+        muted
+        loop
+        controls={false}
+      >
         <source
           src="https://res.cloudinary.com/drn4sj8ju/video/upload/v1744389951/Bruden/video_wevc5f.mp4"
           type="video/mp4"
