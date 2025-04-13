@@ -6,16 +6,17 @@ const FitsAnyStyle = () => (
     <div className="container">
       <div className="firstAnyStyle_wrap">
         <div className="firstAnyStyle_textWrap">
-          <h2 className="firstAnyStyle_title">Fits any style</h2>
+          <h2 className="firstAnyStyle_title">Modern Essentials</h2>
           <p className="firstAnyStyle_description">
-            Precise fit on sliding buckle with no holes
+            Born in Montreal. Loved around the world.
           </p>
 
-          <ShopNowBtn type="white" />
+          <ShopNowBtn type="white" className='firstAnyStyle_btn'/>
         </div>
         <img
           src="https://res.cloudinary.com/drn4sj8ju/image/upload/v1744389863/Bruden/fits-any-style_rmiypl.png"
           alt="img"
+          className="firstAnyStyle_img"
         />
       </div>
     </div>

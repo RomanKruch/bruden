@@ -15,6 +15,11 @@
     display: flex;
     overflow-x: hidden;
     border: 1px solid #333333;
+
+    @media (max-width: 500px) {
+      display: block;
+      text-align: center;
+    }
   }
 
   &_textWrap {
@@ -34,5 +39,17 @@
   &_description {
     @extend %body_text;
     margin-bottom: 32px;
+  }
+
+  &_img {
+    @media (max-width: 500px) {
+      display: none;
+    }
+  }
+
+  &_btn {
+    @media (max-width: 500px) {
+      margin: 0 auto;
+    }
   }
 }

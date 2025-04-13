@@ -23,7 +23,7 @@
       width: fit-content !important;
       top: calc(100vh - 100px) !important;
       left: 50% !important;
-      transform: translateX(-50%) !important;
+      transform: translate(-50%, 110px) !important;
       flex-direction: row;
     }
 
@@ -31,6 +31,7 @@
       width: 10px;
       height: 10px;
       border: 1px solid #000000;
+      background-color: #fff;
       border-radius: 50%;
       display: block;
       cursor: pointer;

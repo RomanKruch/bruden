@@ -1,25 +1,26 @@
-import ShopNowBtn from "../../UI/ShopNowBtn/ShopNowBtn";
-import "./Baner.scss"
+import ShopNowBtn from '../../UI/ShopNowBtn/ShopNowBtn';
+import './Baner.scss';
 
 const Baner = () => (
-    <section className="baner">
-        <div className="container">
-            <div className="baner_firstItem baner_item">
-                <div className="baner_firstItem_wrap">
-                    <h3 className="baner_firstItem_title">New arrival</h3>
-                    <p className="baner_firstItem_subtitle">Exclusive Denisha Bruce Red Backpack Launch</p>
-                </div>
+  <section className="baner">
+    <div className="container">
+      <div className="baner_firstItem baner_item">
+        <h3 className="baner_firstItem_title">
+          Bruden redefines <br /> everyday luxury.
+        </h3>
 
-                <ShopNowBtn type="transparentBlack" className="baner_firstItem_btn"/>
-            </div>
+        <ShopNowBtn type="transparentWhite" className="baner_firstItem_btn" />
+      </div>
 
-            <div className="baner_secondItem baner_item">
-                <h3 className="baner_secondItem_title">An addition to all your fits</h3>
+      <div className="baner_secondItem baner_item">
+        <h3 className="baner_secondItem_title">
+          Crafted for <br /> bold style.
+        </h3>
 
-                <ShopNowBtn type="transparentWhite" className="baner_secondItem_btn"/>
-            </div>
-        </div>
-    </section>
+        <ShopNowBtn type="transparentWhite" className="baner_secondItem_btn" />
+      </div>
+    </div>
+  </section>
 );
 
 export default Baner;
