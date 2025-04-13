@@ -21,6 +21,7 @@
 
     @media (max-width: 767px) {
       width: fit-content !important;
+      height: 10px;
       top: calc(100vh - 100px) !important;
       left: 50% !important;
       transform: translate(-50%, 110px) !important;
