@@ -2,6 +2,7 @@ import { IProduct } from '../../types/Types';
 import { onChangeQty } from '../../redux/user/userSlice';
 import { useAppDispatch } from '../../redux/hooks';
 import { onUserCart } from '../../redux/user/userOperations';
+import CloseIcon from '../../assets/icons/close_icon.svg?react';
 import './CartItem.scss';
 
 interface ILocalState {
@@ -30,7 +31,7 @@ const CartItem = ({ product }: ILocalState) => {
     <li className="cartItem">
       <div className="cartItem_contentWrap">
         <button className="cartItem_btn" onClick={onCartBtn}>
-          X
+          <CloseIcon />
         </button>
         <img src={img.small.ref} alt="" width="60" height="60" />
         <h3 className="cartItem_title">{title}</h3>

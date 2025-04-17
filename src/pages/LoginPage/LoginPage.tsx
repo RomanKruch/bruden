@@ -61,6 +61,7 @@ const LoginPage = () => {
                 <IconButton
                   onClick={() => setShowPassword(!showPassword)}
                   edge="end"
+                  className="login_pass_btn"
                 >
                   {showPassword ? <VisibilityOff /> : <Visibility />}
                 </IconButton>

@@ -74,6 +74,7 @@ const RegisterPage = () => {
                 <IconButton
                   onClick={() => setShowPassword(!showPassword)}
                   edge="end"
+                  className='register_pass_btn'
                 >
                   {showPassword ? <VisibilityOff /> : <Visibility />}
                 </IconButton>

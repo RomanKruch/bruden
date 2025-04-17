@@ -48,7 +48,7 @@ const AddTagForm = () => {
 
   return (
     <>
-      <SectionTitle text="Tag" />
+      <SectionTitle text="Tag" className="adminPage_title" />
 
       <form onSubmit={formik.handleSubmit} className="adminPage_form">
         <label className="adminPage_label">
