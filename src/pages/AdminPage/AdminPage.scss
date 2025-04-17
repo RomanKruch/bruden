@@ -1,9 +1,8 @@
 // @import '../../constants/variables';
 
 .adminPage {
-  margin-top: 90px;
-
   &_navigation {
+    padding: 75px 0;
     display: flex;
     gap: 40px;
   }
