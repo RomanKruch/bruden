@@ -10,7 +10,7 @@ const Footer = () => (
           <Logo />
         </div>
 
-        <p className="footer_text">©2023 by Roman Kruch :)</p>
+        <p className="footer_text">©2023 by Roman Krychkivskyi</p>
         <div className="footer_text">
           Made in UKRAINE{' '}
           <div className="footer_flag">
